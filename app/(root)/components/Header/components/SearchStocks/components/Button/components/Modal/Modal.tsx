@@ -82,6 +82,7 @@ function Modal({ open, fetchPopularCompanyProfilesResponse, onClose }: Props) {
 
   return (
     <CommandDialog
+      className="sm:max-w-175"
       open={open}
       title="Stocks search modal"
       description="A modal for searching stocks and viewing popular stocks"
@@ -96,7 +97,7 @@ function Modal({ open, fetchPopularCompanyProfilesResponse, onClose }: Props) {
         placeholder="Search stocks..."
         onValueChange={handleInputChange}
       />
-      <CommandList>
+      <CommandList className="max-h-94">
         {stocksAreBeingFetched ? (
           <CommandLoading>
             <Loader2 className="mx-auto animate-spin" />

@@ -6,7 +6,7 @@ import Logo from '@/components/Logo';
 import { Button } from '@/components/ui/button';
 import UserDropdown from '@/components/UserDropdown/UserDropdown';
 
-import { SearchStocks } from './components';
+import { SearchStocks, Settings } from './components';
 
 async function Header() {
   const session = await auth.api.getSession({
@@ -15,11 +15,12 @@ async function Header() {
 
   return (
     <header className="sticky top-0 z-1 bg-card">
-      <div className="mx-auto grid max-w-360 grid-cols-[1fr_13rem_auto] items-center gap-x-4 px-7.5 py-5">
+      <div className="mx-auto grid max-w-360 grid-cols-[1fr_13rem_auto_auto] items-center gap-x-2 px-7.5 py-5">
         <Link className="justify-self-start" href="/">
           <Logo color="var(--foreground)" />
         </Link>
         <SearchStocks />
+        <Settings />
         {session?.user ? (
           <UserDropdown user={session.user} />
         ) : (

@@ -34,7 +34,7 @@ function Button({ fetchPopularCompanyProfilesResponse }: Props) {
   return (
     <>
       <button
-        className="grid cursor-pointer grid-cols-[auto_1fr_auto] items-center gap-x-1 rounded-md bg-input/60 px-2.5 py-1.5 text-left text-muted-foreground hover:bg-input/80"
+        className="grid grid-cols-[auto_1fr_auto] items-center gap-x-1 rounded-md bg-input/60 px-2.5 py-1.5 text-left text-muted-foreground hover:bg-input/80"
         type="button"
         onClick={() => {
           setModalIsOpen(true);

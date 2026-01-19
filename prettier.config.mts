@@ -5,6 +5,7 @@ const config: Config = {
   endOfLine: 'auto',
   plugins: ['prettier-plugin-tailwindcss'],
   tailwindStylesheet: './app/globals.css',
+  tailwindFunctions: ['cva'],
 };
 
 export default config;
