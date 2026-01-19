@@ -109,9 +109,9 @@ function Modal({ open, fetchPopularCompanyProfilesResponse, onClose }: Props) {
                   heading={`${modeIsPopular ? 'Popular stocks' : 'Search results'} (${String(stocks.length)})`}
                   forceMount
                 >
-                  {stocks.map(({ ticker, company, exchange, industry }) => (
+                  {stocks.map(({ company, ticker, exchange, industry }) => (
                     <CommandItem
-                      key={ticker}
+                      key={`${company}/${ticker}`}
                       className="grid cursor-pointer grid-cols-[auto_1fr] grid-rows-2 gap-y-1"
                       onSelect={createStockSelectHandler(ticker)}
                     >
