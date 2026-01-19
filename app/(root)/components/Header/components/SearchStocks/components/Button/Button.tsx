@@ -4,6 +4,11 @@ import { Search as SearchIcon } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 import { Kbd } from '@/components/ui/kbd';
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+} from '@/components/ui/tooltip';
 
 import { Modal } from './components';
 import type { Props } from './types';
@@ -37,7 +42,17 @@ function Button({ fetchPopularCompanyProfilesResponse }: Props) {
       >
         <SearchIcon size={16} />
         <span className="text-xs">Search</span>
-        <Kbd className="bg-input">/</Kbd>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Kbd
+              className="pointer-events-auto cursor-help bg-input"
+              tabIndex={0}
+            >
+              /
+            </Kbd>
+          </TooltipTrigger>
+          <TooltipContent>Use to trigger search</TooltipContent>
+        </Tooltip>
       </button>
       <Modal
         open={modalIsOpen}

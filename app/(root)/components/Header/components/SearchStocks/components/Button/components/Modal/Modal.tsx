@@ -112,7 +112,7 @@ function Modal({ open, fetchPopularCompanyProfilesResponse, onClose }: Props) {
                   {stocks.map(({ ticker, company, exchange, industry }) => (
                     <CommandItem
                       key={ticker}
-                      className="grid grid-cols-[auto_1fr] grid-rows-2 gap-y-1"
+                      className="grid cursor-pointer grid-cols-[auto_1fr] grid-rows-2 gap-y-1"
                       onSelect={createStockSelectHandler(ticker)}
                     >
                       <TrendingUp />

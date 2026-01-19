@@ -6,13 +6,15 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query';
 
+import { convertSecondsToMilliseconds } from '@/utilities';
+
 function makeQueryClient() {
   return new QueryClient({
     defaultOptions: {
       queries: {
         // With SSR, we usually want to set some default staleTime
         // above 0 to avoid refetching immediately on the client
-        staleTime: 60_000,
+        staleTime: convertSecondsToMilliseconds(60),
       },
     },
   });
