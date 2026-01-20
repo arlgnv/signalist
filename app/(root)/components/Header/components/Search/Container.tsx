@@ -1,15 +1,15 @@
-import { Button } from './components';
+import Search from './Search';
 import { fetchPopularCompanyProfiles } from './utilities';
 
-async function SearchStocks() {
+async function Container() {
   const fetchPopularCompanyProfilesResponse =
     await fetchPopularCompanyProfiles();
 
   return (
-    <Button
+    <Search
       fetchPopularCompanyProfilesResponse={fetchPopularCompanyProfilesResponse}
     />
   );
 }
 
-export default SearchStocks;
+export default Container;

@@ -8,7 +8,7 @@ import type {
 } from 'react-hook-form';
 import { twJoin } from 'tailwind-merge';
 
-import { Input } from './ui/input';
+import Input from './ui/input';
 import { Label } from './ui/label';
 
 interface Props<FieldValues extends ReactHookFormFieldValues> {
