@@ -1,6 +1,6 @@
 import type fetchPopularCompanyProfiles from './utilities/fetchPopularCompanyProfiles';
 
-export interface SearchProps {
+export interface ContentProps {
   fetchPopularCompanyProfilesResponse: Awaited<
     ReturnType<typeof fetchPopularCompanyProfiles>
   >;
