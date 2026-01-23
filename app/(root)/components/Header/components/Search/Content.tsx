@@ -101,12 +101,8 @@ function Content({ fetchPopularCompanyProfilesResponse }: ContentProps) {
       return;
     }
 
-    function handleWindowKeyDown(event: KeyboardEvent) {
-      if (
-        event.target instanceof HTMLInputElement ||
-        event.target instanceof HTMLTextAreaElement ||
-        (event.target instanceof HTMLElement && event.target.isContentEditable)
-      ) {
+    function handleDocumentKeyDown(event: KeyboardEvent) {
+      if (event.target !== document.body) {
         return;
       }
 
@@ -116,10 +112,10 @@ function Content({ fetchPopularCompanyProfilesResponse }: ContentProps) {
       }
     }
 
-    window.addEventListener('keydown', handleWindowKeyDown);
+    document.addEventListener('keydown', handleDocumentKeyDown);
 
     return () => {
-      window.removeEventListener('keydown', handleWindowKeyDown);
+      document.removeEventListener('keydown', handleDocumentKeyDown);
     };
   }, [dialogIsOpen]);
 
