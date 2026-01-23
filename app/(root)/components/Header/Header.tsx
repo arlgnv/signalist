@@ -4,9 +4,8 @@ import Link from 'next/link';
 import auth from '@/auth';
 import Logo from '@/components/Logo';
 import { Button } from '@/components/ui/button';
-import UserDropdown from '@/components/UserDropdown/UserDropdown';
 
-import { Search, Settings } from './components';
+import { Search, Settings, UserMenu } from './components';
 
 async function Header() {
   const session = await auth.api.getSession({
@@ -22,7 +21,7 @@ async function Header() {
         <Search />
         <Settings />
         {session?.user ? (
-          <UserDropdown user={session.user} />
+          <UserMenu user={session.user} />
         ) : (
           <Button asChild size="sm">
             <Link href="/sign-in">Sign In</Link>

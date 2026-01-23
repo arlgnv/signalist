@@ -61,10 +61,10 @@ function Form() {
           email,
           password,
           country,
-          investment_goal: investmentGoal,
-          risk_tolerance: riskTolerance,
-          preferred_industry: preferredIndustry,
-          receives_daily_market_news: receiveDailyMarketNews,
+          investmentGoal,
+          riskTolerance,
+          preferredIndustry,
+          receivesDailyMarketNews: receiveDailyMarketNews,
         },
         {
           async onSuccess() {

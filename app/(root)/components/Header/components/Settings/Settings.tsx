@@ -17,7 +17,7 @@ function Settings() {
           <SettingsIcon />
         </Button>
       </PopoverTrigger>
-      <PopoverContent>
+      <PopoverContent align="end">
         <ul>
           <li className="flex justify-between py-1.5 text-sm">
             Language{' '}
