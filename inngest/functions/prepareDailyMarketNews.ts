@@ -27,7 +27,10 @@ const prepareDailyMarketNews = inngest.createFunction(
 
     if (marketNews.length) {
       const users = await step.run('fetch-users', async () => {
-        const fetchUsersResponse = await supabase.from('users').select('email');
+        const fetchUsersResponse = await supabase
+          .from('users')
+          .select('email')
+          .eq('receives_daily_market_news', true);
 
         if (fetchUsersResponse.error) {
           throw fetchUsersResponse.error;

@@ -6,4 +6,5 @@ export interface FieldValues {
   investmentGoal: string;
   riskTolerance: string;
   preferredIndustry: string;
+  receiveDailyMarketNews: boolean;
 }

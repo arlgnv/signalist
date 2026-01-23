@@ -21,17 +21,17 @@ const auth = betterAuth({
       country: {
         type: 'string',
       },
-      investmentGoal: {
-        fieldName: 'investment_goal',
+      investment_goal: {
         type: 'string',
       },
-      riskTolerance: {
-        fieldName: 'risk_tolerance',
+      risk_tolerance: {
         type: 'string',
       },
-      preferredIndustry: {
-        fieldName: 'preferred_industry',
+      preferred_industry: {
         type: 'string',
+      },
+      receives_daily_market_news: {
+        type: 'boolean',
       },
     },
     deleteUser: {
