@@ -7,6 +7,7 @@ import { Loader2, Search as SearchIcon, TrendingUp } from 'lucide-react';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
+import { Button } from '@/components/ui/button';
 import {
   Dialog,
   DialogContent,
@@ -121,20 +122,26 @@ function Content({ fetchPopularCompanyProfilesResponse }: ContentProps) {
 
   return (
     <Dialog open={dialogIsOpen} onOpenChange={handleDialogOpenChange}>
-      <DialogTrigger className="grid grid-cols-[auto_1fr_auto] items-center gap-x-1 rounded-md bg-input/60 px-2.5 py-1.5 text-left text-muted-foreground hover:bg-input/80">
-        <SearchIcon size={16} />
-        <span className="text-xs">Search</span>
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <Kbd
-              className="pointer-events-auto cursor-help bg-input"
-              tabIndex={0}
-            >
-              /
-            </Kbd>
-          </TooltipTrigger>
-          <TooltipContent>Use to open search dialog</TooltipContent>
-        </Tooltip>
+      <DialogTrigger asChild>
+        <Button
+          className="text-left text-xs max-sm:size-8 max-sm:px-0! sm:text-neutral-300"
+          variant="outline"
+          size="sm"
+        >
+          <SearchIcon />
+          <span className="grow max-sm:hidden">Search</span>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Kbd
+                className="pointer-events-auto cursor-help bg-input max-sm:hidden"
+                tabIndex={0}
+              >
+                /
+              </Kbd>
+            </TooltipTrigger>
+            <TooltipContent>Use to open search dialog</TooltipContent>
+          </Tooltip>
+        </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-200" showCloseButton={false}>
         <DialogTitle className="sr-only">Search stocks</DialogTitle>

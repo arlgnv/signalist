@@ -11,8 +11,8 @@ import {
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuGroup,
-  DropdownMenuItem,
   DropdownMenuLabel,
+  DropdownMenuItem,
   DropdownMenuSeparator,
 } from '@/components/ui/dropdown-menu';
 
@@ -38,7 +38,7 @@ function UserMenu({ user }: Props) {
   return (
     <DropdownMenu modal={false}>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon-sm">
+        <Button className="rounded-full" variant="ghost" size="icon-sm">
           <Avatar>
             <AvatarImage src="https://github.com/shadcn.png" alt="Avatar" />
             <AvatarFallback>{user.name.at(0)}</AvatarFallback>

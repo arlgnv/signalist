@@ -13,7 +13,7 @@ function Settings() {
   return (
     <Popover modal={false}>
       <PopoverTrigger asChild>
-        <Button variant="outline" size="icon-sm">
+        <Button variant="outline" size="icon-sm" aria-label="Settings">
           <SettingsIcon />
         </Button>
       </PopoverTrigger>
