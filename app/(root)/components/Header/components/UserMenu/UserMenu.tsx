@@ -1,6 +1,7 @@
 'use client';
 
 import { LogOut, Settings, Trash } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 
 import authClient from '@/auth-client';
@@ -19,8 +20,13 @@ import {
 import type { Props } from './types';
 
 function UserMenu({ user }: Props) {
+  const router = useRouter();
+
   function handleDeleteAccountSelect() {
     void authClient.deleteUser(undefined, {
+      onSuccess() {
+        router.push('/sign-up');
+      },
       onError({ error: { message } }) {
         toast.error(message);
       },
@@ -29,6 +35,9 @@ function UserMenu({ user }: Props) {
 
   function handleSignOutSelect() {
     void authClient.signOut(undefined, {
+      onSuccess: () => {
+        router.push('/sign-in');
+      },
       onError: ({ error: { message } }) => {
         toast.error(message);
       },
