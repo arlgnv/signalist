@@ -23,7 +23,7 @@ function Layout({ children }: LayoutProps<'/'>) {
     <html
       className={twJoin(
         GeistSans.variable,
-        'dark bg-background font-geist text-foreground antialiased',
+        'dark scrollbar-thin bg-background font-geist text-foreground antialiased scrollbar-thumb-muted-foreground scrollbar-track-muted sm:scrollbar',
       )}
       lang="en"
     >

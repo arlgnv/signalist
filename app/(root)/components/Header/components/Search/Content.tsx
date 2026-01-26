@@ -161,7 +161,7 @@ function Content({ fetchPopularCompanyProfilesResponse }: ContentProps) {
               (stocks.length ? (
                 <div>
                   <p className="mb-2 text-xs font-medium text-muted-foreground">{`${modeIsPopular ? 'Popular stocks' : 'Search results'} (${String(stocks.length)})`}</p>
-                  <ul className="max-h-70 scroll-py-1 overflow-y-auto">
+                  <ul className="scrollbar-thin max-h-70 overflow-y-auto sm:scrollbar">
                     {stocks.map(({ company, ticker, exchange, industry }) => (
                       <li key={`${company}/${ticker}`}>
                         <Link
