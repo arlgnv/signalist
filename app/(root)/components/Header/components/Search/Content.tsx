@@ -143,7 +143,10 @@ function Content({ fetchPopularCompanyProfilesResponse }: ContentProps) {
           </Tooltip>
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-200" showCloseButton={false}>
+      <DialogContent
+        className="sm:max-w-[min(calc(100%-4rem),50rem)]"
+        showCloseButton={false}
+      >
         <DialogTitle className="sr-only">Search stocks</DialogTitle>
         <DialogDescription className="sr-only">
           Search for stocks. Click individual stock to view more details.

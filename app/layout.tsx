@@ -4,8 +4,8 @@ import { twJoin } from 'tailwind-merge';
 
 import { Toaster } from '@/components/ui/sonner';
 
-import './globals.css';
 import Providers from './Providers';
+import './globals.css';
 
 const metadata: Metadata = {
   title: {
