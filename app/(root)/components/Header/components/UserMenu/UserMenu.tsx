@@ -23,6 +23,10 @@ function UserMenu({ user }: Props) {
   const router = useRouter();
 
   function handleDeleteAccountSelect() {
+    if (!window.confirm('Delete your account? This cannot be undone.')) {
+      return;
+    }
+
     void authClient.deleteUser(undefined, {
       onSuccess() {
         router.push('/sign-up');
@@ -46,8 +50,12 @@ function UserMenu({ user }: Props) {
 
   return (
     <DropdownMenu modal={false}>
-      <DropdownMenuTrigger asChild>
-        <Button className="rounded-full" variant="ghost" size="icon-sm">
+      <DropdownMenuTrigger
+        className="rounded-full"
+        asChild
+        aria-label="Open user menu"
+      >
+        <Button variant="ghost" size="icon-sm">
           <Avatar>
             <AvatarImage src="https://github.com/shadcn.png" alt="Avatar" />
             <AvatarFallback>{user.name.at(0)}</AvatarFallback>
