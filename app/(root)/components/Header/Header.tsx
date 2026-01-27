@@ -15,7 +15,7 @@ async function Header() {
   return (
     <header className="sticky top-0 z-1 bg-card">
       <div className="mx-auto grid max-w-360 min-w-80 grid-cols-[1fr_auto_auto_auto] items-center gap-x-2 px-4 py-5 sm:grid-cols-[1fr_13rem_auto_auto] sm:px-8">
-        <Link className="justify-self-start" href="/">
+        <Link className="justify-self-start" href="/" aria-label="Go home">
           <Logo />
         </Link>
         <Search />

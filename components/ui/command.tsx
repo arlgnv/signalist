@@ -29,13 +29,15 @@ function Command({
   );
 }
 
+const DEFAULT_COMMAND_PROPS: React.ComponentProps<typeof Command> = {};
+
 function CommandDialog({
   title = 'Command Palette',
   description = 'Search for a command to run...',
   children,
   className,
   showCloseButton = true,
-  commandProps = {},
+  commandProps = DEFAULT_COMMAND_PROPS,
   ...props
 }: React.ComponentProps<typeof Dialog> & {
   title?: string;

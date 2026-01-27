@@ -129,15 +129,14 @@ function Content({ fetchPopularCompanyProfilesResponse }: ContentProps) {
           size="sm"
         >
           <SearchIcon />
-          <span className="grow max-sm:hidden">Search</span>
+          <span className="grow max-sm:sr-only">Search</span>
           <Tooltip>
-            <TooltipTrigger asChild>
-              <Kbd
-                className="pointer-events-auto cursor-help bg-input max-sm:hidden"
-                tabIndex={0}
-              >
-                /
-              </Kbd>
+            <TooltipTrigger
+              className="pointer-events-auto cursor-help bg-input max-sm:hidden"
+              aria-hidden
+              asChild
+            >
+              <Kbd>/</Kbd>
             </TooltipTrigger>
             <TooltipContent>Use to open search dialog</TooltipContent>
           </Tooltip>

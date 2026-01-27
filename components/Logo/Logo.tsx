@@ -8,6 +8,7 @@ function Logo({ color = 'currentColor' }: Props) {
       height="30"
       fill="none"
       viewBox="0 0 130 30"
+      aria-hidden
     >
       <path
         fill="#2dff34"
