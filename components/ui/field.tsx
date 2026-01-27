@@ -203,17 +203,23 @@ function FieldError({
     const uniqueErrors = [
       ...new Map(errors.map((error) => [error?.message, error])).values(),
     ];
+    const nonEmptyErrors = uniqueErrors.filter(
+      (error): error is { message: string } => Boolean(error?.message),
+    );
 
-    if (uniqueErrors.length === 1) {
-      return uniqueErrors[0]?.message;
+    if (!nonEmptyErrors.length) {
+      return null;
+    }
+
+    if (nonEmptyErrors.length === 1) {
+      return nonEmptyErrors.at(0)?.message;
     }
 
     return (
       <ul className="ml-4 flex list-disc flex-col gap-1">
-        {uniqueErrors.map(
-          (error, index) =>
-            error?.message && <li key={index}>{error.message}</li>,
-        )}
+        {nonEmptyErrors.map((error) => (
+          <li key={error.message}>{error.message}</li>
+        ))}
       </ul>
     );
   }, [children, errors]);
