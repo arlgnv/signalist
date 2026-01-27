@@ -2,6 +2,7 @@ import { defineConfig } from 'cspell';
 
 const config = defineConfig({
   useGitignore: true,
+  ignorePaths: ['supabase/types.ts'],
   words: [
     'signalist',
     'commitlint',
@@ -29,8 +30,11 @@ const config = defineConfig({
     'env',
     'coderabbit',
     'coderabbitai',
+    'shadcn',
+    'oklch',
+    'kbd',
+    'tanstack',
   ],
-  ignorePaths: ['supabase/types.ts'],
 });
 
 export default config;

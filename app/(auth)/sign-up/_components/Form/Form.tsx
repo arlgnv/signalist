@@ -2,7 +2,8 @@
 
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
-import { useForm } from 'react-hook-form';
+import { useId } from 'react';
+import { Controller, useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 
 import {
@@ -15,12 +16,15 @@ import CountrySelectField from '@/components/CountrySelectField';
 import InputField from '@/components/InputField';
 import SelectField from '@/components/SelectField';
 import { Button } from '@/components/ui/button';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Field, FieldLabel } from '@/components/ui/field';
 import { EMAIL_REGULAR_EXPRESSION } from '@/constants';
 import { convertSecondsToMilliseconds } from '@/utilities';
 
 import type { FieldValues } from './types';
 
 function Form() {
+  const receiveDailyMarketNewsFieldId = useId();
   const router = useRouter();
   const {
     register,
@@ -36,6 +40,7 @@ function Form() {
       investmentGoal: 'Growth',
       riskTolerance: 'Medium',
       preferredIndustry: 'Technology',
+      receiveDailyMarketNews: false,
     },
   });
 
@@ -48,6 +53,7 @@ function Form() {
       investmentGoal,
       riskTolerance,
       preferredIndustry,
+      receiveDailyMarketNews,
     }: FieldValues) {
       await authClient.signUp.email(
         {
@@ -58,6 +64,7 @@ function Form() {
           investmentGoal,
           riskTolerance,
           preferredIndustry,
+          receivesDailyMarketNews: receiveDailyMarketNews,
         },
         {
           async onSuccess() {
@@ -173,8 +180,28 @@ function Form() {
         error={errors.preferredIndustry}
         required
       />
+      <Controller
+        name="receiveDailyMarketNews"
+        control={control}
+        render={({ field }) => (
+          <Field orientation="horizontal">
+            <Checkbox
+              id={receiveDailyMarketNewsFieldId}
+              name={field.name}
+              ref={field.ref}
+              checked={field.value}
+              disabled={field.disabled}
+              onCheckedChange={field.onChange}
+              onBlur={field.onBlur}
+            />
+            <FieldLabel htmlFor={receiveDailyMarketNewsFieldId}>
+              Receive daily market news via email
+            </FieldLabel>
+          </Field>
+        )}
+      />
       <Button
-        className="mt-5 yellow-btn w-full"
+        className="mt-2.5 yellow-btn w-full"
         type="submit"
         disabled={isSubmitting}
       >

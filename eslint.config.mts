@@ -81,11 +81,7 @@ const config = defineConfig([
   {
     name: 'TanStack Query',
     files: ['**/*.tsx'],
-    plugins: {
-      // @ts-expect-error: Plugin type is incompatible with ESLint's expected plugin type
-      '@tanstack/query': query,
-    },
-    rules: query.configs['flat/recommended'].at(0)?.rules,
+    extends: [query.configs['flat/recommended']],
   },
   {
     name: 'Next.js',

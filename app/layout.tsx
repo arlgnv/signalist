@@ -4,8 +4,8 @@ import { twJoin } from 'tailwind-merge';
 
 import { Toaster } from '@/components/ui/sonner';
 
-import './globals.css';
 import Providers from './Providers';
+import './globals.css';
 
 const metadata: Metadata = {
   title: {
@@ -21,7 +21,10 @@ const metadata: Metadata = {
 function Layout({ children }: LayoutProps<'/'>) {
   return (
     <html
-      className={twJoin(GeistSans.variable, 'dark font-geist antialiased')}
+      className={twJoin(
+        GeistSans.variable,
+        'dark scrollbar-thin bg-background font-geist text-foreground antialiased scrollbar-thumb-muted-foreground scrollbar-track-muted sm:scrollbar',
+      )}
       lang="en"
     >
       <body>

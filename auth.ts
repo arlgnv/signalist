@@ -3,9 +3,25 @@ import { Pool } from 'pg';
 
 import environment from './environment';
 
+function getBaseUrl() {
+  if (
+    process.env.VERCEL_ENV === 'preview' &&
+    typeof process.env.VERCEL_BRANCH_URL === 'string'
+  ) {
+    return `https://${process.env.VERCEL_BRANCH_URL}`;
+  }
+
+  if (
+    process.env.VERCEL_ENV === 'production' &&
+    typeof process.env.VERCEL_PROJECT_PRODUCTION_URL === 'string'
+  ) {
+    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  }
+}
+
 const auth = betterAuth({
   appName: 'Signalist',
-  baseURL: environment.BETTER_AUTH_URL,
+  baseURL: getBaseUrl(),
   database: new Pool({
     connectionString: environment.SUPABASE_CONNECTION_STRING,
   }),
@@ -32,6 +48,10 @@ const auth = betterAuth({
       preferredIndustry: {
         fieldName: 'preferred_industry',
         type: 'string',
+      },
+      receivesDailyMarketNews: {
+        fieldName: 'receives_daily_market_news',
+        type: 'boolean',
       },
     },
     deleteUser: {
