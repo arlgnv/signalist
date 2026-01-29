@@ -79,11 +79,7 @@ function Form() {
         }}
         error={errors.password}
       />
-      <Button
-        className="mt-5 yellow-btn w-full"
-        type="submit"
-        disabled={isSubmitting}
-      >
+      <Button className="mt-5 w-full" type="submit" disabled={isSubmitting}>
         {isSubmitting ? 'Signing in' : 'Sign In'}
       </Button>
     </form>

@@ -27,10 +27,7 @@ function WatchlistButton({
   };
 
   return (
-    <Button
-      className={`watchlist-btn ${added ? 'watchlist-remove' : 'yellow-btn'}`}
-      onClick={handleClick}
-    >
+    <Button className="w-full" disabled onClick={handleClick}>
       {showTrashIcon && added ? (
         <svg
           className="mr-2 h-5 w-5"

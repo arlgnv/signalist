@@ -11,7 +11,9 @@ const metadata: Metadata = {
 function Page() {
   return (
     <>
-      <h1 className="form-title">Sign up for Signalist</h1>
+      <h1 className="mb-10 text-4xl font-extrabold tracking-tight">
+        Sign up for Signalist
+      </h1>
       <Form />
       <FooterLink
         text="Already have an account?"

@@ -200,11 +200,7 @@ function Form() {
           </Field>
         )}
       />
-      <Button
-        className="mt-2.5 yellow-btn w-full"
-        type="submit"
-        disabled={isSubmitting}
-      >
+      <Button className="mt-5 w-full" type="submit" disabled={isSubmitting}>
         {isSubmitting ? 'Creating account' : 'Start Your Investing Journey'}
       </Button>
     </form>
