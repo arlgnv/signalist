@@ -1,14 +1,8 @@
-import type {
-  FieldError,
-  FieldValues as ReactHookFormFieldValues,
-  Path,
-  Control,
-} from 'react-hook-form';
+import type { Controller } from 'react-hook-form';
 
-export interface Props<FieldValues extends ReactHookFormFieldValues> {
-  label: string;
-  name: Path<FieldValues>;
-  control: Control<FieldValues>;
-  error: FieldError | undefined;
-  required?: boolean;
-}
+import type { FieldValues } from '../../types';
+
+export type Props = Pick<
+  React.ComponentProps<typeof Controller<FieldValues>>,
+  'control' | 'disabled'
+>;

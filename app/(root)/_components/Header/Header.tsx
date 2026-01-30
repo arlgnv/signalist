@@ -23,9 +23,11 @@ async function Header() {
         {session?.user ? (
           <UserMenu user={session.user} />
         ) : (
-          <Button asChild size="sm">
-            <Link href="/sign-in">Sign In</Link>
-          </Button>
+          <Button
+            size="sm"
+            nativeButton={false}
+            render={<Link href="/sign-in">Sign In</Link>}
+          />
         )}
       </div>
     </header>

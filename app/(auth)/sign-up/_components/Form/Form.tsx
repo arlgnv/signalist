@@ -131,13 +131,7 @@ function Form() {
         }}
         error={errors.email}
       />
-      <Country
-        label="Country"
-        name="country"
-        control={control}
-        error={errors.country}
-        required
-      />
+      <Country control={control} />
       <TextField
         className="mb-4"
         label="Password"
@@ -163,7 +157,6 @@ function Form() {
         }}
         placeholder="Select investment goal"
         options={INVESTMENT_GOAL}
-        error={errors.investmentGoal}
       />
       <SelectField
         className="mb-4"
@@ -175,7 +168,6 @@ function Form() {
         }}
         placeholder="Select risk tolerance"
         options={RISK_TOLERANCE_OPTIONS}
-        error={errors.riskTolerance}
       />
       <SelectField
         className="mb-4"
@@ -187,14 +179,12 @@ function Form() {
         }}
         placeholder="Select preferred industry"
         options={PREFERRED_INDUSTRIES}
-        error={errors.preferredIndustry}
       />
       <CheckboxField
         className="mb-8"
         label="Receive daily market news via email"
         name="receiveDailyMarketNews"
         control={control}
-        error={errors.receiveDailyMarketNews}
       />
       <Button className="w-full" type="submit" disabled={isSubmitting}>
         {isSubmitting ? 'Creating account' : 'Start your investing journey'}

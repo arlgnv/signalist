@@ -3,16 +3,17 @@
 import { useId } from 'react';
 import type { FieldValues as ReactHookFormFieldValues } from 'react-hook-form';
 
-import { Field, FieldError, FieldLabel } from '../../ui/field';
-import Input from '../../ui/input';
+import { Field, FieldError, FieldLabel } from '@/components/ui/field';
+import { Input } from '@/components/ui/input';
+
 import type { Props } from './types';
 
 function TextField<FieldValues extends ReactHookFormFieldValues>({
   className,
   label,
   name,
-  placeholder,
   type = 'text',
+  placeholder,
   register,
   registerOptions,
   error,

@@ -52,16 +52,16 @@ function UserMenu({ user }: Props) {
     <DropdownMenu modal={false}>
       <DropdownMenuTrigger
         className="rounded-full"
-        asChild
         aria-label="Open user menu"
-      >
-        <Button variant="ghost" size="icon-sm">
-          <Avatar>
-            <AvatarImage src="https://github.com/shadcn.png" alt="Avatar" />
-            <AvatarFallback>{user.name.at(0)}</AvatarFallback>
-          </Avatar>
-        </Button>
-      </DropdownMenuTrigger>
+        render={
+          <Button variant="ghost" size="icon-sm">
+            <Avatar>
+              <AvatarImage src="https://github.com/shadcn.png" alt="Avatar" />
+              <AvatarFallback>{user.name.at(0)}</AvatarFallback>
+            </Avatar>
+          </Button>
+        }
+      ></DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuGroup>
           <DropdownMenuLabel className="text-xs text-muted-foreground">

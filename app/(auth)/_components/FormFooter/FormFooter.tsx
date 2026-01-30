@@ -8,9 +8,12 @@ function FormFooter({ text, linkText, href }: Props) {
   return (
     <p className="text-center text-sm text-muted-foreground">
       {text}{' '}
-      <Button className="h-auto p-0" variant="link" asChild>
-        <Link href={href}>{linkText}</Link>
-      </Button>
+      <Button
+        className="h-auto p-0"
+        variant="link"
+        nativeButton={false}
+        render={<Link href={href}>{linkText}</Link>}
+      ></Button>
     </p>
   );
 }

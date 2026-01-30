@@ -21,7 +21,6 @@ function CheckboxField<FieldValues extends ReactHookFormFieldValues>({
   control,
   rules,
   disabled,
-  error,
 }: Props<FieldValues>) {
   const id = useId();
 
@@ -31,11 +30,11 @@ function CheckboxField<FieldValues extends ReactHookFormFieldValues>({
       control={control}
       rules={rules}
       disabled={disabled}
-      render={({ field }) => (
+      render={({ field, fieldState }) => (
         <Field
           className={className}
           orientation="horizontal"
-          data-invalid={!!error}
+          data-invalid={!!fieldState.error}
           data-disabled={field.disabled}
         >
           <Checkbox
@@ -44,13 +43,13 @@ function CheckboxField<FieldValues extends ReactHookFormFieldValues>({
             ref={field.ref}
             checked={field.value}
             disabled={field.disabled}
-            aria-invalid={!!error}
+            aria-invalid={!!fieldState.error}
             onCheckedChange={field.onChange}
             onBlur={field.onBlur}
           />
           <FieldContent>
             <FieldLabel htmlFor={id}>{label}</FieldLabel>
-            <FieldError>{error?.message}</FieldError>
+            <FieldError>{fieldState.error?.message}</FieldError>
           </FieldContent>
         </Field>
       )}

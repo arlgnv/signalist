@@ -15,7 +15,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import Input from '@/components/ui/input';
+import { Input } from '@/components/ui/input';
 import { Kbd } from '@/components/ui/kbd';
 import {
   Tooltip,
@@ -122,26 +122,26 @@ function Content({ fetchPopularCompanyProfilesResponse }: ContentProps) {
 
   return (
     <Dialog open={dialogIsOpen} onOpenChange={handleDialogOpenChange}>
-      <DialogTrigger asChild>
-        <Button
-          className="text-left text-xs max-sm:size-8 max-sm:px-0! sm:text-neutral-300"
-          variant="outline"
-          size="sm"
-        >
-          <SearchIcon />
-          <span className="grow max-sm:sr-only">Search</span>
-          <Tooltip>
-            <TooltipTrigger
-              className="pointer-events-auto cursor-help bg-input max-sm:hidden"
-              aria-hidden
-              asChild
-            >
-              <Kbd>/</Kbd>
-            </TooltipTrigger>
-            <TooltipContent>Use to open search dialog</TooltipContent>
-          </Tooltip>
-        </Button>
-      </DialogTrigger>
+      <DialogTrigger
+        render={
+          <Button
+            className="text-left text-xs max-sm:size-8 max-sm:px-0! sm:text-neutral-300"
+            variant="outline"
+            size="sm"
+          >
+            <SearchIcon />
+            <span className="grow max-sm:sr-only">Search</span>
+            <Tooltip>
+              <TooltipTrigger
+                className="pointer-events-auto cursor-help bg-input max-sm:hidden"
+                aria-hidden
+                render={<Kbd>/</Kbd>}
+              ></TooltipTrigger>
+              <TooltipContent>Use to open search dialog</TooltipContent>
+            </Tooltip>
+          </Button>
+        }
+      ></DialogTrigger>
       <DialogContent
         className="sm:max-w-[min(calc(100%-4rem),50rem)]"
         showCloseButton={false}

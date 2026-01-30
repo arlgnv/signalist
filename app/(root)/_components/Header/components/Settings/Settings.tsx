@@ -12,11 +12,13 @@ import { ThemeToggle } from './components';
 function Settings() {
   return (
     <Popover modal={false}>
-      <PopoverTrigger asChild>
-        <Button variant="outline" size="icon-sm" aria-label="Open settings">
-          <SettingsIcon />
-        </Button>
-      </PopoverTrigger>
+      <PopoverTrigger
+        render={
+          <Button variant="outline" size="icon-sm" aria-label="Open settings">
+            <SettingsIcon />
+          </Button>
+        }
+      ></PopoverTrigger>
       <PopoverContent align="end">
         <ul>
           <li className="flex justify-between py-1.5 text-sm">

@@ -26,19 +26,18 @@ function SelectField<FieldValues extends ReactHookFormFieldValues>({
   disabled,
   placeholder,
   options,
-  error,
 }: Props<FieldValues>) {
   const id = useId();
 
   return (
-    <Field className={className} data-invalid={!!error}>
-      <FieldLabel htmlFor={id}>{label}</FieldLabel>
-      <Controller
-        name={name}
-        control={control}
-        rules={rules}
-        disabled={disabled}
-        render={({ field }) => (
+    <Controller
+      name={name}
+      control={control}
+      rules={rules}
+      disabled={disabled}
+      render={({ field, fieldState }) => (
+        <Field className={className} data-invalid={!!fieldState.error}>
+          <FieldLabel htmlFor={id}>{label}</FieldLabel>
           <Select
             name={field.name}
             value={field.value}
@@ -48,7 +47,7 @@ function SelectField<FieldValues extends ReactHookFormFieldValues>({
             <SelectTrigger
               id={id}
               ref={field.ref}
-              aria-invalid={!!error}
+              aria-invalid={!!fieldState.error}
               onBlur={field.onBlur}
             >
               <SelectValue placeholder={placeholder} />
@@ -61,10 +60,10 @@ function SelectField<FieldValues extends ReactHookFormFieldValues>({
               ))}
             </SelectContent>
           </Select>
-        )}
-      />
-      <FieldError>{error?.message}</FieldError>
-    </Field>
+          <FieldError>{fieldState.error?.message}</FieldError>
+        </Field>
+      )}
+    />
   );
 }
 
