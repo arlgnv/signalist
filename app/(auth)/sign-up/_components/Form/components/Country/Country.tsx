@@ -1,11 +1,10 @@
+'use client';
+
 import { Check, ChevronsUpDown } from 'lucide-react';
 import { useState } from 'react';
 import {
-  type Control,
   Controller,
-  type FieldError,
   type FieldValues as ReactHookFormFieldValues,
-  type Path,
 } from 'react-hook-form';
 import countryList from 'react-select-country-list';
 import { twJoin } from 'tailwind-merge';
@@ -25,6 +24,8 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover';
 
+import type { Props } from './types';
+
 const countriesData = countryList().getData();
 
 function transformCountryCodeToFlagEmoji(countryCode: string) {
@@ -36,15 +37,7 @@ function transformCountryCodeToFlagEmoji(countryCode: string) {
   return String.fromCodePoint(...codePoints);
 }
 
-interface Props<FieldValues extends ReactHookFormFieldValues> {
-  label: string;
-  name: Path<FieldValues>;
-  control: Control<FieldValues>;
-  error: FieldError | undefined;
-  required?: boolean;
-}
-
-function CountrySelectField<FieldValues extends ReactHookFormFieldValues>({
+function Country<FieldValues extends ReactHookFormFieldValues>({
   name,
   label,
   control,
@@ -140,4 +133,4 @@ function CountrySelectField<FieldValues extends ReactHookFormFieldValues>({
   );
 }
 
-export default CountrySelectField;
+export default Country;

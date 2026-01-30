@@ -6,8 +6,7 @@ import {
   COMPANY_PROFILE_WIDGET_CONFIG,
   COMPANY_FINANCIAL_WIDGET_CONFIG,
 } from '@/app/_shared/constants';
-import TradingViewWidget from '@/components/TradingViewWidget';
-import WatchlistButton from '@/components/WatchlistButton';
+import { TradingViewWidget, WatchlistButton } from '@/components/complex';
 
 async function Page({ params }: PageProps<'/stocks/[symbol]'>) {
   const { symbol } = await params;

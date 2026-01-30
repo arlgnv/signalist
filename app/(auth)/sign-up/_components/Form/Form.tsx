@@ -11,16 +11,12 @@ import {
   RISK_TOLERANCE_OPTIONS,
 } from '@/app/_shared/constants';
 import authClient from '@/auth-client';
-import {
-  TextField,
-  CountrySelectField,
-  SelectField,
-  CheckboxField,
-} from '@/components/complex';
+import { TextField, SelectField, CheckboxField } from '@/components/complex';
 import { Button } from '@/components/ui/button';
 import { EMAIL_REGULAR_EXPRESSION } from '@/constants';
 import { convertSecondsToMilliseconds } from '@/utilities';
 
+import { Country } from './components';
 import type { FieldValues } from './types';
 
 function Form() {
@@ -135,7 +131,7 @@ function Form() {
         }}
         error={errors.email}
       />
-      <CountrySelectField
+      <Country
         label="Country"
         name="country"
         control={control}
