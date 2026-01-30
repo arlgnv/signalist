@@ -1,6 +1,5 @@
 'use client';
 
-import { memo } from 'react';
 import { twJoin } from 'tailwind-merge';
 
 import { useTradingViewWidget } from '@/app/_shared/hooks';
@@ -40,4 +39,4 @@ function TradingViewWidget({
   );
 }
 
-export default memo(TradingViewWidget);
+export default TradingViewWidget;

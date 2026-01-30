@@ -5,14 +5,11 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 
 import authClient from '@/auth-client';
-import InputField from '@/components/InputField';
+import { TextField } from '@/components/complex';
 import { Button } from '@/components/ui/button';
 import { EMAIL_REGULAR_EXPRESSION } from '@/constants';
 
-interface FieldValues {
-  email: string;
-  password: string;
-}
+import type { FieldValues } from './types';
 
 function Form() {
   const router = useRouter();
@@ -49,11 +46,12 @@ function Form() {
   }
 
   return (
-    <form className="space-y-5" onSubmit={handleSubmit}>
-      <InputField
+    <form className="mb-3" onSubmit={handleSubmit}>
+      <TextField
+        className="mb-4"
         label="Email"
-        placeholder="contact@emusk.dev"
         name="email"
+        placeholder="john@outlook.com"
         register={register}
         registerOptions={{
           required: 'Email is required',
@@ -64,11 +62,11 @@ function Form() {
         }}
         error={errors.email}
       />
-      <InputField
+      <TextField
+        className="mb-8"
         label="Password"
-        placeholder="*****"
         name="password"
-        type="password"
+        placeholder="********"
         register={register}
         registerOptions={{
           required: 'Password is required',
@@ -79,7 +77,7 @@ function Form() {
         }}
         error={errors.password}
       />
-      <Button className="mt-5 w-full" type="submit" disabled={isSubmitting}>
+      <Button className="w-full" type="submit" disabled={isSubmitting}>
         {isSubmitting ? 'Signing in' : 'Sign In'}
       </Button>
     </form>

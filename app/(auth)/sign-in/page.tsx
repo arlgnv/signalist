@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 
-import FooterLink from '@/components/FooterLink';
-
+import { FormFooter } from '../_components';
 import { Form } from './_components';
 
 const metadata: Metadata = {
@@ -15,7 +14,7 @@ function Page() {
         Sign in to Signalist
       </h1>
       <Form />
-      <FooterLink text="New to Signalist?" linkText="Sign up" href="/sign-up" />
+      <FormFooter text="New to Signalist?" linkText="Sign up" href="/sign-up" />
     </>
   );
 }

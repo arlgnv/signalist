@@ -2,7 +2,7 @@ import { headers } from 'next/headers';
 import Link from 'next/link';
 
 import auth from '@/auth';
-import Logo from '@/components/Logo';
+import Logo from '@/components/complex/Logo';
 import { Button } from '@/components/ui/button';
 
 import { Search, Settings, UserMenu } from './components';

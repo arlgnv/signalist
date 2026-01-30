@@ -1,5 +1,3 @@
-'use client';
-
 import { Check, ChevronsUpDown } from 'lucide-react';
 import { useState } from 'react';
 import {
@@ -12,6 +10,7 @@ import {
 import countryList from 'react-select-country-list';
 import { twJoin } from 'tailwind-merge';
 
+import { Button } from '@/components/ui/button';
 import {
   Command,
   CommandEmpty,
@@ -19,14 +18,12 @@ import {
   CommandItem,
   CommandList,
 } from '@/components/ui/command';
+import { Label } from '@/components/ui/label';
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
-
-import { Button } from './ui/button';
-import { Label } from './ui/label';
 
 const countriesData = countryList().getData();
 
