@@ -77,7 +77,13 @@ function Form() {
         }}
         error={errors.password}
       />
-      <Button className="w-full" type="submit" disabled={isSubmitting}>
+      <Button
+        className="w-full"
+        size="lg"
+        type="submit"
+        focusableWhenDisabled
+        disabled={isSubmitting}
+      >
         {isSubmitting ? 'Signing in' : 'Sign In'}
       </Button>
     </form>

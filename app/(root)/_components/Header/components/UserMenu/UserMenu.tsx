@@ -61,7 +61,7 @@ function UserMenu({ user }: Props) {
             </Avatar>
           </Button>
         }
-      ></DropdownMenuTrigger>
+      />
       <DropdownMenuContent align="end">
         <DropdownMenuGroup>
           <DropdownMenuLabel className="text-xs text-muted-foreground">

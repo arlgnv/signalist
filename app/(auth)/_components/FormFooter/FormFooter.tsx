@@ -13,7 +13,7 @@ function FormFooter({ text, linkText, href }: Props) {
         variant="link"
         nativeButton={false}
         render={<Link href={href}>{linkText}</Link>}
-      ></Button>
+      />
     </p>
   );
 }

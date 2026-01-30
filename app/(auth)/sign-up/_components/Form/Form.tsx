@@ -31,7 +31,7 @@ function Form() {
       fullName: '',
       email: '',
       password: '',
-      country: 'US',
+      country: '',
       investmentGoal: '',
       riskTolerance: '',
       preferredIndustry: '',
@@ -136,6 +136,7 @@ function Form() {
         className="mb-4"
         label="Password"
         name="password"
+        type="password"
         placeholder="********"
         register={register}
         registerOptions={{
@@ -186,7 +187,13 @@ function Form() {
         name="receiveDailyMarketNews"
         control={control}
       />
-      <Button className="w-full" type="submit" disabled={isSubmitting}>
+      <Button
+        className="w-full"
+        size="lg"
+        type="submit"
+        focusableWhenDisabled
+        disabled={isSubmitting}
+      >
         {isSubmitting ? 'Creating account' : 'Start your investing journey'}
       </Button>
     </form>

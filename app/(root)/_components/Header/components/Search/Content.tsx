@@ -136,12 +136,12 @@ function Content({ fetchPopularCompanyProfilesResponse }: ContentProps) {
                 className="pointer-events-auto cursor-help bg-input max-sm:hidden"
                 aria-hidden
                 render={<Kbd>/</Kbd>}
-              ></TooltipTrigger>
+              />
               <TooltipContent>Use to open search dialog</TooltipContent>
             </Tooltip>
           </Button>
         }
-      ></DialogTrigger>
+      />
       <DialogContent
         className="sm:max-w-[min(calc(100%-4rem),50rem)]"
         showCloseButton={false}
