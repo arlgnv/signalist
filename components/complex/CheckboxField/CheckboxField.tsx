@@ -40,7 +40,7 @@ function CheckboxField<FieldValues extends ReactHookFormFieldValues>({
           <Checkbox
             id={id}
             name={field.name}
-            ref={field.ref}
+            inputRef={field.ref}
             checked={field.value}
             disabled={field.disabled}
             aria-invalid={!!fieldState.error}
