@@ -1,4 +1,4 @@
-import { Header } from './_components';
+import { Header } from './_layout/components';
 
 function Layout({ children }: LayoutProps<'/'>) {
   return (
