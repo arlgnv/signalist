@@ -1,7 +1,5 @@
 'use client';
 
-import { twJoin } from 'tailwind-merge';
-
 import { useTradingViewWidget } from '@/app/_shared/hooks';
 
 interface Props {
@@ -22,20 +20,17 @@ function TradingViewWidget({
   const containerRef = useTradingViewWidget(scriptUrl, config, height);
 
   return (
-    <div className="w-full">
+    <section className={className}>
       {title && (
         <h3 className="mb-5 text-2xl font-semibold text-gray-100">{title}</h3>
       )}
-      <div
-        className={twJoin('tradingview-widget-container', className)}
-        ref={containerRef}
-      >
+      <div className="tradingview-widget-container" ref={containerRef}>
         <div
           className="tradingview-widget-container__widget"
           style={{ height, width: '100%' }}
         />
       </div>
-    </div>
+    </section>
   );
 }
 

@@ -11,44 +11,32 @@ function Page() {
   return (
     <>
       <h1 className="sr-only">Signalist</h1>
-      <div className="flex min-h-screen home-wrapper">
-        <section className="grid home-section w-full gap-8">
-          <div className="md:col-span-1 xl:col-span-1">
-            <TradingViewWidget
-              className="custom-chart"
-              title="Market Overview"
-              scriptUrl="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js"
-              config={MARKET_OVERVIEW_WIDGET_CONFIG}
-              height={600}
-            />
-          </div>
-          <div className="md:col-span-1 xl:col-span-2">
-            <TradingViewWidget
-              title="Stock Heatmap"
-              scriptUrl="https://s3.tradingview.com/external-embedding/embed-widget-stock-heatmap.js"
-              config={HEATMAP_WIDGET_CONFIG}
-              height={600}
-            />
-          </div>
-        </section>
-        <section className="grid home-section w-full gap-8">
-          <div className="h-full md:col-span-1 xl:col-span-1">
-            <TradingViewWidget
-              className="custom-chart"
-              scriptUrl="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js"
-              config={TOP_STORIES_WIDGET_CONFIG}
-              height={600}
-            />
-          </div>
-          <div className="h-full md:col-span-1 xl:col-span-2">
-            <TradingViewWidget
-              scriptUrl="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js"
-              config={MARKET_DATA_WIDGET_CONFIG}
-              height={600}
-            />
-          </div>
-        </section>
-      </div>
+      <main className="mx-auto grid max-w-360 min-w-80 gap-10 px-8 pt-10 pb-12.5 md:grid-cols-2 md:gap-6 xl:grid-cols-3 xl:gap-8">
+        <TradingViewWidget
+          title="Market Overview"
+          scriptUrl="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js"
+          config={MARKET_OVERVIEW_WIDGET_CONFIG}
+          height={600}
+        />
+        <TradingViewWidget
+          className="xl:col-span-2"
+          title="Stock Heatmap"
+          scriptUrl="https://s3.tradingview.com/external-embedding/embed-widget-stock-heatmap.js"
+          config={HEATMAP_WIDGET_CONFIG}
+          height={600}
+        />
+        <TradingViewWidget
+          scriptUrl="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js"
+          config={TOP_STORIES_WIDGET_CONFIG}
+          height={600}
+        />
+        <TradingViewWidget
+          className="xl:col-span-2"
+          scriptUrl="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js"
+          config={MARKET_DATA_WIDGET_CONFIG}
+          height={600}
+        />
+      </main>
     </>
   );
 }
