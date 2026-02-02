@@ -125,7 +125,7 @@ function Content({ fetchPopularCompanyProfilesResponse }: ContentProps) {
       <DialogTrigger
         render={
           <Button
-            className="text-left text-xs max-sm:size-8 max-sm:px-0! sm:text-neutral-300"
+            className="text-left text-xs max-sm:size-8 max-sm:px-0!"
             variant="outline"
             size="sm"
           >

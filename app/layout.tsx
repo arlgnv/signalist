@@ -4,7 +4,7 @@ import { twJoin } from 'tailwind-merge';
 
 import { Toaster } from '@/components/ui/sonner';
 
-import Providers from './Providers';
+import { QueryProvider, ThemeProvider } from './_components';
 import './globals.css';
 
 const metadata: Metadata = {
@@ -23,12 +23,21 @@ function Layout({ children }: LayoutProps<'/'>) {
     <html
       className={twJoin(
         GeistSans.variable,
-        'dark scrollbar-thin bg-background font-geist text-foreground antialiased scrollbar-thumb-muted-foreground scrollbar-track-muted sm:scrollbar',
+        'scrollbar-thin bg-background font-geist text-foreground antialiased scrollbar-thumb-muted-foreground scrollbar-track-muted sm:scrollbar',
       )}
       lang="en"
+      suppressHydrationWarning
     >
       <body>
-        <Providers>{children}</Providers>
+        <QueryProvider>
+          <ThemeProvider
+            attribute="class"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+        </QueryProvider>
         <Toaster />
       </body>
     </html>
