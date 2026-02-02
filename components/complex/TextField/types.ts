@@ -7,11 +7,12 @@ import type {
 } from 'react-hook-form';
 
 import type { Field } from '@/components/ui/field';
+import type { Input } from '@/components/ui/input';
 
 export interface Props<FieldValues extends ReactHookFormFieldValues>
   extends
-    Pick<React.ComponentProps<'input'>, 'type' | 'placeholder'>,
-    Pick<React.ComponentProps<typeof Field>, 'className'> {
+    Pick<React.ComponentProps<typeof Field>, 'className'>,
+    Pick<React.ComponentProps<typeof Input>, 'type' | 'placeholder'> {
   label: string;
   name: Path<FieldValues>;
   register: UseFormRegister<FieldValues>;

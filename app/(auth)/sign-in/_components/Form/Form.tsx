@@ -24,7 +24,7 @@ function Form() {
     },
   });
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: React.SubmitEvent<HTMLFormElement>) {
     async function handleSignIn({ email, password }: FieldValues) {
       await authClient.signIn.email(
         {
@@ -66,6 +66,7 @@ function Form() {
         className="mb-8"
         label="Password"
         name="password"
+        type="password"
         placeholder="********"
         register={register}
         registerOptions={{
@@ -84,7 +85,7 @@ function Form() {
         focusableWhenDisabled
         disabled={isSubmitting}
       >
-        {isSubmitting ? 'Signing in' : 'Sign In'}
+        {isSubmitting ? 'Signing in' : 'Sign in'}
       </Button>
     </form>
   );

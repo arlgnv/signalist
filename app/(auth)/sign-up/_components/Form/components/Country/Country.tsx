@@ -21,6 +21,7 @@ import {
   FieldError,
   FieldLabel,
 } from '@/components/ui/field';
+import { cn } from '@/lib/utils';
 
 import type { Props } from './types';
 
@@ -52,28 +53,27 @@ function Country({ control, disabled }: Props) {
             }}
           >
             <ComboboxTrigger
-              className="justify-start"
-              aria-invalid={!!fieldState.error}
+              className={cn(
+                'justify-start',
+                !field.value && 'text-muted-foreground!',
+              )}
+              ref={field.ref}
               render={
                 <Button variant="outline">
                   <ComboboxValue>
                     {(selectedValue: string) =>
-                      selectedValue || (
-                        <span className="text-muted-foreground">
-                          Select country
-                        </span>
-                      )
+                      selectedValue || 'Select country'
                     }
                   </ComboboxValue>
                 </Button>
               }
+              aria-invalid={!!fieldState.error}
+              onBlur={field.onBlur}
             />
             <ComboboxContent>
               <ComboboxInput
-                ref={field.ref}
                 showTrigger={false}
                 placeholder="Search countries"
-                onBlur={field.onBlur}
               />
               <ComboboxEmpty>No items found.</ComboboxEmpty>
               <ComboboxList className="scrollbar-thin sm:scrollbar">

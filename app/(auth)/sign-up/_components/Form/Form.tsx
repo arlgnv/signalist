@@ -39,7 +39,7 @@ function Form() {
     },
   });
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: React.SubmitEvent<HTMLFormElement>) {
     async function handleSignUp({
       fullName,
       email,

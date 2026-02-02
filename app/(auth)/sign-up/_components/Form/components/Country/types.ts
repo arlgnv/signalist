@@ -1,8 +1,5 @@
-import type { Controller } from 'react-hook-form';
+import type { ControllerProps } from 'react-hook-form';
 
 import type { FieldValues } from '../../types';
 
-export type Props = Pick<
-  React.ComponentProps<typeof Controller<FieldValues>>,
-  'control' | 'disabled'
->;
+export type Props = Pick<ControllerProps<FieldValues>, 'control' | 'disabled'>;
