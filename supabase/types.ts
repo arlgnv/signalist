@@ -149,6 +149,7 @@ export type Database = {
           image: string | null
           investment_goal: string
           preferred_industry: string
+          receives_daily_market_news: boolean
           risk_tolerance: string
           updated_at: string
         }
@@ -162,6 +163,7 @@ export type Database = {
           image?: string | null
           investment_goal: string
           preferred_industry: string
+          receives_daily_market_news: boolean
           risk_tolerance: string
           updated_at?: string
         }
@@ -175,6 +177,7 @@ export type Database = {
           image?: string | null
           investment_goal?: string
           preferred_industry?: string
+          receives_daily_market_news?: boolean
           risk_tolerance?: string
           updated_at?: string
         }

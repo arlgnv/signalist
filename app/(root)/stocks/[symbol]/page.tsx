@@ -6,8 +6,7 @@ import {
   COMPANY_PROFILE_WIDGET_CONFIG,
   COMPANY_FINANCIAL_WIDGET_CONFIG,
 } from '@/app/_shared/constants';
-import TradingViewWidget from '@/components/TradingViewWidget';
-import WatchlistButton from '@/components/WatchlistButton';
+import { TradingViewWidget, WatchlistButton } from '@/components/complex';
 
 async function Page({ params }: PageProps<'/stocks/[symbol]'>) {
   const { symbol } = await params;
@@ -21,14 +20,12 @@ async function Page({ params }: PageProps<'/stocks/[symbol]'>) {
             config={SYMBOL_INFO_WIDGET_CONFIG(symbol)}
             height={170}
           />
-
           <TradingViewWidget
             scriptUrl="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js"
             config={CANDLE_CHART_WIDGET_CONFIG(symbol)}
             className="custom-chart"
             height={600}
           />
-
           <TradingViewWidget
             scriptUrl="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js"
             config={BASELINE_WIDGET_CONFIG(symbol)}
@@ -36,7 +33,6 @@ async function Page({ params }: PageProps<'/stocks/[symbol]'>) {
             height={600}
           />
         </div>
-
         <div className="flex flex-col gap-6">
           <div className="flex items-center justify-between">
             <WatchlistButton
@@ -44,19 +40,16 @@ async function Page({ params }: PageProps<'/stocks/[symbol]'>) {
               isInWatchlist={false}
             />
           </div>
-
           <TradingViewWidget
             scriptUrl="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js"
             config={TECHNICAL_ANALYSIS_WIDGET_CONFIG(symbol)}
             height={400}
           />
-
           <TradingViewWidget
             scriptUrl="https://s3.tradingview.com/external-embedding/embed-widget-company-profile.js"
             config={COMPANY_PROFILE_WIDGET_CONFIG(symbol)}
             height={440}
           />
-
           <TradingViewWidget
             scriptUrl={
               'https://s3.tradingview.com/external-embedding/embed-widget-financials.js'

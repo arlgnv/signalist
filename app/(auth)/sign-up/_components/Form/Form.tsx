@@ -2,8 +2,7 @@
 
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
-import { useId } from 'react';
-import { Controller, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 
 import {
@@ -12,19 +11,15 @@ import {
   RISK_TOLERANCE_OPTIONS,
 } from '@/app/_shared/constants';
 import authClient from '@/auth-client';
-import CountrySelectField from '@/components/CountrySelectField';
-import InputField from '@/components/InputField';
-import SelectField from '@/components/SelectField';
+import { TextField, SelectField, CheckboxField } from '@/components/complex';
 import { Button } from '@/components/ui/button';
-import { Checkbox } from '@/components/ui/checkbox';
-import { Field, FieldLabel } from '@/components/ui/field';
 import { EMAIL_REGULAR_EXPRESSION } from '@/constants';
 import { convertSecondsToMilliseconds } from '@/utilities';
 
+import { Country } from './components';
 import type { FieldValues } from './types';
 
 function Form() {
-  const receiveDailyMarketNewsFieldId = useId();
   const router = useRouter();
   const {
     register,
@@ -36,15 +31,15 @@ function Form() {
       fullName: '',
       email: '',
       password: '',
-      country: 'US',
-      investmentGoal: 'Growth',
-      riskTolerance: 'Medium',
-      preferredIndustry: 'Technology',
+      country: '',
+      investmentGoal: '',
+      riskTolerance: '',
+      preferredIndustry: '',
       receiveDailyMarketNews: false,
     },
   });
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: React.SubmitEvent<HTMLFormElement>) {
     async function handleSignUp({
       fullName,
       email,
@@ -101,11 +96,12 @@ function Form() {
   }
 
   return (
-    <form className="space-y-5" onSubmit={handleSubmit}>
-      <InputField
+    <form className="mb-3" onSubmit={handleSubmit}>
+      <TextField
+        className="mb-4"
         label="Full name"
-        placeholder="Elon Musk"
         name="fullName"
+        placeholder="John Smith"
         register={register}
         registerOptions={{
           required: 'Full name is required',
@@ -120,10 +116,11 @@ function Form() {
         }}
         error={errors.fullName}
       />
-      <InputField
+      <TextField
+        className="mb-4"
         label="Email"
-        placeholder="contact@emusk.dev"
         name="email"
+        placeholder="john@outlook.com"
         register={register}
         registerOptions={{
           required: 'Email is required',
@@ -134,18 +131,13 @@ function Form() {
         }}
         error={errors.email}
       />
-      <CountrySelectField
-        label="Country"
-        name="country"
-        control={control}
-        error={errors.country}
-        required
-      />
-      <InputField
+      <Country control={control} />
+      <TextField
+        className="mb-4"
         label="Password"
-        placeholder="*****"
         name="password"
         type="password"
+        placeholder="********"
         register={register}
         registerOptions={{
           required: 'Password is required',
@@ -157,55 +149,52 @@ function Form() {
         error={errors.password}
       />
       <SelectField
+        className="mb-4"
         label="Investment goal"
         name="investmentGoal"
         control={control}
+        rules={{
+          required: 'Investment goal is required',
+        }}
+        placeholder="Select investment goal"
         options={INVESTMENT_GOAL}
-        error={errors.investmentGoal}
-        required
       />
       <SelectField
+        className="mb-4"
         label="Risk tolerance"
         name="riskTolerance"
         control={control}
+        rules={{
+          required: 'Risk tolerance is required',
+        }}
+        placeholder="Select risk tolerance"
         options={RISK_TOLERANCE_OPTIONS}
-        error={errors.riskTolerance}
-        required
       />
       <SelectField
+        className="mb-4"
         label="Preferred industry"
         name="preferredIndustry"
         control={control}
+        rules={{
+          required: 'Preferred industry is required',
+        }}
+        placeholder="Select preferred industry"
         options={PREFERRED_INDUSTRIES}
-        error={errors.preferredIndustry}
-        required
       />
-      <Controller
+      <CheckboxField
+        className="mb-8"
+        label="Receive daily market news via email"
         name="receiveDailyMarketNews"
         control={control}
-        render={({ field }) => (
-          <Field orientation="horizontal">
-            <Checkbox
-              id={receiveDailyMarketNewsFieldId}
-              name={field.name}
-              ref={field.ref}
-              checked={field.value}
-              disabled={field.disabled}
-              onCheckedChange={field.onChange}
-              onBlur={field.onBlur}
-            />
-            <FieldLabel htmlFor={receiveDailyMarketNewsFieldId}>
-              Receive daily market news via email
-            </FieldLabel>
-          </Field>
-        )}
       />
       <Button
-        className="mt-2.5 yellow-btn w-full"
+        className="w-full"
+        size="lg"
         type="submit"
+        focusableWhenDisabled
         disabled={isSubmitting}
       >
-        {isSubmitting ? 'Creating account' : 'Start Your Investing Journey'}
+        {isSubmitting ? 'Creating account' : 'Start your investing journey'}
       </Button>
     </form>
   );
