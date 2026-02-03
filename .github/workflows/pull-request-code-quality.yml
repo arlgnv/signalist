@@ -28,7 +28,7 @@ jobs:
           npx cspell --no-progress --no-summary file://commit-messages.txt
           rm commit-messages.txt
       - name: Spell check files
-        uses: streetsidesoftware/cspell-action@v8.1.2
+        uses: streetsidesoftware/cspell-action@v8.2.0
       - name: Get files to check formatting
         id: get-files-to-check-formatting
         uses: tj-actions/changed-files@v47.0.1
