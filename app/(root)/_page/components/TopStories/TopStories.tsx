@@ -5,10 +5,20 @@ import { useEffect, useRef } from 'react';
 
 function TopStories() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
   const { resolvedTheme } = useTheme();
 
   useEffect(() => {
-    if (containerRef.current === null || !resolvedTheme) return;
+    if (
+      containerRef.current === null ||
+      headingRef.current === null ||
+      !resolvedTheme
+    )
+      return;
+
+    const widget = document.createElement('div');
+    widget.className = 'tradingview-widget-container__widget';
+    headingRef.current.after(widget);
 
     const script = document.createElement('script');
     script.src =
@@ -27,17 +37,23 @@ function TopStories() {
           "height": 632
         }`;
 
-    containerRef.current.appendChild(script);
+    containerRef.current.append(script);
+
+    return () => {
+      script.remove();
+      containerRef.current
+        ?.querySelectorAll('iframe, style')
+        .forEach((element) => {
+          element.remove();
+        });
+    };
   }, [resolvedTheme]);
 
   return (
-    <section
-      className="tradingview-widget-container"
-      key={resolvedTheme}
-      ref={containerRef}
-    >
-      <h2 className="sr-only">Top stories</h2>
-      <div className="tradingview-widget-container__widget" />
+    <section className="tradingview-widget-container" ref={containerRef}>
+      <h2 className="sr-only" ref={headingRef}>
+        Top stories
+      </h2>
       <div className="tradingview-widget-copyright">
         <a
           href="https://www.tradingview.com/news/top-providers/tradingview"
