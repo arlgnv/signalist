@@ -1,45 +1,39 @@
-import Image from 'next/image';
+import { Star } from 'lucide-react';
 import Link from 'next/link';
+
+import { Logo } from '@/components/complex';
 
 function Layout({ children }: LayoutProps<'/'>) {
   return (
-    <main className="auth-layout">
-      <section className="scrollbar-hide-default auth-left-section">
-        <Link className="auth-logo" href="/">
-          <Image
-            className="h-8 w-auto"
-            src="/assets/icons/logo.svg"
-            alt="Signalist Logo"
-            width={140}
-            height={32}
-          />
+    <div className="mx-auto grid max-w-360 min-w-80 gap-12 px-4 sm:grid-rows-[auto_1fr] sm:px-8 md:grid-cols-2 xl:grid-cols-[1fr_55%]">
+      <header className="pt-8 sm:self-start sm:justify-self-start">
+        <Link href="/" aria-label="Go home">
+          <Logo />
         </Link>
-        <div className="flex-1 pb-6 lg:pb-8">{children}</div>
-      </section>
-      <section className="auth-right-section">
-        <div className="relative z-10 lg:mt-4 lg:mb-16">
-          <blockquote className="auth-blockquote">
+      </header>
+      <main className="sm:self-center">{children}</main>
+      <div className="pt-18 sm:col-start-2 sm:row-span-2 sm:row-start-1">
+        <figure className="grid grid-cols-2 gap-2">
+          <blockquote className="col-span-2">
             Signalist turned my watchlist into a winning list. The alerts are
             spot-on, and I feel more confident making moves in the market
           </blockquote>
-          <div className="flex items-center justify-between">
-            <cite className="auth-testimonial-author">- Ethan R.</cite>
-            <p className="text-gray-500 max-md:text-xs">Retail Investor</p>
-            <div className="flex items-center gap-0.5">
-              {[1, 2, 3, 4, 5].map((star) => (
-                <Image
-                  className="size-5"
-                  key={star}
-                  src="/assets/icons/star.svg"
-                  alt="Star"
-                  width={20}
-                  height={20}
-                />
-              ))}
-            </div>
+          <div className="flex items-center justify-between gap-x-0.5 self-start">
+            {Array.from({ length: 5 }).map((_, index) => (
+              <Star
+                className="fill-muted-foreground"
+                key={index}
+                strokeWidth={0}
+              />
+            ))}
           </div>
-        </div>
-        <div className="relative flex-1">
+          <figcaption className="col-start-1 row-start-2">
+            - Ethan R.
+            <br />
+            <span>Retail Investor</span>
+          </figcaption>
+        </figure>
+        {/* <div className="relative flex-1">
           <Image
             className="absolute top-0 auth-dashboard-preview"
             src="/assets/images/dashboard.png"
@@ -47,9 +41,9 @@ function Layout({ children }: LayoutProps<'/'>) {
             width={1440}
             height={1150}
           />
-        </div>
-      </section>
-    </main>
+        </div> */}
+      </div>
+    </div>
   );
 }
 
