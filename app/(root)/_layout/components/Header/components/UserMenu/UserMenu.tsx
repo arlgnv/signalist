@@ -22,7 +22,7 @@ import type { Props } from './types';
 function UserMenu({ user }: Props) {
   const router = useRouter();
 
-  function handleDeleteAccountSelect() {
+  function handleAccountDelete() {
     if (!window.confirm('Delete your account? This cannot be undone.')) {
       return;
     }
@@ -37,7 +37,7 @@ function UserMenu({ user }: Props) {
     });
   }
 
-  function handleSignOutSelect() {
+  function handleSignOut() {
     void authClient.signOut(undefined, {
       onSuccess: () => {
         router.push('/sign-in');
@@ -52,7 +52,6 @@ function UserMenu({ user }: Props) {
     <DropdownMenu modal={false}>
       <DropdownMenuTrigger
         className="rounded-full"
-        aria-label="Open user menu"
         render={
           <Button variant="ghost" size="icon-sm">
             <Avatar>
@@ -61,6 +60,7 @@ function UserMenu({ user }: Props) {
             </Avatar>
           </Button>
         }
+        aria-label="Open user menu"
       />
       <DropdownMenuContent align="end">
         <DropdownMenuGroup>
@@ -73,14 +73,11 @@ function UserMenu({ user }: Props) {
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem
-          variant="destructive"
-          onSelect={handleDeleteAccountSelect}
-        >
+        <DropdownMenuItem variant="destructive" onClick={handleAccountDelete}>
           <Trash />
           Delete account
         </DropdownMenuItem>
-        <DropdownMenuItem variant="destructive" onSelect={handleSignOutSelect}>
+        <DropdownMenuItem variant="destructive" onClick={handleSignOut}>
           <LogOut />
           Sign out
         </DropdownMenuItem>
