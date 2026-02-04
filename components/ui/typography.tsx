@@ -18,4 +18,16 @@ function TypographyH2({ className, ...props }: React.ComponentProps<'h2'>) {
   );
 }
 
-export { TypographyH1, TypographyH2 };
+function TypographyBlockquote({
+  className,
+  ...props
+}: React.ComponentProps<'blockquote'>) {
+  return (
+    <blockquote
+      className={cn('border-l-2 pl-6 italic', className)}
+      {...props}
+    />
+  );
+}
+
+export { TypographyH1, TypographyH2, TypographyBlockquote };
