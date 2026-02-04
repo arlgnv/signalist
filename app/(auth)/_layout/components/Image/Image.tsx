@@ -11,7 +11,7 @@ function Image() {
   return (
     <NextImage
       className="absolute rounded-ss-2xl border-s-6 border-t-6 object-cover object-top-left"
-      src={`/images/home-page-${resolvedTheme}.jpg`}
+      src={`/images/${resolvedTheme}-home-page.jpg`}
       alt="Home page"
       fill
     />
