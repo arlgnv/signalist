@@ -1,10 +1,10 @@
-name: Pull request code quality
+name: Code quality
 on:
   pull_request:
-    branches:
-      - main
+    branches: [main]
 jobs:
   check:
+    if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     permissions:
       contents: read
