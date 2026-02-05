@@ -1,5 +1,3 @@
-// Auto-generated. Therefore excluded from prettier's formatting and eslint's linting
-
 export type Json =
   | string
   | number
