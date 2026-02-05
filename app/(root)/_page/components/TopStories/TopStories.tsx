@@ -40,6 +40,7 @@ function TopStories() {
     containerRef.current.append(script);
 
     return () => {
+      widget.remove();
       script.remove();
       containerRef.current
         ?.querySelectorAll('iframe, style')
