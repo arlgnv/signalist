@@ -13,6 +13,7 @@ function TextField<FieldValues extends ReactHookFormFieldValues>({
   label,
   name,
   type = 'text',
+  inputMode,
   placeholder,
   register,
   registerOptions,
@@ -26,6 +27,7 @@ function TextField<FieldValues extends ReactHookFormFieldValues>({
       <Input
         id={id}
         type={type}
+        inputMode={inputMode}
         placeholder={placeholder}
         aria-invalid={!!error}
         {...register(name, registerOptions)}

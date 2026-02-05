@@ -23,6 +23,7 @@ function SelectField<FieldValues extends ReactHookFormFieldValues>({
   name,
   control,
   rules,
+  modal,
   disabled,
   placeholder,
   options,
@@ -41,6 +42,8 @@ function SelectField<FieldValues extends ReactHookFormFieldValues>({
           <Select
             name={field.name}
             value={field.value}
+            items={options}
+            modal={modal}
             disabled={field.disabled}
             onValueChange={field.onChange}
           >

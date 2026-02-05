@@ -120,6 +120,7 @@ function Form() {
         className="mb-4"
         label="Email"
         name="email"
+        inputMode="email"
         placeholder="john@outlook.com"
         register={register}
         registerOptions={{
@@ -157,6 +158,7 @@ function Form() {
           required: 'Investment goal is required',
         }}
         placeholder="Select investment goal"
+        modal={false}
         options={INVESTMENT_GOALS}
       />
       <SelectField
@@ -168,6 +170,7 @@ function Form() {
           required: 'Risk tolerance is required',
         }}
         placeholder="Select risk tolerance"
+        modal={false}
         options={RISK_TOLERANCES}
       />
       <SelectField
@@ -179,6 +182,7 @@ function Form() {
           required: 'Preferred industry is required',
         }}
         placeholder="Select preferred industry"
+        modal={false}
         options={PREFERRED_INDUSTRIES}
       />
       <CheckboxField
