@@ -1,21 +1,13 @@
 'use client';
 
-import { useTheme } from 'next-themes';
-import NextImage from 'next/image';
+import dynamic from 'next/dynamic';
+
+const Content = dynamic(() => import('./Content'), {
+  ssr: false,
+});
 
 function Image() {
-  const { resolvedTheme } = useTheme();
-
-  if (!resolvedTheme) return null;
-
-  return (
-    <NextImage
-      className="absolute rounded-ss-2xl border-s-6 border-t-6 object-cover object-top-left"
-      src={`/images/${resolvedTheme}-home-page.jpg`}
-      alt={`Preview of the home page in ${resolvedTheme} theme`}
-      fill
-    />
-  );
+  return <Content />;
 }
 
 export default Image;
