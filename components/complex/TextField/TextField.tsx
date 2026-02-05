@@ -3,7 +3,12 @@
 import { useId } from 'react';
 import type { FieldValues as ReactHookFormFieldValues } from 'react-hook-form';
 
-import { Field, FieldError, FieldLabel } from '@/components/ui/field';
+import {
+  Field,
+  FieldDescription,
+  FieldError,
+  FieldLabel,
+} from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
 
 import type { Props } from './types';
@@ -11,6 +16,7 @@ import type { Props } from './types';
 function TextField<FieldValues extends ReactHookFormFieldValues>({
   className,
   label,
+  description,
   name,
   type = 'text',
   inputMode,
@@ -32,6 +38,7 @@ function TextField<FieldValues extends ReactHookFormFieldValues>({
         aria-invalid={!!error}
         {...register(name, registerOptions)}
       />
+      {!!description && <FieldDescription>{description}</FieldDescription>}
       <FieldError>{error?.message}</FieldError>
     </Field>
   );

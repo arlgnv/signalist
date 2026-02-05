@@ -1,5 +1,6 @@
 'use client';
 
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
@@ -7,9 +8,9 @@ import { toast } from 'sonner';
 import authClient from '@/auth-client';
 import { TextField } from '@/components/complex';
 import { Button } from '@/components/ui/button';
-import { EMAIL_REGULAR_EXPRESSION } from '@/constants';
 
 import type { FieldValues } from './types';
+import validationSchema from './validationSchema';
 
 function Form() {
   const router = useRouter();
@@ -18,6 +19,7 @@ function Form() {
     formState: { errors, isSubmitting },
     handleSubmit: rhfHandleSubmit,
   } = useForm<FieldValues>({
+    resolver: zodResolver(validationSchema),
     defaultValues: {
       email: '',
       password: '',
@@ -53,29 +55,16 @@ function Form() {
         name="email"
         placeholder="john@outlook.com"
         register={register}
-        registerOptions={{
-          required: 'Email is required',
-          pattern: {
-            value: EMAIL_REGULAR_EXPRESSION,
-            message: 'Email is invalid',
-          },
-        }}
         error={errors.email}
       />
       <TextField
         className="mb-8"
         label="Password"
+        description="Must be between 8-128 characters"
         name="password"
         type="password"
         placeholder="********"
         register={register}
-        registerOptions={{
-          required: 'Password is required',
-          minLength: {
-            value: 8,
-            message: 'Password must be at least 8 characters',
-          },
-        }}
         error={errors.password}
       />
       <Button
