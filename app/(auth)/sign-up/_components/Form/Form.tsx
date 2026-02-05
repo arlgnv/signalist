@@ -5,11 +5,6 @@ import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 
-import {
-  INVESTMENT_GOAL,
-  PREFERRED_INDUSTRIES,
-  RISK_TOLERANCE_OPTIONS,
-} from '@/app/_shared/constants';
 import authClient from '@/auth-client';
 import { TextField, SelectField, CheckboxField } from '@/components/complex';
 import { Button } from '@/components/ui/button';
@@ -17,6 +12,11 @@ import { EMAIL_REGULAR_EXPRESSION } from '@/constants';
 import { convertSecondsToMilliseconds } from '@/utilities';
 
 import { Country } from './components';
+import {
+  INVESTMENT_GOALS,
+  PREFERRED_INDUSTRIES,
+  RISK_TOLERANCES,
+} from './data';
 import type { FieldValues } from './types';
 
 function Form() {
@@ -96,7 +96,7 @@ function Form() {
   }
 
   return (
-    <form className="mb-3" onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <TextField
         className="mb-4"
         label="Full name"
@@ -120,6 +120,7 @@ function Form() {
         className="mb-4"
         label="Email"
         name="email"
+        inputMode="email"
         placeholder="john@outlook.com"
         register={register}
         registerOptions={{
@@ -157,7 +158,8 @@ function Form() {
           required: 'Investment goal is required',
         }}
         placeholder="Select investment goal"
-        options={INVESTMENT_GOAL}
+        modal={false}
+        options={INVESTMENT_GOALS}
       />
       <SelectField
         className="mb-4"
@@ -168,7 +170,8 @@ function Form() {
           required: 'Risk tolerance is required',
         }}
         placeholder="Select risk tolerance"
-        options={RISK_TOLERANCE_OPTIONS}
+        modal={false}
+        options={RISK_TOLERANCES}
       />
       <SelectField
         className="mb-4"
@@ -179,6 +182,7 @@ function Form() {
           required: 'Preferred industry is required',
         }}
         placeholder="Select preferred industry"
+        modal={false}
         options={PREFERRED_INDUSTRIES}
       />
       <CheckboxField

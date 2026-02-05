@@ -4,7 +4,7 @@ import type {
 } from 'react-hook-form';
 
 import type { Field } from '@/components/ui/field';
-import type { SelectValue } from '@/components/ui/select';
+import type { Select, SelectValue } from '@/components/ui/select';
 
 export interface Props<FieldValues extends ReactHookFormFieldValues>
   extends
@@ -13,6 +13,7 @@ export interface Props<FieldValues extends ReactHookFormFieldValues>
       'name' | 'control' | 'rules' | 'disabled'
     >,
     Pick<React.ComponentProps<typeof Field>, 'className'>,
+    Pick<React.ComponentProps<typeof Select>, 'modal'>,
     Pick<React.ComponentProps<typeof SelectValue>, 'placeholder'> {
   label: string;
   options: {

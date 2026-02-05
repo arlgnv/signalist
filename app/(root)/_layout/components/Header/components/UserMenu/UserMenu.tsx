@@ -1,0 +1,89 @@
+'use client';
+
+import { LogOut, Settings, Trash } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { toast } from 'sonner';
+
+import authClient from '@/auth-client';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuLabel,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+} from '@/components/ui/dropdown-menu';
+
+import type { Props } from './types';
+
+function UserMenu({ user }: Props) {
+  const router = useRouter();
+
+  function handleAccountDelete() {
+    if (!window.confirm('Delete your account? This cannot be undone.')) {
+      return;
+    }
+
+    void authClient.deleteUser(undefined, {
+      onSuccess() {
+        router.push('/sign-up');
+      },
+      onError({ error: { message } }) {
+        toast.error(message);
+      },
+    });
+  }
+
+  function handleSignOut() {
+    void authClient.signOut(undefined, {
+      onSuccess: () => {
+        router.push('/sign-in');
+      },
+      onError: ({ error: { message } }) => {
+        toast.error(message);
+      },
+    });
+  }
+
+  return (
+    <DropdownMenu modal={false}>
+      <DropdownMenuTrigger
+        className="rounded-full"
+        render={
+          <Button variant="ghost" size="icon-sm">
+            <Avatar>
+              <AvatarImage src="https://github.com/shadcn.png" alt="Avatar" />
+              <AvatarFallback>{user.name.at(0)}</AvatarFallback>
+            </Avatar>
+          </Button>
+        }
+        aria-label="Open user menu"
+      />
+      <DropdownMenuContent align="end">
+        <DropdownMenuGroup>
+          <DropdownMenuLabel className="text-xs text-muted-foreground">
+            My Account
+          </DropdownMenuLabel>
+          <DropdownMenuItem disabled>
+            <Settings />
+            Settings
+          </DropdownMenuItem>
+        </DropdownMenuGroup>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem variant="destructive" onClick={handleAccountDelete}>
+          <Trash />
+          Delete account
+        </DropdownMenuItem>
+        <DropdownMenuItem variant="destructive" onClick={handleSignOut}>
+          <LogOut />
+          Sign out
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+}
+
+export default UserMenu;

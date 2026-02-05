@@ -47,6 +47,8 @@ function ToggleGroup({
       )}
       {...props}
     >
+      {/* We have React Compiler on therefore manual memoization is redundant */}
+      {/* eslint-disable-next-line @eslint-react/no-unstable-context-value */}
       <ToggleGroupContext value={{ variant, size, spacing, orientation }}>
         {children}
       </ToggleGroupContext>

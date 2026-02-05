@@ -46,7 +46,7 @@ function Form() {
   }
 
   return (
-    <form className="mb-3" onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <TextField
         className="mb-4"
         label="Email"

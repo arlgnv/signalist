@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 
+import { TypographyH1 } from '@/components/ui/typography';
+
 import { FormFooter } from '../_components';
 import { Form } from './_components';
 
@@ -10,9 +12,7 @@ const metadata: Metadata = {
 function Page() {
   return (
     <>
-      <h1 className="mb-10 text-4xl font-extrabold tracking-tight">
-        Sign up for Signalist
-      </h1>
+      <TypographyH1 className="mb-10">Sign up for Signalist</TypographyH1>
       <Form />
       <FormFooter
         text="Already have an account?"
