@@ -6,7 +6,7 @@ import NextImage from 'next/image';
 function Image() {
   const { resolvedTheme } = useTheme();
 
-  if (!resolvedTheme) return;
+  if (!resolvedTheme) return null;
 
   return (
     <NextImage
@@ -16,6 +16,7 @@ function Image() {
       fill
     />
   );
+}
 }
 
 export default Image;
