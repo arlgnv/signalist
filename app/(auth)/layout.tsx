@@ -21,7 +21,7 @@ function Layout({ children }: LayoutProps<'/'>) {
         <figure className="grid w-[min(44.375rem,100%)] grid-cols-2 gap-2 md:gap-8 md:pe-8 xl:pe-16">
           <TypographyBlockquote className="col-span-2 text-sm font-medium max-md:pl-2 md:text-3xl">
             Signalist turned my watchlist into a winning list. The alerts are
-            spot-on, and I feel more confident making moves in the market
+            spot-on, and I feel more confident making moves in the market.
           </TypographyBlockquote>
           <div className="flex items-center justify-between gap-x-0.5 self-start justify-self-end md:gap-x-1">
             {Array.from({ length: 5 }).map((_, index) => (
