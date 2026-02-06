@@ -1,9 +1,10 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { useParams } from 'next/navigation';
 
 import { useResolvedTheme } from '@/hooks';
+
+import { useParams } from '../../_hooks';
 
 const TradingViewAdvancedRealTimeChart = dynamic(
   () =>
@@ -14,7 +15,7 @@ const TradingViewAdvancedRealTimeChart = dynamic(
 );
 
 function AdvancedRealTimeChart() {
-  const { symbol } = useParams<{ symbol: string }>();
+  const { symbol } = useParams();
   const resolvedTheme = useResolvedTheme();
 
   return (

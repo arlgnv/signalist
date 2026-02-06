@@ -1,9 +1,10 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { useParams } from 'next/navigation';
 
 import { useResolvedTheme } from '@/hooks';
+
+import { useParams } from '../../_hooks';
 
 const TradingViewFundamentalData = dynamic(
   () => import('react-ts-tradingview-widgets').then((w) => w.FundamentalData),
@@ -13,7 +14,7 @@ const TradingViewFundamentalData = dynamic(
 );
 
 function FundamentalData() {
-  const { symbol } = useParams<{ symbol: string }>();
+  const { symbol } = useParams();
   const resolvedTheme = useResolvedTheme();
 
   return (
