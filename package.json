@@ -64,6 +64,7 @@
     "@next/eslint-plugin-next": "16.1.6",
     "@tailwindcss/postcss": "4.1.18",
     "@tanstack/eslint-plugin-query": "5.91.4",
+    "@tanstack/react-query-devtools": "5.91.3",
     "@types/node": "24.10.9",
     "@types/nodemailer": "7.0.9",
     "@types/react": "19.2.10",
