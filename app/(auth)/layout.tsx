@@ -8,8 +8,8 @@ import { Image } from './_layout/components';
 
 function Layout({ children }: LayoutProps<'/'>) {
   return (
-    <div className="grid min-h-dvh min-w-80 max-md:max-h-dvh max-md:grid-rows-[1fr_auto] max-md:overflow-y-hidden md:grid-cols-2 xl:grid-cols-[min(700px,45%)_1fr]">
-      <div className="flex flex-col gap-y-8 px-4 py-8 max-md:relative max-md:scrollbar-thin max-md:overflow-y-auto max-md:pb-8 md:gap-y-12 md:px-10 xl:px-20">
+    <div className="grid h-dvh min-w-80 max-md:grid-rows-[1fr_auto] md:grid-cols-2 xl:grid-cols-[min(700px,45%)_1fr]">
+      <div className="relative scrollbar-thin flex flex-col gap-y-8 overflow-y-auto px-4 py-8 max-md:pb-8 md:gap-y-12 md:px-10 xl:px-20">
         <header>
           <Link href="/" aria-label="Go home">
             <Logo />

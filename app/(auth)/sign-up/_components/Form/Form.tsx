@@ -124,7 +124,7 @@ function Form() {
         description="Must be between 8-128 characters"
         name="password"
         type="password"
-        placeholder="********"
+        placeholder="········"
         register={register}
         error={errors.password}
       />

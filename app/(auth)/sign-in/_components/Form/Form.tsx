@@ -66,7 +66,7 @@ function Form() {
         label="Password"
         name="password"
         type="password"
-        placeholder="********"
+        placeholder="········"
         register={register}
         error={errors.password}
       />
