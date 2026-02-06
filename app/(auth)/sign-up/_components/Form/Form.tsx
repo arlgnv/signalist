@@ -1,5 +1,6 @@
 'use client';
 
+import { DevTool } from '@hookform/devtools';
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
@@ -98,79 +99,82 @@ function Form() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <TextField
-        className="mb-4"
-        label="Full name"
-        description="Must be between 2-100 characters"
-        name="fullName"
-        placeholder="John Smith"
-        register={register}
-        error={errors.fullName}
-      />
-      <TextField
-        className="mb-4"
-        label="Email"
-        name="email"
-        inputMode="email"
-        placeholder="john@outlook.com"
-        register={register}
-        error={errors.email}
-      />
-      <Country control={control} />
-      <TextField
-        className="mb-4"
-        label="Password"
-        description="Must be between 8-128 characters"
-        name="password"
-        type="password"
-        placeholder="········"
-        register={register}
-        error={errors.password}
-      />
-      <SelectField
-        className="mb-4"
-        label="Investment goal"
-        name="investmentGoal"
-        control={control}
-        placeholder="Select investment goal"
-        modal={false}
-        options={INVESTMENT_GOALS}
-      />
-      <SelectField
-        className="mb-4"
-        label="Risk tolerance"
-        name="riskTolerance"
-        control={control}
-        placeholder="Select risk tolerance"
-        modal={false}
-        options={RISK_TOLERANCES}
-      />
-      <SelectField
-        className="mb-4"
-        label="Preferred industry"
-        name="preferredIndustry"
-        control={control}
-        placeholder="Select preferred industry"
-        modal={false}
-        options={PREFERRED_INDUSTRIES}
-      />
-      <CheckboxField
-        className="mb-8"
-        label="Receive daily market news via email"
-        name="receiveDailyMarketNews"
-        control={control}
-      />
-      <Button
-        className="w-full"
-        size="lg"
-        type="submit"
-        focusableWhenDisabled
-        disabled={isSubmitting}
-      >
-        {isSubmitting ? 'Creating account' : 'Start your investing journey'}
-      </Button>
-    </form>
+    <>
+      <form onSubmit={handleSubmit}>
+        <TextField
+          className="mb-4"
+          label="Full name"
+          description="Must be between 2-100 characters"
+          name="fullName"
+          placeholder="John Smith"
+          register={register}
+          error={errors.fullName}
+        />
+        <TextField
+          className="mb-4"
+          label="Email"
+          name="email"
+          inputMode="email"
+          placeholder="john@outlook.com"
+          register={register}
+          error={errors.email}
+        />
+        <Country control={control} />
+        <TextField
+          className="mb-4"
+          label="Password"
+          description="Must be between 8-128 characters"
+          name="password"
+          type="password"
+          placeholder="········"
+          register={register}
+          error={errors.password}
+        />
+        <SelectField
+          className="mb-4"
+          label="Investment goal"
+          name="investmentGoal"
+          control={control}
+          placeholder="Select investment goal"
+          modal={false}
+          options={INVESTMENT_GOALS}
+        />
+        <SelectField
+          className="mb-4"
+          label="Risk tolerance"
+          name="riskTolerance"
+          control={control}
+          placeholder="Select risk tolerance"
+          modal={false}
+          options={RISK_TOLERANCES}
+        />
+        <SelectField
+          className="mb-4"
+          label="Preferred industry"
+          name="preferredIndustry"
+          control={control}
+          placeholder="Select preferred industry"
+          modal={false}
+          options={PREFERRED_INDUSTRIES}
+        />
+        <CheckboxField
+          className="mb-8"
+          label="Receive daily market news via email"
+          name="receiveDailyMarketNews"
+          control={control}
+        />
+        <Button
+          className="w-full"
+          size="lg"
+          type="submit"
+          focusableWhenDisabled
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? 'Creating account' : 'Start your investing journey'}
+        </Button>
+      </form>
+      <DevTool control={control} />
+    </>
   );
 }
 

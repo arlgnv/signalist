@@ -1,5 +1,6 @@
 'use client';
 
+import { DevTool } from '@hookform/devtools';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
@@ -15,6 +16,7 @@ import validationSchema from './validationSchema';
 function Form() {
   const router = useRouter();
   const {
+    control,
     register,
     formState: { errors, isSubmitting },
     handleSubmit: rhfHandleSubmit,
@@ -51,35 +53,38 @@ function Form() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <TextField
-        className="mb-4"
-        label="Email"
-        name="email"
-        inputMode="email"
-        placeholder="john@outlook.com"
-        register={register}
-        error={errors.email}
-      />
-      <TextField
-        className="mb-8"
-        label="Password"
-        name="password"
-        type="password"
-        placeholder="········"
-        register={register}
-        error={errors.password}
-      />
-      <Button
-        className="w-full"
-        size="lg"
-        type="submit"
-        focusableWhenDisabled
-        disabled={isSubmitting}
-      >
-        {isSubmitting ? 'Signing in' : 'Sign in'}
-      </Button>
-    </form>
+    <>
+      <form onSubmit={handleSubmit}>
+        <TextField
+          className="mb-4"
+          label="Email"
+          name="email"
+          inputMode="email"
+          placeholder="john@outlook.com"
+          register={register}
+          error={errors.email}
+        />
+        <TextField
+          className="mb-8"
+          label="Password"
+          name="password"
+          type="password"
+          placeholder="········"
+          register={register}
+          error={errors.password}
+        />
+        <Button
+          className="w-full"
+          size="lg"
+          type="submit"
+          focusableWhenDisabled
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? 'Signing in' : 'Sign in'}
+        </Button>
+      </form>
+      <DevTool control={control} />
+    </>
   );
 }
 
