@@ -42,6 +42,7 @@ function SelectField<FieldValues extends ReactHookFormFieldValues>({
           <Select
             name={field.name}
             value={field.value}
+            inputRef={field.ref}
             items={options}
             modal={modal}
             disabled={field.disabled}
@@ -49,7 +50,6 @@ function SelectField<FieldValues extends ReactHookFormFieldValues>({
           >
             <SelectTrigger
               id={id}
-              ref={field.ref}
               aria-invalid={!!fieldState.error}
               onBlur={field.onBlur}
             >

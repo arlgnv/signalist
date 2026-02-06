@@ -1,14 +1,15 @@
 'use client';
 
+import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
+import type { z } from 'zod';
 
 import authClient from '@/auth-client';
 import { TextField, SelectField, CheckboxField } from '@/components/complex';
 import { Button } from '@/components/ui/button';
-import { EMAIL_REGULAR_EXPRESSION } from '@/constants';
 import { convertSecondsToMilliseconds } from '@/utilities';
 
 import { Country } from './components';
@@ -17,7 +18,7 @@ import {
   PREFERRED_INDUSTRIES,
   RISK_TOLERANCES,
 } from './data';
-import type { FieldValues } from './types';
+import validationSchema from './validationSchema';
 
 function Form() {
   const router = useRouter();
@@ -26,7 +27,8 @@ function Form() {
     formState: { errors, isSubmitting },
     control,
     handleSubmit: rhfHandleSubmit,
-  } = useForm<FieldValues>({
+  } = useForm({
+    resolver: zodResolver(validationSchema),
     defaultValues: {
       fullName: '',
       email: '',
@@ -49,7 +51,7 @@ function Form() {
       riskTolerance,
       preferredIndustry,
       receiveDailyMarketNews,
-    }: FieldValues) {
+    }: z.output<typeof validationSchema>) {
       await authClient.signUp.email(
         {
           name: fullName,
@@ -100,20 +102,10 @@ function Form() {
       <TextField
         className="mb-4"
         label="Full name"
+        description="Must be between 2-100 characters"
         name="fullName"
         placeholder="John Smith"
         register={register}
-        registerOptions={{
-          required: 'Full name is required',
-          minLength: {
-            value: 2,
-            message: 'Full name must be at least 2 characters',
-          },
-          maxLength: {
-            value: 100,
-            message: 'Full name must be at most 100 characters',
-          },
-        }}
         error={errors.fullName}
       />
       <TextField
@@ -123,30 +115,17 @@ function Form() {
         inputMode="email"
         placeholder="john@outlook.com"
         register={register}
-        registerOptions={{
-          required: 'Email is required',
-          pattern: {
-            value: EMAIL_REGULAR_EXPRESSION,
-            message: 'Email is invalid',
-          },
-        }}
         error={errors.email}
       />
       <Country control={control} />
       <TextField
         className="mb-4"
         label="Password"
+        description="Must be between 8-128 characters"
         name="password"
         type="password"
         placeholder="********"
         register={register}
-        registerOptions={{
-          required: 'Password is required',
-          minLength: {
-            value: 8,
-            message: 'Password must be at least 8 characters',
-          },
-        }}
         error={errors.password}
       />
       <SelectField
@@ -154,9 +133,6 @@ function Form() {
         label="Investment goal"
         name="investmentGoal"
         control={control}
-        rules={{
-          required: 'Investment goal is required',
-        }}
         placeholder="Select investment goal"
         modal={false}
         options={INVESTMENT_GOALS}
@@ -166,9 +142,6 @@ function Form() {
         label="Risk tolerance"
         name="riskTolerance"
         control={control}
-        rules={{
-          required: 'Risk tolerance is required',
-        }}
         placeholder="Select risk tolerance"
         modal={false}
         options={RISK_TOLERANCES}
@@ -178,9 +151,6 @@ function Form() {
         label="Preferred industry"
         name="preferredIndustry"
         control={control}
-        rules={{
-          required: 'Preferred industry is required',
-        }}
         placeholder="Select preferred industry"
         modal={false}
         options={PREFERRED_INDUSTRIES}

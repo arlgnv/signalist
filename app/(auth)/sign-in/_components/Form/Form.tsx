@@ -4,12 +4,12 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
+import type * as z from 'zod';
 
 import authClient from '@/auth-client';
 import { TextField } from '@/components/complex';
 import { Button } from '@/components/ui/button';
 
-import type { FieldValues } from './types';
 import validationSchema from './validationSchema';
 
 function Form() {
@@ -18,7 +18,7 @@ function Form() {
     register,
     formState: { errors, isSubmitting },
     handleSubmit: rhfHandleSubmit,
-  } = useForm<FieldValues>({
+  } = useForm({
     resolver: zodResolver(validationSchema),
     defaultValues: {
       email: '',
@@ -27,7 +27,10 @@ function Form() {
   });
 
   function handleSubmit(event: React.SubmitEvent<HTMLFormElement>) {
-    async function handleSignIn({ email, password }: FieldValues) {
+    async function handleSignIn({
+      email,
+      password,
+    }: z.output<typeof validationSchema>) {
       await authClient.signIn.email(
         {
           email,
@@ -53,6 +56,7 @@ function Form() {
         className="mb-4"
         label="Email"
         name="email"
+        inputMode="email"
         placeholder="john@outlook.com"
         register={register}
         error={errors.email}
@@ -60,7 +64,6 @@ function Form() {
       <TextField
         className="mb-8"
         label="Password"
-        description="Must be between 8-128 characters"
         name="password"
         type="password"
         placeholder="********"
