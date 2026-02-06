@@ -85,7 +85,7 @@ function Form() {
                 'Account created successfully but welcome email is not delivered',
               );
             } finally {
-              router.push('/sign-in');
+              router.push('/');
             }
           },
           onError({ error: { message } }) {
