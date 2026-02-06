@@ -1,12 +1,13 @@
 'use client';
 
-import { useTheme } from 'next-themes';
 import { useEffect, useRef } from 'react';
+
+import { useResolvedTheme } from '@/hooks';
 
 function TopStories() {
   const containerRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
-  const { resolvedTheme } = useTheme();
+  const resolvedTheme = useResolvedTheme();
 
   useEffect(() => {
     if (

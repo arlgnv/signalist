@@ -5,12 +5,12 @@ import { FINNHUB_API_URL } from '@/constants';
 import environment from '@/environment';
 import { convertSecondsToMilliseconds } from '@/utilities';
 
-const schema = z.object({
+const searchParamsSchema = z.object({
   q: z.string().min(1).max(100),
 });
 
 export async function GET(request: NextRequest) {
-  const safeParseResult = schema.safeParse(
+  const safeParseResult = searchParamsSchema.safeParse(
     Object.fromEntries(request.nextUrl.searchParams),
   );
 

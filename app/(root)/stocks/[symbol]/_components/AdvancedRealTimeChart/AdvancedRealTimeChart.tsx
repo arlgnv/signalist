@@ -1,9 +1,10 @@
 'use client';
 
-import { useTheme } from 'next-themes';
 import dynamic from 'next/dynamic';
-import { useParams } from 'next/navigation';
-import type { ColorTheme } from 'react-ts-tradingview-widgets';
+
+import { useResolvedTheme } from '@/hooks';
+
+import { useParams } from '../../_hooks';
 
 const TradingViewAdvancedRealTimeChart = dynamic(
   () =>
@@ -14,14 +15,14 @@ const TradingViewAdvancedRealTimeChart = dynamic(
 );
 
 function AdvancedRealTimeChart() {
-  const { symbol } = useParams<{ symbol: string }>();
-  const { resolvedTheme } = useTheme();
+  const { symbol } = useParams();
+  const resolvedTheme = useResolvedTheme();
 
   return (
     <section>
       <h2 className="sr-only">Advanced real time chart</h2>
       <TradingViewAdvancedRealTimeChart
-        theme={resolvedTheme as ColorTheme}
+        theme={resolvedTheme}
         symbol={symbol}
         width="100%"
         allow_symbol_change={false}

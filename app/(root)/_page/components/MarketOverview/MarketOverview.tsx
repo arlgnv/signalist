@@ -1,10 +1,9 @@
 'use client';
 
-import { useTheme } from 'next-themes';
 import dynamic from 'next/dynamic';
-import type { ColorTheme } from 'react-ts-tradingview-widgets';
 
 import { TypographyH2 } from '@/components/ui/typography';
+import { useResolvedTheme } from '@/hooks';
 
 import { TABS } from './data';
 
@@ -16,13 +15,13 @@ const TradingViewMarketOverview = dynamic(
 );
 
 function MarketOverview() {
-  const { resolvedTheme } = useTheme();
+  const resolvedTheme = useResolvedTheme();
 
   return (
     <section>
       <TypographyH2 className="mb-5">Market overview</TypographyH2>
       <TradingViewMarketOverview
-        colorTheme={resolvedTheme as ColorTheme}
+        colorTheme={resolvedTheme}
         width="100%"
         height={600}
         tabs={TABS}

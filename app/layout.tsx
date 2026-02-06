@@ -29,15 +29,9 @@ function Layout({ children }: LayoutProps<'/'>) {
       suppressHydrationWarning
     >
       <body>
-        <QueryProvider>
-          <ThemeProvider
-            attribute="class"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {children}
-          </ThemeProvider>
-        </QueryProvider>
+        <ThemeProvider attribute="class" enableSystem disableTransitionOnChange>
+          <QueryProvider>{children}</QueryProvider>
+        </ThemeProvider>
         <Toaster />
       </body>
     </html>
