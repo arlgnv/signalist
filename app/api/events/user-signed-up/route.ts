@@ -8,13 +8,7 @@ import inngest from '@/inngest/client';
 const requestBodySchema = z.object({
   fullName: z.string().min(2).max(100),
   email: z.email(),
-  investmentGoal: z.enum([
-    'growth',
-    'income',
-    'balanced',
-    'aggressive',
-    'conservative',
-  ]),
+  investmentGoal: z.enum(['growth', 'income', 'balanced', 'conservative']),
   riskTolerance: z.enum(['low', 'medium', 'high']),
   preferredIndustry: z.enum([
     'technology',

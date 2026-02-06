@@ -24,9 +24,7 @@ const validationSchema = z.object({
     .min(1, 'Investment goal is required')
     .refine(
       (val): val is InvestmentGoal =>
-        ['growth', 'income', 'balanced', 'aggressive', 'conservative'].includes(
-          val,
-        ),
+        ['growth', 'income', 'balanced', 'conservative'].includes(val),
       {
         error: 'Invalid investment goal',
       },

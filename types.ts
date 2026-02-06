@@ -39,12 +39,7 @@ export interface SymbolLookup {
   }[];
 }
 
-export type InvestmentGoal =
-  | 'growth'
-  | 'income'
-  | 'balanced'
-  | 'aggressive'
-  | 'conservative';
+export type InvestmentGoal = 'growth' | 'income' | 'balanced' | 'conservative';
 
 export type RiskTolerance = 'low' | 'medium' | 'high';
 
