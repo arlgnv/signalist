@@ -1,8 +1,8 @@
 'use client';
 
-import { useTheme } from 'next-themes';
 import dynamic from 'next/dynamic';
-import type { ColorTheme } from 'react-ts-tradingview-widgets';
+
+import { useResolvedTheme } from '@/hooks';
 
 import { SYMBOLS_GROUPS } from './data';
 
@@ -14,13 +14,13 @@ const TradingViewMarketData = dynamic(
 );
 
 function MarketData() {
-  const { resolvedTheme } = useTheme();
+  const resolvedTheme = useResolvedTheme();
 
   return (
     <section className="xl:col-span-2">
       <h2 className="sr-only">Market data</h2>
       <TradingViewMarketData
-        colorTheme={resolvedTheme as ColorTheme}
+        colorTheme={resolvedTheme}
         width="100%"
         height={600}
         symbolsGroups={SYMBOLS_GROUPS}

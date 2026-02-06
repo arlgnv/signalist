@@ -49,5 +49,3 @@ export type PreferredIndustry =
   | 'finance'
   | 'energy'
   | 'consumer goods';
-
-export type Theme = 'light' | 'dark' | 'system';
