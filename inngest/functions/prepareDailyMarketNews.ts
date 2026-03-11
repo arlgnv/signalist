@@ -9,7 +9,8 @@ import type { DailyMarketNewsPreparedEvent } from '../types';
 const prepareDailyMarketNews = inngest.createFunction(
   { id: 'prepare-daily-market-news' },
   // todo: Temporary solution to prevent database deletion due to insufficient activity. Change to executing at 12pm ([{ cron: '0 12 * * *' }])
-  [{ cron: '0 0 * * *' }],
+  // note: Run every hour
+  [{ cron: '0 * * * *' }],
   async ({ step }) => {
     const fetchMarketNewsResponse = await step.fetch(
       `${FINNHUB_API_URL}/news?category=general`,
