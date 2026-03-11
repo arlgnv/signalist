@@ -5,23 +5,17 @@ import * as z from 'zod';
 import auth from '@/auth';
 import inngest from '@/inngest/client';
 
-const schema = z.object({
+const requestBodySchema = z.object({
   fullName: z.string().min(2).max(100),
   email: z.email(),
-  investmentGoal: z.enum([
-    'Growth',
-    'Income',
-    'Balanced',
-    'Aggressive',
-    'Conservative',
-  ]),
-  riskTolerance: z.enum(['Low', 'Medium', 'High']),
+  investmentGoal: z.enum(['growth', 'income', 'balanced', 'conservative']),
+  riskTolerance: z.enum(['low', 'medium', 'high']),
   preferredIndustry: z.enum([
-    'Technology',
-    'Healthcare',
-    'Finance',
-    'Energy',
-    'Consumer Goods',
+    'technology',
+    'healthcare',
+    'finance',
+    'energy',
+    'consumer goods',
   ]),
 });
 
@@ -51,7 +45,7 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const safeParseResult = schema.safeParse(requestBody);
+  const safeParseResult = requestBodySchema.safeParse(requestBody);
 
   if (!safeParseResult.success) {
     return NextResponse.json(

@@ -23,7 +23,7 @@ function UserMenu({ user }: Props) {
   const router = useRouter();
 
   function handleAccountDelete() {
-    if (!window.confirm('Delete your account? This cannot be undone.')) {
+    if (!confirm('Delete your account? This cannot be undone.')) {
       return;
     }
 

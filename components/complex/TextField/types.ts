@@ -6,7 +6,7 @@ import type {
   Path,
 } from 'react-hook-form';
 
-import type { Field } from '@/components/ui/field';
+import type { Field, FieldDescription } from '@/components/ui/field';
 import type { Input } from '@/components/ui/input';
 
 export interface Props<FieldValues extends ReactHookFormFieldValues>
@@ -17,6 +17,7 @@ export interface Props<FieldValues extends ReactHookFormFieldValues>
       'type' | 'placeholder' | 'inputMode'
     > {
   label: string;
+  description?: React.ComponentProps<typeof FieldDescription>['children'];
   name: Path<FieldValues>;
   register: UseFormRegister<FieldValues>;
   registerOptions?: RegisterOptions<FieldValues>;

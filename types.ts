@@ -38,3 +38,14 @@ export interface SymbolLookup {
     type: string;
   }[];
 }
+
+export type InvestmentGoal = 'growth' | 'income' | 'balanced' | 'conservative';
+
+export type RiskTolerance = 'low' | 'medium' | 'high';
+
+export type PreferredIndustry =
+  | 'technology'
+  | 'healthcare'
+  | 'finance'
+  | 'energy'
+  | 'consumer goods';

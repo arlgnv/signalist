@@ -4,6 +4,7 @@ import js from '@eslint/js';
 import next from '@next/eslint-plugin-next';
 import query from '@tanstack/eslint-plugin-query';
 import perfectionist from 'eslint-plugin-perfectionist';
+import zod from 'eslint-plugin-zod';
 import { defineConfig, globalIgnores } from 'eslint/config';
 import path from 'node:path';
 import typescript from 'typescript-eslint';
@@ -87,6 +88,14 @@ const config = defineConfig([
     name: 'Next.js',
     files: ['**/*.tsx'],
     extends: [next.configs['core-web-vitals']],
+  },
+  {
+    name: 'Zod',
+    files: ['**/*.{ts,tsx}'],
+    plugins: {
+      zod,
+    },
+    rules: zod.configs.recommended.rules,
   },
 ]);
 

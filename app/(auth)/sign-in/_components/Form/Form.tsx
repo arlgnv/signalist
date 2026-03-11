@@ -1,23 +1,27 @@
 'use client';
 
+import { DevTool } from '@hookform/devtools';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
+import type * as z from 'zod';
 
 import authClient from '@/auth-client';
 import { TextField } from '@/components/complex';
 import { Button } from '@/components/ui/button';
-import { EMAIL_REGULAR_EXPRESSION } from '@/constants';
 
-import type { FieldValues } from './types';
+import validationSchema from './validationSchema';
 
 function Form() {
   const router = useRouter();
   const {
+    control,
     register,
     formState: { errors, isSubmitting },
     handleSubmit: rhfHandleSubmit,
-  } = useForm<FieldValues>({
+  } = useForm({
+    resolver: zodResolver(validationSchema),
     defaultValues: {
       email: '',
       password: '',
@@ -25,7 +29,10 @@ function Form() {
   });
 
   function handleSubmit(event: React.SubmitEvent<HTMLFormElement>) {
-    async function handleSignIn({ email, password }: FieldValues) {
+    async function handleSignIn({
+      email,
+      password,
+    }: z.output<typeof validationSchema>) {
       await authClient.signIn.email(
         {
           email,
@@ -46,48 +53,38 @@ function Form() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <TextField
-        className="mb-4"
-        label="Email"
-        name="email"
-        placeholder="john@outlook.com"
-        register={register}
-        registerOptions={{
-          required: 'Email is required',
-          pattern: {
-            value: EMAIL_REGULAR_EXPRESSION,
-            message: 'Email is invalid',
-          },
-        }}
-        error={errors.email}
-      />
-      <TextField
-        className="mb-8"
-        label="Password"
-        name="password"
-        type="password"
-        placeholder="********"
-        register={register}
-        registerOptions={{
-          required: 'Password is required',
-          minLength: {
-            value: 8,
-            message: 'Password must be at least 8 characters',
-          },
-        }}
-        error={errors.password}
-      />
-      <Button
-        className="w-full"
-        size="lg"
-        type="submit"
-        focusableWhenDisabled
-        disabled={isSubmitting}
-      >
-        {isSubmitting ? 'Signing in' : 'Sign in'}
-      </Button>
-    </form>
+    <>
+      <form onSubmit={handleSubmit}>
+        <TextField
+          className="mb-4"
+          label="Email"
+          name="email"
+          inputMode="email"
+          placeholder="john@outlook.com"
+          register={register}
+          error={errors.email}
+        />
+        <TextField
+          className="mb-8"
+          label="Password"
+          name="password"
+          type="password"
+          placeholder="········"
+          register={register}
+          error={errors.password}
+        />
+        <Button
+          className="w-full"
+          size="lg"
+          type="submit"
+          focusableWhenDisabled
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? 'Signing in' : 'Sign in'}
+        </Button>
+      </form>
+      <DevTool control={control} />
+    </>
   );
 }
 
