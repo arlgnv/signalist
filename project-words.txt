@@ -28,3 +28,4 @@ watchlist
 watchlists
 weburl
 zod
+vercel
