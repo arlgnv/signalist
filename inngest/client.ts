@@ -1,10 +1,10 @@
-import { Inngest, EventSchemas as InngestEventSchemas } from 'inngest';
-
-import type { EventSchemas } from './types';
+import { Inngest } from 'inngest';
 
 const client = new Inngest({
   id: 'signalist',
-  schemas: new InngestEventSchemas().fromRecord<EventSchemas>(),
+  checkpointing: {
+    maxRuntime: '210s',
+  },
 });
 
 export default client;
