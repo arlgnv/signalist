@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic';
 
-import { useResolvedTheme } from '@/hooks';
+import { useTheme } from '@/theme';
 
 import { useParams } from '../../_hooks';
 
@@ -16,7 +16,7 @@ const TradingViewAdvancedRealTimeChart = dynamic(
 
 function AdvancedRealTimeChart() {
   const { symbol } = useParams();
-  const resolvedTheme = useResolvedTheme();
+  const { resolvedTheme } = useTheme();
 
   return (
     <section>

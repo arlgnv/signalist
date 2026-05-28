@@ -30,3 +30,6 @@ weburl
 zod
 vercel
 checkpointing
+teispace
+FOUC
+innerhtml

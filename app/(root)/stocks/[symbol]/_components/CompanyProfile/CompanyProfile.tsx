@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic';
 
-import { useResolvedTheme } from '@/hooks';
+import { useTheme } from '@/theme';
 
 import { useParams } from '../../_hooks';
 
@@ -15,7 +15,7 @@ const TradingViewCompanyProfile = dynamic(
 
 function CompanyProfile() {
   const { symbol } = useParams();
-  const resolvedTheme = useResolvedTheme();
+  const { resolvedTheme } = useTheme();
 
   return (
     <section>

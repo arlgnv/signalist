@@ -11,8 +11,9 @@ const prepareDailyMarketNews = inngest.createFunction(
   {
     id: 'prepare-daily-market-news',
     triggers: [
-      // note: Temporary solution to prevent database deletion due to insufficient activity. Change to executing at 12pm every day ([{ cron: '0 12 * * *' }]) when needed
-      // note: Run every hour
+      // Temporary solution to prevent database deletion due to insufficient activity.
+      // Runs function every hour
+      // Change to executing at 12pm every day ([{ cron: '0 12 * * *' }]) when needed
       cron('0 * * * *'),
     ],
   },

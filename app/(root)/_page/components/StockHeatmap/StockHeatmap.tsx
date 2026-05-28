@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic';
 
 import { TypographyH2 } from '@/components/ui/typography';
-import { useResolvedTheme } from '@/hooks';
+import { useTheme } from '@/theme';
 
 const TradingViewStockHeatmap = dynamic(
   () => import('react-ts-tradingview-widgets').then((w) => w.StockHeatmap),
@@ -13,7 +13,7 @@ const TradingViewStockHeatmap = dynamic(
 );
 
 function StockHeatmap() {
-  const resolvedTheme = useResolvedTheme();
+  const { resolvedTheme } = useTheme();
 
   return (
     <section className="xl:col-span-2">

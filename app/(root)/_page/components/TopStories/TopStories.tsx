@@ -2,20 +2,15 @@
 
 import { useEffect, useRef } from 'react';
 
-import { useResolvedTheme } from '@/hooks';
+import { useTheme } from '@/theme';
 
 function TopStories() {
   const containerRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
-  const resolvedTheme = useResolvedTheme();
+  const { resolvedTheme } = useTheme();
 
   useEffect(() => {
-    if (
-      containerRef.current === null ||
-      headingRef.current === null ||
-      !resolvedTheme
-    )
-      return;
+    if (containerRef.current === null || headingRef.current === null) return;
 
     const widget = document.createElement('div');
     widget.className = 'tradingview-widget-container__widget';

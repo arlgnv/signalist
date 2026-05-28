@@ -7,7 +7,7 @@ import {
 } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
-import { useResolvedTheme } from '@/hooks';
+import { useTheme } from '@/theme';
 import { convertSecondsToMilliseconds } from '@/utilities';
 
 function makeQueryClient() {
@@ -40,12 +40,12 @@ function getQueryClient() {
 }
 
 function QueryProvider({ children }: { children: React.ReactNode }) {
-  // NOTE: Avoid useState when initializing the query client if you don't
-  //       have a suspense boundary between this and the code that may
-  //       suspend because React will throw away the client on the initial
-  //       render if it suspends and there is no boundary
+  // Avoid useState when initializing the query client if you don't
+  // have a suspense boundary between this and the code that may
+  // suspend because React will throw away the client on the initial
+  // render if it suspends and there is no boundary
   const queryClient = getQueryClient();
-  const resolvedTheme = useResolvedTheme();
+  const { resolvedTheme } = useTheme();
 
   return (
     <QueryClientProvider client={queryClient}>

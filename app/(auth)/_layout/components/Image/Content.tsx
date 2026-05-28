@@ -1,12 +1,9 @@
-import { useTheme } from 'next-themes';
 import NextImage from 'next/image';
 
-import { assertResolvedThemeIsDefined } from './utilities';
+import { useTheme } from '@/theme';
 
 function Content() {
   const { resolvedTheme } = useTheme();
-
-  assertResolvedThemeIsDefined(resolvedTheme);
 
   return (
     <NextImage
