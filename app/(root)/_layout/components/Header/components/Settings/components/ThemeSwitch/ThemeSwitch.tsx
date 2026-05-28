@@ -10,6 +10,10 @@ function ThemeSwitch() {
   const { theme, setTheme } = useTheme();
 
   function handleValueChange(groupValue: string[]) {
+    if (groupValue.length === 0) {
+      return;
+    }
+
     assertGroupValueIsValid(groupValue);
 
     setTheme(groupValue[0]);
