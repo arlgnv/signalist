@@ -5,7 +5,7 @@ import { TypographyH1 } from '@/components/ui/typography';
 import { FormFooter } from '../_components';
 import { Form } from './_components';
 
-const metadata: Metadata = {
+export const metadata: Metadata = {
   title: 'Sign up',
 };
 
@@ -23,4 +23,4 @@ function Page() {
   );
 }
 
-export { Page as default, metadata };
+export default Page;
