@@ -10,7 +10,9 @@ function TopStories() {
   const { resolvedTheme } = useTheme();
 
   useEffect(() => {
-    if (containerRef.current === null || headingRef.current === null) return;
+    const containerElement = containerRef.current;
+
+    if (containerElement === null || headingRef.current === null) return;
 
     const widget = document.createElement('div');
     widget.className = 'tradingview-widget-container__widget';
@@ -22,27 +24,25 @@ function TopStories() {
     script.type = 'text/javascript';
     script.async = true;
     script.innerHTML = `
-        {
-          "displayMode": "adaptive",
-          "feedMode": "market",
-          "colorTheme": "${resolvedTheme}",
-          "isTransparent": false,
-          "locale": "en",
-          "market": "stock",
-          "width": "100%",
-          "height": 632
-        }`;
+      {
+        "displayMode": "adaptive",
+        "feedMode": "market",
+        "colorTheme": "${resolvedTheme}",
+        "isTransparent": false,
+        "locale": "en",
+        "market": "stock",
+        "width": "100%",
+        "height": 632
+      }`;
 
-    containerRef.current.append(script);
+    containerElement.append(script);
 
     return () => {
       widget.remove();
       script.remove();
-      containerRef.current
-        ?.querySelectorAll('iframe, style')
-        .forEach((element) => {
-          element.remove();
-        });
+      containerElement.querySelectorAll('iframe, style').forEach((element) => {
+        element.remove();
+      });
     };
   }, [resolvedTheme]);
 
