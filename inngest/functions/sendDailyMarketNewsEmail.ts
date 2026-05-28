@@ -3,11 +3,13 @@ import dayjs from 'dayjs';
 import { createDailyMarketNewsEmail } from '@/nodemailer/emailCreators';
 import nodemailer from '@/nodemailer/transporter';
 
-import inngest from '../client';
+import inngest, { dailyMarketNewsPrepared } from '../';
 
 const sendDailyMarketNewsEmail = inngest.createFunction(
-  { id: 'send-daily-market-news-email' },
-  [{ event: 'daily_market_news.prepared' }],
+  {
+    id: 'send-daily-market-news-email',
+    triggers: [dailyMarketNewsPrepared],
+  },
   async ({ event }) => {
     await nodemailer.sendMail({
       to: event.data.userEmail,

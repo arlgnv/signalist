@@ -7,7 +7,7 @@ import { Toaster } from '@/components/ui/sonner';
 import { QueryProvider, ThemeProvider } from './_components';
 import './globals.css';
 
-const metadata: Metadata = {
+export const metadata: Metadata = {
   title: {
     template: '%s · Signalist',
     default: 'Signalist',
@@ -23,7 +23,7 @@ function Layout({ children }: LayoutProps<'/'>) {
     <html
       className={twJoin(
         GeistSans.variable,
-        'scrollbar-thin bg-background font-geist text-foreground antialiased scrollbar-thumb-muted-foreground scrollbar-track-muted sm:scrollbar',
+        'scrollbar-thin scrollbar-thumb-muted-foreground scrollbar-track-muted bg-background font-geist text-foreground antialiased sm:scrollbar',
       )}
       lang="en"
       suppressHydrationWarning
@@ -38,4 +38,4 @@ function Layout({ children }: LayoutProps<'/'>) {
   );
 }
 
-export { Layout as default, metadata };
+export default Layout;

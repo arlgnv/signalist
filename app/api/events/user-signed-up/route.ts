@@ -3,7 +3,7 @@ import { NextResponse, type NextRequest } from 'next/server';
 import * as z from 'zod';
 
 import auth from '@/auth';
-import inngest from '@/inngest/client';
+import inngest, { userSignedUp } from '@/inngest';
 
 const requestBodySchema = z.object({
   fullName: z.string().min(2).max(100),
@@ -66,12 +66,9 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    await inngest.send({
-      name: 'user.signed_up',
-      data: safeParseResult.data,
-    });
+    await inngest.send(userSignedUp.create(safeParseResult.data));
   } catch {
-    console.error('Failed to send inngest\'s "user.signed_up" event');
+    console.error('Failed to send inngest\'s "app/user.signed_up" event');
 
     return new NextResponse(null, {
       status: 502,

@@ -1,11 +1,10 @@
 import react from '@eslint-react/eslint-plugin';
-import { includeIgnoreFile } from '@eslint/compat';
 import js from '@eslint/js';
 import next from '@next/eslint-plugin-next';
 import query from '@tanstack/eslint-plugin-query';
 import perfectionist from 'eslint-plugin-perfectionist';
 import zod from 'eslint-plugin-zod';
-import { defineConfig, globalIgnores } from 'eslint/config';
+import { defineConfig, globalIgnores, includeIgnoreFile } from 'eslint/config';
 import path from 'node:path';
 import typescript from 'typescript-eslint';
 
@@ -95,7 +94,10 @@ const config = defineConfig([
     plugins: {
       zod,
     },
-    rules: zod.configs.recommended.rules,
+    rules: {
+      ...zod.configs.recommended.rules,
+      'zod/prefer-string-schema-with-trim': 'off',
+    },
   },
 ]);
 

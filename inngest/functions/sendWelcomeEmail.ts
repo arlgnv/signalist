@@ -2,11 +2,11 @@ import { createWelcomeEmail } from '@/nodemailer/emailCreators';
 import nodemailer from '@/nodemailer/transporter';
 
 import inngest from '../client';
+import { userSignedUp } from '../eventTypes';
 import { INTRO_FOR_WELCOME_EMAIL } from '../prompts';
 
 const sendWelcomeEmail = inngest.createFunction(
-  { id: 'send-welcome-email' },
-  { event: 'user.signed_up' },
+  { id: 'send-welcome-email', triggers: [userSignedUp] },
   async ({ event, step }) => {
     const generatePersonalizedIntroResponse = await step.ai.infer(
       'generate-personalized-intro',

@@ -1,16 +1,21 @@
+import { cron } from 'inngest';
+
 import { FINNHUB_API_URL } from '@/constants';
 import environment from '@/environment';
 import supabase from '@/supabase/client';
 import type { MarketNews } from '@/types';
 
-import inngest from '../client';
-import type { DailyMarketNewsPreparedEvent } from '../types';
+import inngest, { dailyMarketNewsPrepared } from '../';
 
 const prepareDailyMarketNews = inngest.createFunction(
-  { id: 'prepare-daily-market-news' },
-  // todo: Temporary solution to prevent database deletion due to insufficient activity. Change to executing at 12pm ([{ cron: '0 12 * * *' }])
-  // note: Run every hour
-  [{ cron: '0 * * * *' }],
+  {
+    id: 'prepare-daily-market-news',
+    triggers: [
+      // note: Temporary solution to prevent database deletion due to insufficient activity. Change to executing at 12pm every day ([{ cron: '0 12 * * *' }]) when needed
+      // note: Run every hour
+      cron('0 * * * *'),
+    ],
+  },
   async ({ step }) => {
     const fetchMarketNewsResponse = await step.fetch(
       `${FINNHUB_API_URL}/news?category=general`,
@@ -42,14 +47,12 @@ const prepareDailyMarketNews = inngest.createFunction(
       });
 
       if (users.length) {
-        const dailyMarketNewsPreparedEvents =
-          users.map<DailyMarketNewsPreparedEvent>(({ email }) => ({
-            name: 'daily_market_news.prepared',
-            data: {
-              userEmail: email,
-              marketNews,
-            },
-          }));
+        const dailyMarketNewsPreparedEvents = users.map(({ email }) =>
+          dailyMarketNewsPrepared.create({
+            userEmail: email,
+            marketNews,
+          }),
+        );
 
         await step.sendEvent(
           'send-daily-market-news-prepared-events',

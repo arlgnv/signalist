@@ -12,11 +12,11 @@ jobs:
       pull-requests: read
     steps:
       - name: Check out repository
-        uses: actions/checkout@v6.0.1
+        uses: actions/checkout@v6.0.2
         with:
           fetch-depth: 0
       - name: Setup Node.js environment
-        uses: actions/setup-node@v6.2.0
+        uses: actions/setup-node@v6.4.0
         with:
           node-version-file: .node-version
       - name: Install dependencies
@@ -29,16 +29,16 @@ jobs:
           npx cspell --no-progress --no-summary file://commit-messages.txt
           rm commit-messages.txt
       - name: Spell check files
-        uses: streetsidesoftware/cspell-action@v8.2.0
+        uses: streetsidesoftware/cspell-action@v8.4.0
       - name: Get files to check formatting
         id: get-files-to-check-formatting
-        uses: tj-actions/changed-files@v47.0.1
+        uses: tj-actions/changed-files@v47.0.6
       - name: Check files formatting
         if: steps.get-files-to-check-formatting.outputs.any_changed == 'true'
         run: npx prettier --ignore-unknown --list-different ${{ steps.get-files-to-check-formatting.outputs.all_changed_files }}
       - name: Get files to lint
         id: get-files-to-lint
-        uses: tj-actions/changed-files@v47.0.1
+        uses: tj-actions/changed-files@v47.0.6
         with:
           files: '**/*.{mjs,ts,mts,tsx}'
       - name: Lint files

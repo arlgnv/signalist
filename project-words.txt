@@ -29,3 +29,4 @@ watchlists
 weburl
 zod
 vercel
+checkpointing

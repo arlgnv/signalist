@@ -1,4 +1,7 @@
+import type * as z from 'zod';
+
 import type auth from './auth';
+import type { MarketNewsSchema } from './schemas';
 
 export type User = typeof auth.$Infer.Session.user;
 
@@ -17,17 +20,7 @@ export interface CompanyProfile {
   finnhubIndustry: string;
 }
 
-export interface MarketNews {
-  category: string;
-  datetime: number;
-  headline: string;
-  id: number;
-  image: string;
-  related: string;
-  source: string;
-  summary: string;
-  url: string;
-}
+export type MarketNews = z.infer<typeof MarketNewsSchema>;
 
 export interface SymbolLookup {
   count: number;
