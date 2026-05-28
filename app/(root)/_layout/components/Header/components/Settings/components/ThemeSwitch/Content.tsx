@@ -7,6 +7,10 @@ import { SWITCHERS } from './data';
 function Content() {
   const { theme, setTheme } = useTheme();
 
+  if (typeof theme === 'undefined') {
+    return null;
+  }
+
   function handleValueChange(groupValue: string[]) {
     const selectedValue = groupValue.at(0);
 
