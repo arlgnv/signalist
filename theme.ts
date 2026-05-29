@@ -5,7 +5,6 @@ const THEMES = ['light', 'dark'] as const;
 
 export const { ThemeProvider, useTheme } = createThemes({
   themes: THEMES,
-  defaultTheme: 'system',
   attribute: 'class',
   disableTransitionOnChange: true,
   themeColor: { light: '#fff', dark: '#0a0a0a' },
