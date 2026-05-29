@@ -21,10 +21,10 @@ export const metadata: Metadata = {
 };
 
 async function Layout({ children }: LayoutProps<'/'>) {
-  const initialTheme = await getTheme();
+  const initialTheme = (await getTheme()) ?? undefined;
   const themeScript = getThemeScript({
     attribute: 'class',
-    initialTheme: initialTheme ?? undefined,
+    initialTheme,
   });
 
   return (
@@ -42,11 +42,7 @@ async function Layout({ children }: LayoutProps<'/'>) {
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body>
-        <ThemeProvider
-          attribute="class"
-          initialTheme={initialTheme ?? undefined}
-          noScript
-        >
+        <ThemeProvider attribute="class" initialTheme={initialTheme} noScript>
           <QueryProvider>{children}</QueryProvider>
           <Toaster />
         </ThemeProvider>
