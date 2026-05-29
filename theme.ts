@@ -1,10 +1,14 @@
 'use client';
 import { createThemes } from '@teispace/next-themes';
 
+const THEMES = ['light', 'dark'] as const;
+
 export const { ThemeProvider, useTheme } = createThemes({
-  themes: ['light', 'dark'] as const,
+  themes: THEMES,
   defaultTheme: 'system',
   attribute: 'class',
   disableTransitionOnChange: true,
   themeColor: { light: '#fff', dark: '#0a0a0a' },
 });
+
+export type Theme = 'system' | (typeof THEMES)[number];
