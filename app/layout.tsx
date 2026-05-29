@@ -48,8 +48,8 @@ async function Layout({ children }: LayoutProps<'/'>) {
           noScript
         >
           <QueryProvider>{children}</QueryProvider>
+          <Toaster />
         </ThemeProvider>
-        <Toaster />
       </body>
     </html>
   );
