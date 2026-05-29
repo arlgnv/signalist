@@ -3,7 +3,7 @@ import { GeistSans } from 'geist/font/sans';
 import type { Metadata } from 'next';
 import { twJoin } from 'tailwind-merge';
 
-import { Toaster } from '@/components/ui/sonner';
+import Sonner from '@/components/ui/sonner';
 import { ThemeProvider } from '@/theme';
 
 import { QueryProvider } from './_components';
@@ -44,7 +44,7 @@ async function Layout({ children }: LayoutProps<'/'>) {
       <body>
         <ThemeProvider attribute="class" initialTheme={initialTheme} noScript>
           <QueryProvider>{children}</QueryProvider>
-          <Toaster />
+          <Sonner />
         </ThemeProvider>
       </body>
     </html>

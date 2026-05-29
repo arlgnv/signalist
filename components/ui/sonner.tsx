@@ -7,15 +7,15 @@ import {
   OctagonXIcon,
   Loader2Icon,
 } from 'lucide-react';
-import { Toaster as Sonner, type ToasterProps } from 'sonner';
+import { Toaster, type ToasterProps } from 'sonner';
 
 import { useTheme } from '@/theme';
 
-const Toaster = ({ ...props }: ToasterProps) => {
+function Sonner({ ...props }: ToasterProps) {
   const { resolvedTheme } = useTheme();
 
   return (
-    <Sonner
+    <Toaster
       theme={resolvedTheme}
       className="toaster group"
       icons={{
@@ -41,6 +41,6 @@ const Toaster = ({ ...props }: ToasterProps) => {
       {...props}
     />
   );
-};
+}
 
-export { Toaster };
+export default Sonner;
