@@ -1,11 +1,12 @@
-import type { Theme } from '@/theme';
-
-const VALID_THEMES = ['system', 'light', 'dark'];
+import { type Theme, VALID_THEMES } from '@/theme';
 
 function assertGroupValueIsValid(
   groupValue: string[],
 ): asserts groupValue is [Theme] {
-  if (groupValue.length !== 1 || !VALID_THEMES.includes(groupValue[0])) {
+  if (
+    groupValue.length !== 1 ||
+    !VALID_THEMES.includes(groupValue[0] as Theme)
+  ) {
     throw new Error(`Invalid groupValue: ${String(groupValue)}`);
   }
 }
