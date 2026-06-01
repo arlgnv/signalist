@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic';
 
 import { TypographyH2 } from '@/components/ui/typography';
-import { useResolvedTheme } from '@/hooks';
+import { useTheme } from '@/theme';
 
 import { TABS } from './data';
 
@@ -15,7 +15,7 @@ const TradingViewMarketOverview = dynamic(
 );
 
 function MarketOverview() {
-  const resolvedTheme = useResolvedTheme();
+  const { resolvedTheme } = useTheme();
 
   return (
     <section>

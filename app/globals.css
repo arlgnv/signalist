@@ -1,9 +1,8 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
+@import '@teispace/next-themes/tailwind.css';
 
 @plugin 'tailwind-scrollbar';
-
-@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
   --font-geist: var(--font-geist-sans);

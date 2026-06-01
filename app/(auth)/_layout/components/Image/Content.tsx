@@ -1,15 +1,12 @@
-import { useTheme } from 'next-themes';
-import NextImage from 'next/image';
+import Image from 'next/image';
 
-import { assertResolvedThemeIsDefined } from './utilities';
+import { useTheme } from '@/theme';
 
 function Content() {
   const { resolvedTheme } = useTheme();
-
-  assertResolvedThemeIsDefined(resolvedTheme);
-
+  console.log(resolvedTheme);
   return (
-    <NextImage
+    <Image
       className="absolute rounded-ss-2xl border-s-6 border-t-6 object-cover object-top-left"
       src={`/images/${resolvedTheme}-home-page.jpg`}
       alt={`Preview of the home page in ${resolvedTheme} theme`}

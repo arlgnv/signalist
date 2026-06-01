@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic';
 
-import { useResolvedTheme } from '@/hooks';
+import { useTheme } from '@/theme';
 
 import { SYMBOLS_GROUPS } from './data';
 
@@ -14,7 +14,7 @@ const TradingViewMarketData = dynamic(
 );
 
 function MarketData() {
-  const resolvedTheme = useResolvedTheme();
+  const { resolvedTheme } = useTheme();
 
   return (
     <section className="xl:col-span-2">

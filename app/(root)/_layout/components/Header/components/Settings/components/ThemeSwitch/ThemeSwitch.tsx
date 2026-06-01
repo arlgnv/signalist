@@ -1,13 +1,37 @@
 'use client';
 
-import dynamic from 'next/dynamic';
+import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
+import { useTheme } from '@/theme';
 
-const Content = dynamic(() => import('./Content'), {
-  ssr: false,
-});
+import { SWITCHERS } from './data';
+import { assertGroupValueIsValid } from './utilities';
 
 function ThemeSwitch() {
-  return <Content />;
+  const { theme, setTheme } = useTheme();
+
+  function handleValueChange(groupValue: string[]) {
+    if (groupValue.length === 0) {
+      return;
+    }
+
+    assertGroupValueIsValid(groupValue);
+
+    setTheme(groupValue[0]);
+  }
+
+  return (
+    <ToggleGroup size="sm" value={[theme]} onValueChange={handleValueChange}>
+      {SWITCHERS.map(({ value, Icon }) => (
+        <ToggleGroupItem
+          key={value}
+          value={value}
+          aria-label={`Switch to ${value} theme`}
+        >
+          <Icon />
+        </ToggleGroupItem>
+      ))}
+    </ToggleGroup>
+  );
 }
 
 export default ThemeSwitch;

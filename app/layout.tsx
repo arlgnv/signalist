@@ -1,10 +1,12 @@
+import { getTheme, getThemeScript } from '@teispace/next-themes/server';
 import { GeistSans } from 'geist/font/sans';
 import type { Metadata } from 'next';
 import { twJoin } from 'tailwind-merge';
 
-import { Toaster } from '@/components/ui/sonner';
+import Sonner from '@/components/ui/sonner';
+import { ThemeProvider } from '@/theme';
 
-import { QueryProvider, ThemeProvider } from './_components';
+import { QueryProvider } from './_components';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -18,7 +20,13 @@ export const metadata: Metadata = {
   applicationName: 'Signalist',
 };
 
-function Layout({ children }: LayoutProps<'/'>) {
+async function Layout({ children }: LayoutProps<'/'>) {
+  const initialTheme = (await getTheme()) ?? undefined;
+  const themeScript = getThemeScript({
+    attribute: 'class',
+    initialTheme,
+  });
+
   return (
     <html
       className={twJoin(
@@ -28,11 +36,16 @@ function Layout({ children }: LayoutProps<'/'>) {
       lang="en"
       suppressHydrationWarning
     >
+      <head>
+        {/* anti-FOUC */}
+        {/*  eslint-disable-next-line @eslint-react/dom-no-dangerously-set-innerhtml */}
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body>
-        <ThemeProvider attribute="class" enableSystem disableTransitionOnChange>
+        <ThemeProvider attribute="class" initialTheme={initialTheme} noScript>
           <QueryProvider>{children}</QueryProvider>
+          <Sonner />
         </ThemeProvider>
-        <Toaster />
       </body>
     </html>
   );
