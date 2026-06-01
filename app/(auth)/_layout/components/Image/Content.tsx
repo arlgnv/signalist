@@ -4,7 +4,7 @@ import { useTheme } from '@/theme';
 
 function Content() {
   const { resolvedTheme } = useTheme();
-  console.log(resolvedTheme);
+
   return (
     <Image
       className="absolute rounded-ss-2xl border-s-6 border-t-6 object-cover object-top-left"
