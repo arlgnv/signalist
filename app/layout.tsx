@@ -1,6 +1,7 @@
 import { getTheme, getThemeScript } from '@teispace/next-themes/server';
 import { GeistSans } from 'geist/font/sans';
 import type { Metadata } from 'next';
+import { NextIntlClientProvider } from 'next-intl';
 import { twJoin } from 'tailwind-merge';
 
 import Sonner from '@/components/ui/sonner';
@@ -43,7 +44,9 @@ async function Layout({ children }: LayoutProps<'/'>) {
       </head>
       <body>
         <ThemeProvider attribute="class" initialTheme={initialTheme} noScript>
-          <QueryProvider>{children}</QueryProvider>
+          <QueryProvider>
+            <NextIntlClientProvider>{children}</NextIntlClientProvider>
+          </QueryProvider>
           <Sonner />
         </ThemeProvider>
       </body>

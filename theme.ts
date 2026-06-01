@@ -1,4 +1,5 @@
 'use client';
+
 import { createThemes } from '@teispace/next-themes';
 
 const END_THEMES = ['light', 'dark'] as const;
