@@ -11,13 +11,13 @@ import { Toaster, type ToasterProps } from 'sonner';
 
 import { useTheme } from '@/theme';
 
-function Sonner({ ...props }: ToasterProps) {
+function Sonner(props: ToasterProps) {
   const { resolvedTheme } = useTheme();
 
   return (
     <Toaster
-      theme={resolvedTheme}
       className="toaster group"
+      theme={resolvedTheme}
       icons={{
         success: <CircleCheckIcon className="size-4" />,
         info: <InfoIcon className="size-4" />,
