@@ -1,5 +1,7 @@
 {
-  "HomePage": {
-    "title": "Hello world!"
+  "home": {
+    "marketOverview": {
+      "title": "Market overview"
+    }
   }
 }

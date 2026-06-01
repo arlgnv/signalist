@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import dynamic from 'next/dynamic';
 
 import { TypographyH2 } from '@/components/ui/typography';
@@ -16,10 +17,11 @@ const TradingViewMarketOverview = dynamic(
 
 function MarketOverview() {
   const { resolvedTheme } = useTheme();
+  const t = useTranslations('home.marketOverview');
 
   return (
     <section>
-      <TypographyH2 className="mb-5">Market overview</TypographyH2>
+      <TypographyH2 className="mb-5">{t('title')}</TypographyH2>
       <TradingViewMarketOverview
         colorTheme={resolvedTheme}
         width="100%"
