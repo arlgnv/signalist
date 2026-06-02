@@ -1,1 +1,2 @@
-export { default as ThemeSwitch } from './ThemeSwitch';
+export { default as LocaleSwitcher } from './LocaleSwitcher';
+export { default as ThemeSwitcher } from './ThemeSwitcher';

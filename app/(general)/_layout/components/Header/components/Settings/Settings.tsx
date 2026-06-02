@@ -1,4 +1,5 @@
 import { Settings as SettingsIcon } from 'lucide-react';
+import { getTranslations } from 'next-intl/server';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -7,9 +8,11 @@ import {
   PopoverContent,
 } from '@/components/ui/popover';
 
-import { ThemeSwitch } from './components';
+import { LocaleSwitcher, ThemeSwitcher } from './components';
 
-function Settings() {
+async function Settings() {
+  const t = await getTranslations('header.settings');
+
   return (
     <Popover modal={false}>
       <PopoverTrigger
@@ -20,22 +23,13 @@ function Settings() {
         }
       />
       <PopoverContent align="end">
-        <ul>
-          <li className="flex justify-between py-1.5 text-sm">
-            Language
-            <button type="button" disabled>
-              <span className="text-muted-foreground">English</span>
-            </button>
+        <ul className="space-y-2">
+          <li className="flex items-center justify-between text-sm">
+            {t('title')} <LocaleSwitcher />
           </li>
-          <li className="flex justify-between py-1.5 text-sm">
-            Currency
-            <button type="button" disabled>
-              <span className="text-muted-foreground">USD</span>
-            </button>
-          </li>
-          <li className="mt-2 flex items-center justify-between text-sm">
+          <li className="flex items-center justify-between text-sm">
             Theme
-            <ThemeSwitch />
+            <ThemeSwitcher />
           </li>
         </ul>
       </PopoverContent>

@@ -6,7 +6,7 @@ import { useTheme } from '@/theme';
 import { SWITCHERS } from './data';
 import { assertGroupValueIsValid } from './utilities';
 
-function ThemeSwitch() {
+function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
 
   function handleValueChange(groupValue: string[]) {
@@ -34,4 +34,4 @@ function ThemeSwitch() {
   );
 }
 
-export default ThemeSwitch;
+export default ThemeSwitcher;

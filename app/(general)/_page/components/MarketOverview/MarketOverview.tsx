@@ -17,7 +17,7 @@ const TradingViewMarketOverview = dynamic(
 
 function MarketOverview() {
   const { resolvedTheme } = useTheme();
-  const t = useTranslations('home.marketOverview');
+  const t = useTranslations('pages.home.marketOverview');
 
   return (
     <section>

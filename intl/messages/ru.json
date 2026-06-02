@@ -1,16 +1,17 @@
 {
   "header": {
     "settings": {
-      "title": "Language",
+      "title": "Язык",
       "localeSwitcher": {
-        "language": "English"
+        "language": "Русский"
       }
     }
   },
+
   "pages": {
     "home": {
       "marketOverview": {
-        "title": "Market overview"
+        "title": "Обзор рынка"
       }
     }
   }

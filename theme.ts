@@ -3,7 +3,7 @@
 import { createThemes } from '@teispace/next-themes';
 
 const END_THEMES = ['light', 'dark'] as const;
-export const VALID_THEMES = ['system', ...END_THEMES] as const;
+export const THEMES = ['system', ...END_THEMES] as const;
 
 export const { ThemeProvider, useTheme } = createThemes({
   themes: END_THEMES,
@@ -12,4 +12,4 @@ export const { ThemeProvider, useTheme } = createThemes({
   themeColor: { light: '#fff', dark: '#0a0a0a' },
 });
 
-export type Theme = (typeof VALID_THEMES)[number];
+export type Theme = (typeof THEMES)[number];
