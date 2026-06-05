@@ -1,8 +1,14 @@
 import type { Locale } from 'next-intl';
 
-const LOCALE_TO_LANGUAGE: Record<Locale, string> = {
-  en: 'English',
-  ru: 'Русский',
-};
+const LANGUAGES: { locale: Locale; title: string }[] = [
+  {
+    locale: 'en',
+    title: 'English',
+  },
+  {
+    locale: 'ru',
+    title: 'Русский',
+  },
+];
 
-export { LOCALE_TO_LANGUAGE };
+export { LANGUAGES };

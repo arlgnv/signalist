@@ -1,9 +1,10 @@
 'use client';
 
 import { useCookie } from '@reactuses/core';
+import { Check } from 'lucide-react';
 import { type Locale, useLocale, useTranslations } from 'next-intl';
-import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { twJoin } from 'tailwind-merge';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -16,7 +17,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { LOCALE_COOKIE_NAME } from '@/intl';
 
-import { LOCALE_TO_LANGUAGE } from './constants';
+import { LANGUAGES } from './constants';
 
 function LocaleSwitcher() {
   const [dialogIsOpen, setDialogIsOpen] = useState(false);
@@ -24,20 +25,19 @@ function LocaleSwitcher() {
   const activeLocale = useLocale();
   const t = useTranslations('header.settings.localeSwitcher');
   const [, updateLocale] = useCookie(LOCALE_COOKIE_NAME);
-  const router = useRouter();
 
   function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
     setQuery(event.target.value);
   }
 
-  function createLanguageSelectHandler(locale: 'en' | 'ru') {
+  function createLanguageSelectHandler(locale: Locale) {
     return () => {
       if (locale === activeLocale) {
         return;
       }
 
       updateLocale(locale);
-      router.refresh();
+      location.reload();
     };
   }
 
@@ -46,31 +46,42 @@ function LocaleSwitcher() {
       <DialogTrigger
         render={
           <Button variant="ghost" size="sm">
-            {t('language')}
+            {t('title')}
           </Button>
         }
       />
       <DialogContent showCloseButton={false}>
-        <DialogTitle>Select language</DialogTitle>
+        <DialogTitle>{t('dialogTitle')}</DialogTitle>
         <DialogDescription className="sr-only">
-          Browse available languages and select preferred one.
+          {t('dialogDescription')}
         </DialogDescription>
         <Input
           value={query}
-          placeholder="Search languages..."
+          placeholder={t('dialogInputPlaceholder')}
           onChange={handleInputChange}
         />
         <ul className="flex flex-wrap gap-x-2 gap-y-1">
-          {Object.entries(LOCALE_TO_LANGUAGE).map(([locale, language]) => {
+          {LANGUAGES.map(({ locale, title }) => {
             const active = locale === activeLocale;
 
             return (
               <li key={locale}>
                 <Button
-                  variant={active ? undefined : 'secondary'}
-                  onClick={createLanguageSelectHandler(locale as Locale)}
+                  className={twJoin(
+                    'font-semibold',
+                    active && 'bg-muted dark:bg-input/50',
+                  )}
+                  variant="outline"
+                  onClick={createLanguageSelectHandler(locale)}
                 >
-                  {locale} {language}
+                  <span className="font-normal uppercase">{locale}</span>{' '}
+                  {title}
+                  {active && (
+                    <Check
+                      className="text-green-500 dark:text-green-300"
+                      data-icon="inline-end"
+                    />
+                  )}
                 </Button>
               </li>
             );

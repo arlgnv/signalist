@@ -3,7 +3,10 @@
     "settings": {
       "title": "Language",
       "localeSwitcher": {
-        "language": "English"
+        "title": "English",
+        "dialogTitle": "Select language",
+        "dialogDescription": "Browse available languages and select preferred one",
+        "dialogInputPlaceholder": "Search languages..."
       }
     }
   },

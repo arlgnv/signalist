@@ -3,11 +3,13 @@
     "settings": {
       "title": "Язык",
       "localeSwitcher": {
-        "language": "Русский"
+        "title": "Русский",
+        "dialogTitle": "Выберите язык",
+        "dialogDescription": "Просмотрите доступные языки и выберите предпочтительный",
+        "dialogInputPlaceholder": "Поиск языков..."
       }
     }
   },
-
   "pages": {
     "home": {
       "marketOverview": {
