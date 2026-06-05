@@ -15,7 +15,7 @@ import {
   DialogContent,
 } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
-import { LOCALE_COOKIE_NAME } from '@/intl';
+import { LOCALE_COOKIE_NAME } from '@/i18n';
 
 import { LANGUAGES } from './constants';
 
