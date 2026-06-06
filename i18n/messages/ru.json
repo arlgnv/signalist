@@ -1,13 +1,33 @@
 {
   "header": {
+    "search": {
+      "title": "Поиск",
+      "hint": "Используйте, чтобы открыть диалоговое окно поиска",
+      "dialog": {
+        "title": "Поиск акций",
+        "description": "Найдите акции и выберите одну, чтобы просмотреть более подробную информацию",
+        "popularMode": {
+          "displayedStocksHint": "Популярные акции",
+          "notFoundMessage": "Нет популярных акций",
+          "fetchErrorMessage": "Произошла ошибка при получении популярных акций"
+        },
+        "searchMode": {
+          "displayedStocksHint": "Результаты поиска",
+          "notFoundMessage": "Акций не найдено",
+          "fetchErrorMessage": "Произошла ошибка при поиске акций"
+        }
+      }
+    },
     "settings": {
       "title": "Язык",
       "localeSwitcher": {
         "title": "Русский",
-        "dialogTitle": "Выберите язык",
-        "dialogDescription": "Просмотрите доступные языки и выберите предпочтительный",
-        "dialogInputPlaceholder": "Поиск языков...",
-        "queriedLanguageNotFoundMessage": "Результаты не найдены"
+        "dialog": {
+          "title": "Выберите язык",
+          "description": "Просмотрите доступные языки и выберите предпочтительный",
+          "inputPlaceholder": "Русский",
+          "notFoundMessage": "Языки не найдены"
+        }
       }
     }
   },

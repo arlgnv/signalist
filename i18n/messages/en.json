@@ -1,13 +1,33 @@
 {
   "header": {
+    "search": {
+      "title": "Search",
+      "hint": "Use to open search dialog",
+      "dialog": {
+        "title": "Search stocks",
+        "description": "Search for stocks and select one to view more details",
+        "popularMode": {
+          "displayedStocksHint": "Popular stocks",
+          "notFoundMessage": "No popular stocks",
+          "fetchErrorMessage": "An error occurred while fetching popular stocks"
+        },
+        "searchMode": {
+          "displayedStocksHint": "Search results",
+          "notFoundMessage": "No stocks found",
+          "fetchErrorMessage": "An error occurred while searching for stocks"
+        }
+      }
+    },
     "settings": {
       "title": "Language",
       "localeSwitcher": {
         "title": "English",
-        "dialogTitle": "Select language",
-        "dialogDescription": "Browse available languages and select preferred one",
-        "dialogInputPlaceholder": "Search languages...",
-        "queriedLanguageNotFoundMessage": "No results found"
+        "dialog": {
+          "title": "Select language",
+          "description": "Browse available languages and select preferred one",
+          "inputPlaceholder": "English",
+          "notFoundMessage": "No languages found"
+        }
       }
     }
   },

@@ -4,6 +4,7 @@ import { useDebouncedState } from '@tanstack/react-pacer/debouncer';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import { Loader2, Search as SearchIcon, TrendingUp } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
@@ -60,6 +61,7 @@ function Content({ fetchPopularCompanyProfilesResponse }: ContentProps) {
       return symbolLookup.result.map(convertSymbolLookupResultItemToStock);
     },
   });
+  const t = useTranslations('header.search');
   const stocksAreBeingFetched = modeIsPopular
     ? false
     : symbolLookupIsBeingFetched;
@@ -130,26 +132,26 @@ function Content({ fetchPopularCompanyProfilesResponse }: ContentProps) {
             size="sm"
           >
             <SearchIcon />
-            <span className="grow max-sm:sr-only">Search</span>
+            <span className="grow max-sm:sr-only">{t('title')}</span>
             <Tooltip>
               <TooltipTrigger
                 className="pointer-events-auto cursor-help bg-input max-sm:hidden"
                 aria-hidden
                 render={<Kbd>/</Kbd>}
               />
-              <TooltipContent>Use to open search dialog</TooltipContent>
+              <TooltipContent>{t('hint')}</TooltipContent>
             </Tooltip>
           </Button>
         }
       />
       <DialogContent showCloseButton={false}>
-        <DialogTitle className="sr-only">Search stocks</DialogTitle>
+        <DialogTitle className="sr-only">{t('dialog.title')}</DialogTitle>
         <DialogDescription className="sr-only">
-          Search for stocks and select one to view more details.
+          {t('dialog.description')}
         </DialogDescription>
         <Input
           value={instantQuery}
-          placeholder="Search stocks..."
+          placeholder="Samsung"
           onChange={handleInputChange}
         />
         {stocksAreBeingFetched ? (
@@ -159,7 +161,7 @@ function Content({ fetchPopularCompanyProfilesResponse }: ContentProps) {
             {stocks &&
               (stocks.length ? (
                 <div>
-                  <p className="mb-2 text-xs font-medium text-muted-foreground">{`${modeIsPopular ? 'Popular stocks' : 'Search results'} (${String(stocks.length)})`}</p>
+                  <p className="mb-2 text-xs font-medium text-muted-foreground">{`${modeIsPopular ? t('dialog.popularMode.displayedStocksHint') : t('dialog.searchMode.displayedStocksHint')} (${String(stocks.length)})`}</p>
                   <ul className="scrollbar-thin max-h-70 overflow-y-auto sm:scrollbar">
                     {stocks.map(({ company, ticker, exchange, industry }) => (
                       <li key={`${company}/${ticker}`}>
@@ -183,15 +185,16 @@ function Content({ fetchPopularCompanyProfilesResponse }: ContentProps) {
                 </div>
               ) : (
                 <p className="text-center text-sm text-muted-foreground">
-                  {modeIsPopular ? 'No popular stocks' : 'No stocks found'}
+                  {modeIsPopular
+                    ? t('dialog.popularMode.notFoundMessage')
+                    : t('dialog.searchMode.notFoundMessage')}
                 </p>
               ))}
             {fetchStocksFailed && (
               <p className="text-center text-sm text-destructive/90">
-                An error occurred while{' '}
                 {modeIsPopular
-                  ? 'fetching popular stocks'
-                  : 'searching for stocks'}
+                  ? t('dialog.popularMode.fetchErrorMessage')
+                  : t('dialog.searchMode.fetchErrorMessage')}
               </p>
             )}
           </>

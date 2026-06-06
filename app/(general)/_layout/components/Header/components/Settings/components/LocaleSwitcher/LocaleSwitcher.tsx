@@ -66,17 +66,17 @@ function LocaleSwitcher() {
         }
       />
       <DialogContent showCloseButton={false}>
-        <DialogTitle>{t('dialogTitle')}</DialogTitle>
+        <DialogTitle>{t('dialog.title')}</DialogTitle>
         <DialogDescription className="sr-only">
-          {t('dialogDescription')}
+          {t('dialog.description')}
         </DialogDescription>
         <Input
           value={query}
-          placeholder={t('dialogInputPlaceholder')}
+          placeholder={t('dialog.inputPlaceholder')}
           onChange={handleInputChange}
         />
         {queriedLanguageNotFound ? (
-          <p className="text-center">{t('queriedLanguageNotFoundMessage')}</p>
+          <p className="text-center">{t('dialog.notFoundMessage')}</p>
         ) : (
           <ul className="flex flex-wrap gap-x-2 gap-y-1">
             {filteredLanguages.map(({ locale, title }) => {
