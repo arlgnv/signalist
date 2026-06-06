@@ -202,7 +202,7 @@ function FieldError({
     }
 
     if (nonEmptyErrors.length === 1) {
-      return nonEmptyErrors.at(0)?.message;
+      return nonEmptyErrors[0]?.message;
     }
 
     return (

@@ -56,7 +56,7 @@ function UserMenu({ user }: Props) {
           <Button variant="ghost" size="icon-sm">
             <Avatar>
               <AvatarImage src="https://github.com/shadcn.png" alt="Avatar" />
-              <AvatarFallback>{user.name.at(0)}</AvatarFallback>
+              <AvatarFallback>{user.name[0]}</AvatarFallback>
             </Avatar>
           </Button>
         }
