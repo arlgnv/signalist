@@ -1,6 +1,7 @@
 'use client';
 
 import { LogOut, Settings, Trash } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 
@@ -21,9 +22,10 @@ import type { Props } from './types';
 
 function UserMenu({ user }: Props) {
   const router = useRouter();
+  const t = useTranslations('header.userMenu');
 
   function handleAccountDelete() {
-    if (!confirm('Delete your account? This cannot be undone.')) {
+    if (!confirm(t('deleteAccountDialog.title'))) {
       return;
     }
 
@@ -55,31 +57,34 @@ function UserMenu({ user }: Props) {
         render={
           <Button variant="ghost" size="icon-sm">
             <Avatar>
-              <AvatarImage src="https://github.com/shadcn.png" alt="Avatar" />
+              <AvatarImage
+                src="https://github.com/shadcn.png"
+                alt={t('avatarAltText')}
+              />
               <AvatarFallback>{user.name[0]}</AvatarFallback>
             </Avatar>
           </Button>
         }
-        aria-label="Open user menu"
+        aria-label={t('assistiveLabel')}
       />
       <DropdownMenuContent align="end">
         <DropdownMenuGroup>
           <DropdownMenuLabel className="text-xs text-muted-foreground">
-            My Account
+            {t('dropdown.title')}
           </DropdownMenuLabel>
           <DropdownMenuItem disabled>
             <Settings />
-            Settings
+            {t('dropdown.settingsItemTitle')}
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem variant="destructive" onClick={handleAccountDelete}>
           <Trash />
-          Delete account
+          {t('dropdown.deleteAccountItemTitle')}
         </DropdownMenuItem>
         <DropdownMenuItem variant="destructive" onClick={handleSignOut}>
           <LogOut />
-          Sign out
+          {t('dropdown.signOutItemTitle')}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

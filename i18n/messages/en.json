@@ -33,6 +33,19 @@
     },
     "signInButton": {
       "title": "Sign in"
+    },
+    "userMenu": {
+      "assistiveLabel": "Open user menu",
+      "avatarAltText": "Avatar",
+      "dropdown": {
+        "title": "My Account",
+        "settingsItemTitle": "Settings",
+        "deleteAccountItemTitle": "Delete account",
+        "signOutItemTitle": "Sign out"
+      },
+      "deleteAccountDialog": {
+        "title": "Delete your account? This cannot be undone."
+      }
     }
   },
   "pages": {

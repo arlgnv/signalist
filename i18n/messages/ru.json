@@ -33,6 +33,19 @@
     },
     "signInButton": {
       "title": "Войти"
+    },
+    "userMenu": {
+      "assistiveLabel": "Открыть меню пользователя",
+      "avatarAltText": "Аватар",
+      "dropdown": {
+        "title": "Мой аккаунт",
+        "settingsItemTitle": "Настройки",
+        "deleteAccountItemTitle": "Удалить аккаунт",
+        "signOutItemTitle": "Выйти"
+      },
+      "deleteAccountDialog": {
+        "title": "Удалить свой аккаунт? Это невозможно отменить."
+      }
     }
   },
   "pages": {
