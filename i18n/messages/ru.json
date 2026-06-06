@@ -1,5 +1,6 @@
 {
   "header": {
+    "logoLinkAssistiveLabel": "Вернуться домой",
     "search": {
       "title": "Поиск",
       "hint": "Используйте, чтобы открыть диалоговое окно поиска",
@@ -29,6 +30,9 @@
           "notFoundMessage": "Языки не найдены"
         }
       }
+    },
+    "signInButton": {
+      "title": "Войти"
     }
   },
   "pages": {

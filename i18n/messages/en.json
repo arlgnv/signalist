@@ -1,5 +1,6 @@
 {
   "header": {
+    "logoLinkAssistiveLabel": "Go home",
     "search": {
       "title": "Search",
       "hint": "Use to open search dialog",
@@ -29,6 +30,9 @@
           "notFoundMessage": "No languages found"
         }
       }
+    },
+    "signInButton": {
+      "title": "Sign in"
     }
   },
   "pages": {
