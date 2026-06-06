@@ -17,7 +17,11 @@ async function Settings() {
     <Popover modal={false}>
       <PopoverTrigger
         render={
-          <Button variant="outline" size="icon-sm" aria-label="Open settings">
+          <Button
+            variant="outline"
+            size="icon-sm"
+            aria-label={t('assistiveLabel')}
+          >
             <SettingsIcon />
           </Button>
         }
@@ -25,10 +29,10 @@ async function Settings() {
       <PopoverContent align="end">
         <ul className="space-y-2">
           <li className="flex items-center justify-between text-sm">
-            {t('title')} <LocaleSwitcher />
+            {t('localeSwitcherTitle')} <LocaleSwitcher />
           </li>
           <li className="flex items-center justify-between text-sm">
-            Theme
+            {t('themeSwitcherTitle')}
             <ThemeSwitcher />
           </li>
         </ul>

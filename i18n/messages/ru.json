@@ -20,7 +20,8 @@
       }
     },
     "settings": {
-      "title": "Язык",
+      "assistiveLabel": "Открыть настройки",
+      "localeSwitcherTitle": "Язык",
       "localeSwitcher": {
         "title": "Русский",
         "dialog": {
@@ -29,7 +30,8 @@
           "inputPlaceholder": "Русский",
           "notFoundMessage": "Языки не найдены"
         }
-      }
+      },
+      "themeSwitcherTitle": "Тема"
     },
     "signInButton": {
       "title": "Войти"

@@ -20,7 +20,8 @@
       }
     },
     "settings": {
-      "title": "Language",
+      "assistiveLabel": "Open settings",
+      "localeSwitcherTitle": "Language",
       "localeSwitcher": {
         "title": "English",
         "dialog": {
@@ -29,7 +30,8 @@
           "inputPlaceholder": "English",
           "notFoundMessage": "No languages found"
         }
-      }
+      },
+      "themeSwitcherTitle": "Theme"
     },
     "signInButton": {
       "title": "Sign in"
