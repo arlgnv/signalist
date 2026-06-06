@@ -33,6 +33,14 @@ function LocaleSwitcher() {
   );
   const queriedLanguageNotFound = filteredLanguages.length === 0;
 
+  function handleDialogOpenChange(open: boolean) {
+    setDialogIsOpen(open);
+
+    if (!open) {
+      setQuery('');
+    }
+  }
+
   function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
     setQuery(event.target.value);
   }
@@ -49,7 +57,7 @@ function LocaleSwitcher() {
   }
 
   return (
-    <Dialog open={dialogIsOpen} onOpenChange={setDialogIsOpen}>
+    <Dialog open={dialogIsOpen} onOpenChange={handleDialogOpenChange}>
       <DialogTrigger
         render={
           <Button variant="ghost" size="sm">
