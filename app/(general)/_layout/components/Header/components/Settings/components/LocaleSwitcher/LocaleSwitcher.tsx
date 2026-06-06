@@ -25,6 +25,13 @@ function LocaleSwitcher() {
   const activeLocale = useLocale();
   const t = useTranslations('header.settings.localeSwitcher');
   const [, updateLocale] = useCookie(LOCALE_COOKIE_NAME);
+  const lowerCasedQuery = query.toLowerCase();
+  const filteredLanguages = LANGUAGES.filter(
+    ({ locale, title }) =>
+      locale.toLowerCase().includes(lowerCasedQuery) ||
+      title.toLowerCase().includes(lowerCasedQuery),
+  );
+  const queriedLanguageNotFound = filteredLanguages.length === 0;
 
   function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
     setQuery(event.target.value);
@@ -60,33 +67,37 @@ function LocaleSwitcher() {
           placeholder={t('dialogInputPlaceholder')}
           onChange={handleInputChange}
         />
-        <ul className="flex flex-wrap gap-x-2 gap-y-1">
-          {LANGUAGES.map(({ locale, title }) => {
-            const active = locale === activeLocale;
+        {queriedLanguageNotFound ? (
+          <p className="text-center">{t('queriedLanguageNotFoundMessage')}</p>
+        ) : (
+          <ul className="flex flex-wrap gap-x-2 gap-y-1">
+            {filteredLanguages.map(({ locale, title }) => {
+              const active = locale === activeLocale;
 
-            return (
-              <li key={locale}>
-                <Button
-                  className={twJoin(
-                    'font-semibold',
-                    active && 'bg-muted dark:bg-input/50',
-                  )}
-                  variant="outline"
-                  onClick={createLanguageSelectHandler(locale)}
-                >
-                  <span className="font-normal uppercase">{locale}</span>{' '}
-                  {title}
-                  {active && (
-                    <Check
-                      className="text-green-500 dark:text-green-300"
-                      data-icon="inline-end"
-                    />
-                  )}
-                </Button>
-              </li>
-            );
-          })}
-        </ul>
+              return (
+                <li key={locale}>
+                  <Button
+                    className={twJoin(
+                      'font-semibold',
+                      active && 'bg-muted dark:bg-input/50',
+                    )}
+                    variant="outline"
+                    onClick={createLanguageSelectHandler(locale)}
+                  >
+                    <span className="font-normal uppercase">{locale}</span>{' '}
+                    {title}
+                    {active && (
+                      <Check
+                        className="text-green-500 dark:text-green-300"
+                        data-icon="inline-end"
+                      />
+                    )}
+                  </Button>
+                </li>
+              );
+            })}
+          </ul>
+        )}
       </DialogContent>
     </Dialog>
   );

@@ -6,7 +6,8 @@
         "title": "English",
         "dialogTitle": "Select language",
         "dialogDescription": "Browse available languages and select preferred one",
-        "dialogInputPlaceholder": "Search languages..."
+        "dialogInputPlaceholder": "Search languages...",
+        "queriedLanguageNotFoundMessage": "No results found"
       }
     }
   },

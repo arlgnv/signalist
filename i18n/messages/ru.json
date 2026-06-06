@@ -6,7 +6,8 @@
         "title": "Русский",
         "dialogTitle": "Выберите язык",
         "dialogDescription": "Просмотрите доступные языки и выберите предпочтительный",
-        "dialogInputPlaceholder": "Поиск языков..."
+        "dialogInputPlaceholder": "Поиск языков...",
+        "queriedLanguageNotFoundMessage": "Результаты не найдены"
       }
     }
   },
