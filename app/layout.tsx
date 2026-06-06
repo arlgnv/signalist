@@ -2,6 +2,7 @@ import { getTheme, getThemeScript } from '@teispace/next-themes/server';
 import { GeistSans } from 'geist/font/sans';
 import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
+import { getLocale } from 'next-intl/server';
 import { twJoin } from 'tailwind-merge';
 
 import Sonner from '@/components/ui/sonner';
@@ -27,6 +28,7 @@ async function Layout({ children }: LayoutProps<'/'>) {
     attribute: 'class',
     initialTheme,
   });
+  const locale = await getLocale();
 
   return (
     <html
@@ -34,7 +36,7 @@ async function Layout({ children }: LayoutProps<'/'>) {
         GeistSans.variable,
         'scrollbar-thin scrollbar-thumb-muted-foreground scrollbar-track-muted bg-background font-geist text-foreground antialiased sm:scrollbar',
       )}
-      lang="en"
+      lang={locale}
       suppressHydrationWarning
     >
       <head>
@@ -44,10 +46,10 @@ async function Layout({ children }: LayoutProps<'/'>) {
       </head>
       <body>
         <ThemeProvider attribute="class" initialTheme={initialTheme} noScript>
-          <QueryProvider>
-            <NextIntlClientProvider>{children}</NextIntlClientProvider>
-          </QueryProvider>
-          <Sonner />
+          <NextIntlClientProvider>
+            <QueryProvider>{children}</QueryProvider>
+            <Sonner />
+          </NextIntlClientProvider>
         </ThemeProvider>
       </body>
     </html>
