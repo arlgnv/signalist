@@ -1,12 +1,12 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import dynamic from 'next/dynamic';
 
 import { TypographyH2 } from '@/components/ui/typography';
 import { useTheme } from '@/theme';
 
-import { TABS } from './data';
+import { useTabs } from './hooks';
 
 const TradingViewMarketOverview = dynamic(
   () => import('react-ts-tradingview-widgets').then((w) => w.MarketOverview),
@@ -18,15 +18,18 @@ const TradingViewMarketOverview = dynamic(
 function MarketOverview() {
   const { resolvedTheme } = useTheme();
   const t = useTranslations('pages.home.marketOverview');
+  const locale = useLocale();
+  const tabs = useTabs();
 
   return (
     <section>
       <TypographyH2 className="mb-5">{t('title')}</TypographyH2>
       <TradingViewMarketOverview
         colorTheme={resolvedTheme}
+        locale={locale}
         width="100%"
         height={600}
-        tabs={TABS}
+        tabs={tabs}
       />
     </section>
   );

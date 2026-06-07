@@ -1,25 +1,14 @@
 'use client';
 
-import { Monitor, Moon, Sun } from 'lucide-react';
-import { useTranslations } from 'next-intl';
-
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { useTheme } from '@/theme';
 
+import { useSwitchers } from './hooks';
 import { assertGroupValueIsValid } from './utilities';
 
 function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
-  const t = useTranslations('header.settings.themeSwitcher');
-  const switchers = [
-    { value: 'light', accessibleName: t('lightItemAccessibleName'), Icon: Sun },
-    {
-      value: 'system',
-      accessibleName: t('systemItemAccessibleName'),
-      Icon: Monitor,
-    },
-    { value: 'dark', accessibleName: t('darkItemAccessibleName'), Icon: Moon },
-  ];
+  const switchers = useSwitchers();
 
   function handleValueChange(groupValue: string[]) {
     if (groupValue.length === 0) {

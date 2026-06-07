@@ -58,7 +58,10 @@
   "pages": {
     "home": {
       "marketOverview": {
-        "title": "Market overview"
+        "title": "Market overview",
+        "stocksTabTitle": "Stocks",
+        "cryptoTabTitle": "Crypto",
+        "indicesTabTitle": "Indices"
       }
     }
   }

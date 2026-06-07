@@ -58,7 +58,10 @@
   "pages": {
     "home": {
       "marketOverview": {
-        "title": "Обзор рынка"
+        "title": "Обзор рынка",
+        "stocksTabTitle": "Акции",
+        "cryptoTabTitle": "Крипто",
+        "indicesTabTitle": "Индексы"
       }
     }
   }

@@ -35,3 +35,5 @@ FOUC
 innerhtml
 sonner
 reactuses
+Крипто
+Toncoin
