@@ -1,13 +1,25 @@
 'use client';
 
+import { Monitor, Moon, Sun } from 'lucide-react';
+import { useTranslations } from 'next-intl';
+
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { useTheme } from '@/theme';
 
-import { SWITCHERS } from './data';
 import { assertGroupValueIsValid } from './utilities';
 
 function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
+  const t = useTranslations('header.settings.themeSwitcher');
+  const switchers = [
+    { value: 'light', accessibleName: t('lightItemAccessibleName'), Icon: Sun },
+    {
+      value: 'system',
+      accessibleName: t('systemItemAccessibleName'),
+      Icon: Monitor,
+    },
+    { value: 'dark', accessibleName: t('darkItemAccessibleName'), Icon: Moon },
+  ];
 
   function handleValueChange(groupValue: string[]) {
     if (groupValue.length === 0) {
@@ -21,12 +33,8 @@ function ThemeSwitcher() {
 
   return (
     <ToggleGroup size="sm" value={[theme]} onValueChange={handleValueChange}>
-      {SWITCHERS.map(({ value, Icon }) => (
-        <ToggleGroupItem
-          key={value}
-          value={value}
-          aria-label={`Switch to ${value} theme`}
-        >
+      {switchers.map(({ value, accessibleName, Icon }) => (
+        <ToggleGroupItem key={value} value={value} aria-label={accessibleName}>
           <Icon />
         </ToggleGroupItem>
       ))}

@@ -1,6 +1,6 @@
 {
   "header": {
-    "logoLinkAssistiveLabel": "Вернуться домой",
+    "logoLinkAccessibleName": "Вернуться домой",
     "search": {
       "title": "Поиск",
       "hint": "Используйте, чтобы открыть диалоговое окно поиска",
@@ -20,7 +20,7 @@
       }
     },
     "settings": {
-      "assistiveLabel": "Открыть настройки",
+      "accessibleName": "Открыть настройки",
       "localeSwitcherTitle": "Язык",
       "localeSwitcher": {
         "title": "Русский",
@@ -31,13 +31,18 @@
           "notFoundMessage": "Языки не найдены"
         }
       },
-      "themeSwitcherTitle": "Тема"
+      "themeSwitcherTitle": "Тема",
+      "themeSwitcher": {
+        "lightItemAccessibleName": "Переключиться на светлую тему",
+        "systemItemAccessibleName": "Переключиться на системную тему",
+        "darkItemAccessibleName": "Переключиться на тёмную тему"
+      }
     },
     "signInButton": {
       "title": "Войти"
     },
     "userMenu": {
-      "assistiveLabel": "Открыть меню пользователя",
+      "accessibleName": "Открыть меню пользователя",
       "avatarAltText": "Аватар",
       "dropdown": {
         "title": "Мой аккаунт",

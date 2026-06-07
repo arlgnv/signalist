@@ -20,7 +20,7 @@ async function Settings() {
           <Button
             variant="outline"
             size="icon-sm"
-            aria-label={t('assistiveLabel')}
+            aria-label={t('accessibleName')}
           >
             <SettingsIcon />
           </Button>

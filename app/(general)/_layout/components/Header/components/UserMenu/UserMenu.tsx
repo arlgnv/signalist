@@ -65,7 +65,7 @@ function UserMenu({ user }: Props) {
             </Avatar>
           </Button>
         }
-        aria-label={t('assistiveLabel')}
+        aria-label={t('accessibleName')}
       />
       <DropdownMenuContent align="end">
         <DropdownMenuGroup>

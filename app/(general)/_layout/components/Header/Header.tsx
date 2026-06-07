@@ -20,7 +20,7 @@ async function Header() {
         <Link
           className="justify-self-start"
           href="/"
-          aria-label={t('logoLinkAssistiveLabel')}
+          aria-label={t('logoLinkAccessibleName')}
         >
           <Logo />
         </Link>

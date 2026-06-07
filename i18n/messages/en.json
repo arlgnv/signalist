@@ -1,6 +1,6 @@
 {
   "header": {
-    "logoLinkAssistiveLabel": "Go home",
+    "logoLinkAccessibleName": "Go home",
     "search": {
       "title": "Search",
       "hint": "Use to open search dialog",
@@ -20,7 +20,7 @@
       }
     },
     "settings": {
-      "assistiveLabel": "Open settings",
+      "accessibleName": "Open settings",
       "localeSwitcherTitle": "Language",
       "localeSwitcher": {
         "title": "English",
@@ -31,13 +31,18 @@
           "notFoundMessage": "No languages found"
         }
       },
-      "themeSwitcherTitle": "Theme"
+      "themeSwitcherTitle": "Theme",
+      "themeSwitcher": {
+        "lightItemAccessibleName": "Switch to light theme",
+        "systemItemAccessibleName": "Switch to system theme",
+        "darkItemAccessibleName": "Switch to dark theme"
+      }
     },
     "signInButton": {
       "title": "Sign in"
     },
     "userMenu": {
-      "assistiveLabel": "Open user menu",
+      "accessibleName": "Open user menu",
       "avatarAltText": "Avatar",
       "dropdown": {
         "title": "My Account",
