@@ -1,5 +1,6 @@
 'use client';
 
+import { useLocale, useTranslations } from 'next-intl';
 import dynamic from 'next/dynamic';
 
 import { TypographyH2 } from '@/components/ui/typography';
@@ -14,12 +15,15 @@ const TradingViewStockHeatmap = dynamic(
 
 function StockHeatmap() {
   const { resolvedTheme } = useTheme();
+  const t = useTranslations('pages.home.stockHeatmap');
+  const locale = useLocale();
 
   return (
     <section className="xl:col-span-2">
-      <TypographyH2 className="mb-5">Stock heatmap</TypographyH2>
+      <TypographyH2 className="mb-5">{t('title')}</TypographyH2>
       <TradingViewStockHeatmap
         colorTheme={resolvedTheme}
+        locale={locale}
         width="100%"
         height={600}
       />

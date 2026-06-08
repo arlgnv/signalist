@@ -62,6 +62,17 @@
         "stocksTabTitle": "Stocks",
         "cryptoTabTitle": "Crypto",
         "indicesTabTitle": "Indices"
+      },
+      "stockHeatmap": {
+        "title": "Stock heatmap"
+      },
+      "topStories": {
+        "title": "Top stories"
+      },
+      "marketData": {
+        "title": "Market data",
+        "stocksGroupTitle": "Stocks",
+        "indicesGroupTitle": "Indices"
       }
     }
   }

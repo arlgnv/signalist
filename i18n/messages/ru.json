@@ -62,6 +62,17 @@
         "stocksTabTitle": "Акции",
         "cryptoTabTitle": "Крипто",
         "indicesTabTitle": "Индексы"
+      },
+      "stockHeatmap": {
+        "title": "Тепловая карта акций"
+      },
+      "topStories": {
+        "title": "Главные новости"
+      },
+      "marketData": {
+        "title": "Данные о рынке",
+        "stocksGroupTitle": "Акции",
+        "indicesGroupTitle": "Индексы"
       }
     }
   }
