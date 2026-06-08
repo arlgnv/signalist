@@ -61,7 +61,7 @@ function Content({ fetchPopularCompanyProfilesResponse }: ContentProps) {
       return symbolLookup.result.map(convertSymbolLookupResultItemToStock);
     },
   });
-  const t = useTranslations('header.search');
+  const t = useTranslations('generalLayout.header.search');
   const stocksAreBeingFetched = modeIsPopular
     ? false
     : symbolLookupIsBeingFetched;

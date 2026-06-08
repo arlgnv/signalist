@@ -22,7 +22,7 @@ import type { Props } from './types';
 
 function UserMenu({ user }: Props) {
   const router = useRouter();
-  const t = useTranslations('header.userMenu');
+  const t = useTranslations('generalLayout.header.userMenu');
 
   function handleAccountDelete() {
     if (!confirm(t('deleteAccountDialog.title'))) {

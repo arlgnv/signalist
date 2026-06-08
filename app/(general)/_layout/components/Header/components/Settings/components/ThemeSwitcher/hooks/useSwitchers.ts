@@ -2,7 +2,7 @@ import { Monitor, Moon, Sun } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 function useSwitchers() {
-  const t = useTranslations('header.settings.themeSwitcher');
+  const t = useTranslations('generalLayout.header.settings.themeSwitcher');
 
   return [
     { value: 'light', accessibleName: t('lightItemAccessibleName'), Icon: Sun },

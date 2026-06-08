@@ -23,7 +23,7 @@ function LocaleSwitcher() {
   const [dialogIsOpen, setDialogIsOpen] = useState(false);
   const [query, setQuery] = useState('');
   const activeLocale = useLocale();
-  const t = useTranslations('header.settings.localeSwitcher');
+  const t = useTranslations('generalLayout.header.settings.localeSwitcher');
   const [, updateLocale] = useCookie(LOCALE_COOKIE_NAME);
   const lowerCasedQuery = query.toLowerCase();
   const filteredLanguages = LANGUAGES.filter(
