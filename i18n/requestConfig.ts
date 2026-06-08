@@ -1,16 +1,14 @@
 import { getRequestConfig } from 'next-intl/server';
 import { cookies as getCookies, headers as getHeaders } from 'next/headers';
 
-import { LOCALE_COOKIE_NAME } from './constants';
+import { LOCALE_COOKIE_NAME, LOCALES } from './constants';
 import { isValidLocale } from './typeGuards';
-
-const PREFERRED_LOCALE_REG_EXP = /[a-z]+/;
 
 async function resolveLocale() {
   const cookies = await getCookies();
   const localeCookie = cookies.get(LOCALE_COOKIE_NAME)?.value;
 
-  if (localeCookie && isValidLocale(localeCookie)) {
+  if (isValidLocale(localeCookie)) {
     return localeCookie;
   }
 
@@ -19,16 +17,15 @@ async function resolveLocale() {
 
   if (acceptLanguageHeader) {
     for (const preferredLanguage of acceptLanguageHeader.split(',')) {
-      const preferredLocale =
-        PREFERRED_LOCALE_REG_EXP.exec(preferredLanguage)?.[0];
+      const baseLanguageTag = preferredLanguage.split(/[;-]/)[0];
 
-      if (preferredLocale && isValidLocale(preferredLocale)) {
-        return preferredLocale;
+      if (isValidLocale(baseLanguageTag)) {
+        return baseLanguageTag;
       }
     }
   }
 
-  return 'en';
+  return LOCALES[0];
 }
 
 const requestConfig = getRequestConfig(async () => {
