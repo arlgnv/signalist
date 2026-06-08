@@ -74,6 +74,23 @@
         "stocksGroupTitle": "Stocks",
         "indicesGroupTitle": "Indices"
       }
+    },
+    "stock": {
+      "symbolInfo": {
+        "title": "Symbol info"
+      },
+      "fundamentalData": {
+        "title": "Fundamental data"
+      },
+      "companyProfile": {
+        "title": "Company profile"
+      },
+      "technicalAnalysis": {
+        "title": "Technical analysis"
+      },
+      "advancedRealTimeChart": {
+        "title": "Advanced real time chart"
+      }
     }
   }
 }

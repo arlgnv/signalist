@@ -1,5 +1,6 @@
 'use client';
 
+import { useLocale, useTranslations } from 'next-intl';
 import dynamic from 'next/dynamic';
 
 import { useTheme } from '@/theme';
@@ -16,12 +17,15 @@ const TradingViewFundamentalData = dynamic(
 function FundamentalData() {
   const { symbol } = useParams();
   const { resolvedTheme } = useTheme();
+  const t = useTranslations('pages.stock.fundamentalData');
+  const locale = useLocale();
 
   return (
     <section>
-      <h2 className="sr-only">Fundamental data</h2>
+      <h2 className="sr-only">{t('title')}</h2>
       <TradingViewFundamentalData
         colorTheme={resolvedTheme}
+        locale={locale}
         symbol={symbol}
         width="100%"
         height={550}

@@ -74,6 +74,23 @@
         "stocksGroupTitle": "Акции",
         "indicesGroupTitle": "Индексы"
       }
+    },
+    "stock": {
+      "symbolInfo": {
+        "title": "Информация о символе"
+      },
+      "fundamentalData": {
+        "title": "Фундаментальные данные"
+      },
+      "companyProfile": {
+        "title": "Профиль компании"
+      },
+      "technicalAnalysis": {
+        "title": "Технический анализ"
+      },
+      "advancedRealTimeChart": {
+        "title": "Продвинутый график в реальном времени"
+      }
     }
   }
 }

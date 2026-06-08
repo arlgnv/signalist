@@ -1,5 +1,6 @@
 'use client';
 
+import { useLocale, useTranslations } from 'next-intl';
 import dynamic from 'next/dynamic';
 
 import { useTheme } from '@/theme';
@@ -17,12 +18,15 @@ const TradingViewAdvancedRealTimeChart = dynamic(
 function AdvancedRealTimeChart() {
   const { symbol } = useParams();
   const { resolvedTheme } = useTheme();
+  const t = useTranslations('pages.stock.advancedRealTimeChart');
+  const locale = useLocale();
 
   return (
     <section>
-      <h2 className="sr-only">Advanced real time chart</h2>
+      <h2 className="sr-only">{t('title')}</h2>
       <TradingViewAdvancedRealTimeChart
         theme={resolvedTheme}
+        locale={locale}
         symbol={symbol}
         width="100%"
         allow_symbol_change={false}
