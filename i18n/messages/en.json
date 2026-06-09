@@ -61,7 +61,7 @@
     "logoLinkAccessibleName": "Go home",
     "quote": {
       "text": "Signalist turned my watchlist into a winning list. The alerts are spot-on, and I feel more confident making moves in the market.",
-      "author": "Ethan R",
+      "author": "Ethan R.",
       "occupation": "Retail investor"
     }
   },
@@ -126,6 +126,84 @@
       "formFooter": {
         "text": "New to Signalist?",
         "linkText": "Sign up"
+      }
+    },
+    "signUp": {
+      "title": "Sign up for Signalist",
+      "form": {
+        "fullName": {
+          "label": "Full name",
+          "placeholder": "John Smith",
+          "description": "Must be between 2-100 characters",
+          "errors": {
+            "required": "Full name is required",
+            "tooShort": "Full name is too short",
+            "tooLong": "Full name is too long"
+          }
+        },
+        "email": {
+          "label": "Email",
+          "errors": {
+            "required": "Email is required",
+            "invalid": "Email is invalid"
+          }
+        },
+        "country": {
+          "label": "Country",
+          "placeholder": "Select country",
+          "description": "Helps us show market data and news relevant to you",
+          "input": {
+            "placeholder": "United States",
+            "notFoundMessage": "No countries found"
+          },
+          "errors": {
+            "required": "Country is required"
+          }
+        },
+        "password": {
+          "label": "Password",
+          "description": "Must be between 8-128 characters",
+          "errors": {
+            "required": "Password is required",
+            "tooShort": "Password is too short",
+            "tooLong": "Password is too long"
+          }
+        },
+        "investmentGoal": {
+          "label": "Investment goal",
+          "placeholder": "Select investment goal",
+          "errors": {
+            "required": "Investment goal is required",
+            "invalid": "Investment goal is invalid"
+          }
+        },
+        "riskTolerance": {
+          "label": "Risk tolerance",
+          "placeholder": "Select risk tolerance",
+          "errors": {
+            "required": "Risk tolerance is required",
+            "invalid": "Risk tolerance is invalid"
+          }
+        },
+        "preferredIndustry": {
+          "label": "Preferred industry",
+          "placeholder": "Select preferred industry",
+          "errors": {
+            "required": "Preferred industry is required",
+            "invalid": "Preferred industry is invalid"
+          }
+        },
+        "receiveDailyMarketNews": {
+          "label": "Receive daily market news via email"
+        },
+        "button": {
+          "text": "Start your investing journey",
+          "pendingText": "Creating account"
+        }
+      },
+      "formFooter": {
+        "text": "Already have an account?",
+        "linkText": "Sign in"
       }
     }
   }

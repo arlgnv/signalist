@@ -12,7 +12,7 @@ const userSignedUp = eventType('app/user.signed_up', {
       'healthcare',
       'finance',
       'energy',
-      'consumer goods',
+      'consumerGoods',
     ]),
   }),
 });

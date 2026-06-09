@@ -16,5 +16,5 @@ export const PREFERRED_INDUSTRIES = [
   { value: 'healthcare', label: 'Healthcare' },
   { value: 'finance', label: 'Finance' },
   { value: 'energy', label: 'Energy' },
-  { value: 'consumer goods', label: 'Consumer goods' },
+  { value: 'consumerGoods', label: 'Consumer goods' },
 ];

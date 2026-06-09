@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl';
 import * as z from 'zod';
 
-function useLoginDataSchema() {
+function useFormDataSchema() {
   const t = useTranslations('pages.signIn.form');
 
   return z.object({
@@ -16,4 +16,4 @@ function useLoginDataSchema() {
   });
 }
 
-export default useLoginDataSchema;
+export default useFormDataSchema;

@@ -1,13 +1,13 @@
 import type { ControllerProps } from 'react-hook-form';
 import type * as z from 'zod';
 
-import type validationSchema from '../../validationSchema';
+import type { useFormDataSchema } from '../../hooks';
 
 export type Props = Pick<
   ControllerProps<
-    z.input<typeof validationSchema>,
+    z.input<ReturnType<typeof useFormDataSchema>>,
     'country',
-    z.output<typeof validationSchema>
+    z.output<ReturnType<typeof useFormDataSchema>>
   >,
   'control' | 'disabled'
 >;

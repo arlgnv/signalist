@@ -12,19 +12,19 @@ import authClient from '@/auth-client';
 import { TextField } from '@/components/complex';
 import { Button } from '@/components/ui/button';
 
-import { useLoginDataSchema } from './hooks';
+import { useFormDataSchema } from './hooks';
 
 function Form() {
   const router = useRouter();
   const t = useTranslations('pages.signIn.form');
-  const loginDataScheme = useLoginDataSchema();
+  const formDataScheme = useFormDataSchema();
   const {
     control,
     register,
     formState: { errors, isSubmitting },
     handleSubmit: rhfHandleSubmit,
   } = useForm({
-    resolver: zodResolver(loginDataScheme),
+    resolver: zodResolver(formDataScheme),
     defaultValues: {
       email: '',
       password: '',
@@ -35,7 +35,7 @@ function Form() {
     async function handleSignIn({
       email,
       password,
-    }: z.output<typeof loginDataScheme>) {
+    }: z.output<typeof formDataScheme>) {
       await authClient.signIn.email(
         {
           email,
@@ -63,7 +63,7 @@ function Form() {
           label={t('email.label')}
           name="email"
           inputMode="email"
-          placeholder="john@outlook.com"
+          placeholder="john.smith@outlook.com"
           register={register}
           error={errors.email}
         />

@@ -41,4 +41,4 @@ export type PreferredIndustry =
   | 'healthcare'
   | 'finance'
   | 'energy'
-  | 'consumer goods';
+  | 'consumerGoods';
