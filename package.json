@@ -15,7 +15,7 @@
     "declutter:check-cached": "npm run declutter:check -- --cache",
     "spell:check": "cspell .",
     "spell:check-cached": "cspell --cache --cache-strategy metadata --cache-location=node_modules/.cache/cspell .",
-    "i18n:check": "i18n-check --source en --locales i18n/messages",
+    "i18n:check": "i18n-check --locales i18n/messages --source en",
     "build": "next build",
     "start": "next start",
     "prepare": "husky"
