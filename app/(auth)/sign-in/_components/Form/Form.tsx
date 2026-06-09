@@ -80,7 +80,6 @@ function Form() {
           className="w-full"
           size="lg"
           type="submit"
-          focusableWhenDisabled
           disabled={isSubmitting}
         >
           {isSubmitting ? t('button.pendingText') : t('button.text')}
