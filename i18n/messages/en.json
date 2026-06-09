@@ -101,6 +101,32 @@
       "advancedRealTimeChart": {
         "title": "Advanced real time chart"
       }
+    },
+    "signIn": {
+      "title": "Sign in to Signalist",
+      "form": {
+        "email": {
+          "label": "Email",
+          "errors": {
+            "required": "Email is required",
+            "invalid": "Email is invalid"
+          }
+        },
+        "password": {
+          "label": "Password",
+          "errors": {
+            "required": "Password is required"
+          }
+        },
+        "button": {
+          "text": "Sign in",
+          "pendingText": "Signing in"
+        }
+      },
+      "formFooter": {
+        "text": "New to Signalist?",
+        "linkText": "Sign up"
+      }
     }
   }
 }

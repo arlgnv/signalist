@@ -101,6 +101,32 @@
       "advancedRealTimeChart": {
         "title": "Продвинутый график в реальном времени"
       }
+    },
+    "signIn": {
+      "title": "Войти в Signalist",
+      "form": {
+        "email": {
+          "label": "Почта",
+          "errors": {
+            "required": "Почта обязательна",
+            "invalid": "Почта невалидна"
+          }
+        },
+        "password": {
+          "label": "Пароль",
+          "errors": {
+            "required": "Пароль обязателен"
+          }
+        },
+        "button": {
+          "text": "Войти",
+          "pendingText": "Вход в систему"
+        }
+      },
+      "formFooter": {
+        "text": "Впервые на Signalist?",
+        "linkText": "Зарегистрироваться"
+      }
     }
   }
 }
