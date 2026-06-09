@@ -172,6 +172,20 @@
         "investmentGoal": {
           "label": "Investment goal",
           "placeholder": "Select investment goal",
+          "options": {
+            "growth": {
+              "label": "Growth"
+            },
+            "income": {
+              "label": "Income"
+            },
+            "balanced": {
+              "label": "Balanced"
+            },
+            "conservative": {
+              "label": "Conservative"
+            }
+          },
           "errors": {
             "required": "Investment goal is required",
             "invalid": "Investment goal is invalid"
@@ -180,6 +194,17 @@
         "riskTolerance": {
           "label": "Risk tolerance",
           "placeholder": "Select risk tolerance",
+          "options": {
+            "low": {
+              "label": "Low"
+            },
+            "medium": {
+              "label": "Medium"
+            },
+            "high": {
+              "label": "High"
+            }
+          },
           "errors": {
             "required": "Risk tolerance is required",
             "invalid": "Risk tolerance is invalid"
@@ -188,6 +213,23 @@
         "preferredIndustry": {
           "label": "Preferred industry",
           "placeholder": "Select preferred industry",
+          "options": {
+            "technology": {
+              "label": "Technology"
+            },
+            "healthcare": {
+              "label": "Healthcare"
+            },
+            "finance": {
+              "label": "Finance"
+            },
+            "energy": {
+              "label": "Energy"
+            },
+            "consumerGoods": {
+              "label": "Consumer goods"
+            }
+          },
           "errors": {
             "required": "Preferred industry is required",
             "invalid": "Preferred industry is invalid"
@@ -199,6 +241,9 @@
         "button": {
           "text": "Start your investing journey",
           "pendingText": "Creating account"
+        },
+        "welcomeEmailSendingFailureToast": {
+          "text": "Account created successfully but welcome email is not delivered"
         }
       },
       "formFooter": {

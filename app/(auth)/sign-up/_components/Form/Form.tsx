@@ -16,11 +16,11 @@ import { convertSecondsToMilliseconds } from '@/utilities';
 
 import { Country } from './components';
 import {
-  INVESTMENT_GOALS,
-  PREFERRED_INDUSTRIES,
-  RISK_TOLERANCES,
-} from './data';
-import { useFormDataSchema } from './hooks';
+  useFormDataSchema,
+  useInvestmentGoals,
+  useRiskTolerances,
+  usePreferredIndustries,
+} from './hooks';
 
 function Form() {
   const router = useRouter();
@@ -44,6 +44,9 @@ function Form() {
       receiveDailyMarketNews: false,
     },
   });
+  const investmentGoals = useInvestmentGoals();
+  const riskTolerances = useRiskTolerances();
+  const preferredIndustries = usePreferredIndustries();
 
   function handleSubmit(event: React.SubmitEvent<HTMLFormElement>) {
     async function handleSignUp({
@@ -84,9 +87,7 @@ function Form() {
                 },
               );
             } catch {
-              toast.info(
-                'Account created successfully but welcome email is not delivered',
-              );
+              toast.info(t('welcomeEmailSendingFailureToast.text'));
             } finally {
               router.push('/');
             }
@@ -140,7 +141,7 @@ function Form() {
           control={control}
           placeholder={t('investmentGoal.placeholder')}
           modal={false}
-          options={INVESTMENT_GOALS}
+          options={investmentGoals}
         />
         <SelectField
           className="mb-4"
@@ -149,7 +150,7 @@ function Form() {
           control={control}
           placeholder={t('riskTolerance.placeholder')}
           modal={false}
-          options={RISK_TOLERANCES}
+          options={riskTolerances}
         />
         <SelectField
           className="mb-4"
@@ -158,7 +159,7 @@ function Form() {
           control={control}
           placeholder={t('preferredIndustry.placeholder')}
           modal={false}
-          options={PREFERRED_INDUSTRIES}
+          options={preferredIndustries}
         />
         <CheckboxField
           className="mb-8"
