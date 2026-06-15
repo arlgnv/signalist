@@ -6,9 +6,13 @@ import { TypographyH1 } from '@/components/ui/typography';
 import { FormFooter } from '../_components';
 import { Form } from './_components';
 
-export const metadata: Metadata = {
-  title: 'Sign up',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations('metadata.pages.signUp');
+
+  return {
+    title: t('title'),
+  };
+}
 
 async function Page() {
   const t = await getTranslations('pages.signUp');

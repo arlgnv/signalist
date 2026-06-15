@@ -2,7 +2,7 @@ import { getTheme, getThemeScript } from '@teispace/next-themes/server';
 import { GeistSans } from 'geist/font/sans';
 import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
-import { getLocale } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { twJoin } from 'tailwind-merge';
 
 import Sonner from '@/components/ui/sonner';
@@ -11,16 +11,20 @@ import { ThemeProvider } from '@/theme';
 import { QueryProvider } from './_components';
 import './globals.css';
 
-export const metadata: Metadata = {
-  title: {
-    template: '%s · Signalist',
-    default: 'Signalist',
-  },
-  description:
-    'Track real-time stock prices, get personalized alerts, and explore detailed company insights.',
-  generator: 'Next.js',
-  applicationName: 'Signalist',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations('metadata');
+
+  return {
+    title: {
+      template: '%s · Signalist',
+      default: 'Signalist',
+    },
+    description: t('description'),
+    keywords: ['stock tracker', 'Next.js', 'React', 'JavaScript', 'TypeScript'],
+    generator: 'Next.js',
+    applicationName: 'Signalist',
+  };
+}
 
 async function Layout({ children }: LayoutProps<'/'>) {
   const initialTheme = (await getTheme()) ?? undefined;

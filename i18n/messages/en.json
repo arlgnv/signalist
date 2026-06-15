@@ -1,4 +1,15 @@
 {
+  "metadata": {
+    "description": "Track real-time stock prices and explore detailed company insights.",
+    "pages": {
+      "signIn": {
+        "title": "Sign in"
+      },
+      "signUp": {
+        "title": "Sign up"
+      }
+    }
+  },
   "layouts": {
     "general": {
       "header": {
