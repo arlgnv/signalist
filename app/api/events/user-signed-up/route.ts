@@ -15,7 +15,7 @@ const requestBodySchema = z.object({
     'healthcare',
     'finance',
     'energy',
-    'consumer goods',
+    'consumerGoods',
   ]),
 });
 

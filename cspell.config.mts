@@ -1,6 +1,8 @@
 import { defineConfig } from 'cspell';
 
 const config = defineConfig({
+  import: ['@cspell/dict-ru_ru/cspell-ext.json'],
+  language: 'en,ru',
   useGitignore: true,
   ignorePaths: ['supabase/types.ts'],
   dictionaries: ['project-words'],

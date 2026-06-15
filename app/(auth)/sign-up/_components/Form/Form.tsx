@@ -3,6 +3,7 @@
 import { DevTool } from '@hookform/devtools';
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
+import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
@@ -15,21 +16,23 @@ import { convertSecondsToMilliseconds } from '@/utilities';
 
 import { Country } from './components';
 import {
-  INVESTMENT_GOALS,
-  PREFERRED_INDUSTRIES,
-  RISK_TOLERANCES,
-} from './data';
-import validationSchema from './validationSchema';
+  useFormDataSchema,
+  useInvestmentGoals,
+  useRiskTolerances,
+  usePreferredIndustries,
+} from './hooks';
 
 function Form() {
   const router = useRouter();
+  const t = useTranslations('pages.signUp.form');
+  const formDataScheme = useFormDataSchema();
   const {
     register,
     formState: { errors, isSubmitting },
     control,
     handleSubmit: rhfHandleSubmit,
   } = useForm({
-    resolver: zodResolver(validationSchema),
+    resolver: zodResolver(formDataScheme),
     defaultValues: {
       fullName: '',
       email: '',
@@ -41,6 +44,9 @@ function Form() {
       receiveDailyMarketNews: false,
     },
   });
+  const investmentGoals = useInvestmentGoals();
+  const riskTolerances = useRiskTolerances();
+  const preferredIndustries = usePreferredIndustries();
 
   function handleSubmit(event: React.SubmitEvent<HTMLFormElement>) {
     async function handleSignUp({
@@ -52,7 +58,7 @@ function Form() {
       riskTolerance,
       preferredIndustry,
       receiveDailyMarketNews,
-    }: z.output<typeof validationSchema>) {
+    }: z.output<typeof formDataScheme>) {
       await authClient.signUp.email(
         {
           name: fullName,
@@ -81,9 +87,7 @@ function Form() {
                 },
               );
             } catch {
-              toast.info(
-                'Account created successfully but welcome email is not delivered',
-              );
+              toast.info(t('welcomeEmailSendingFailureToast.text'));
             } finally {
               router.push('/');
             }
@@ -103,27 +107,27 @@ function Form() {
       <form onSubmit={handleSubmit}>
         <TextField
           className="mb-4"
-          label="Full name"
-          description="Must be between 2-100 characters"
+          label={t('fullName.label')}
+          description={t('fullName.description')}
           name="fullName"
-          placeholder="John Smith"
+          placeholder={t('fullName.placeholder')}
           register={register}
           error={errors.fullName}
         />
         <TextField
           className="mb-4"
-          label="Email"
+          label={t('email.label')}
           name="email"
           inputMode="email"
-          placeholder="john@outlook.com"
+          placeholder="john.smith@outlook.com"
           register={register}
           error={errors.email}
         />
         <Country control={control} />
         <TextField
           className="mb-4"
-          label="Password"
-          description="Must be between 8-128 characters"
+          label={t('password.label')}
+          description={t('password.description')}
           name="password"
           type="password"
           placeholder="········"
@@ -132,34 +136,34 @@ function Form() {
         />
         <SelectField
           className="mb-4"
-          label="Investment goal"
+          label={t('investmentGoal.label')}
           name="investmentGoal"
           control={control}
-          placeholder="Select investment goal"
+          placeholder={t('investmentGoal.placeholder')}
           modal={false}
-          options={INVESTMENT_GOALS}
+          options={investmentGoals}
         />
         <SelectField
           className="mb-4"
-          label="Risk tolerance"
+          label={t('riskTolerance.label')}
           name="riskTolerance"
           control={control}
-          placeholder="Select risk tolerance"
+          placeholder={t('riskTolerance.placeholder')}
           modal={false}
-          options={RISK_TOLERANCES}
+          options={riskTolerances}
         />
         <SelectField
           className="mb-4"
-          label="Preferred industry"
+          label={t('preferredIndustry.label')}
           name="preferredIndustry"
           control={control}
-          placeholder="Select preferred industry"
+          placeholder={t('preferredIndustry.placeholder')}
           modal={false}
-          options={PREFERRED_INDUSTRIES}
+          options={preferredIndustries}
         />
         <CheckboxField
           className="mb-8"
-          label="Receive daily market news via email"
+          label={t('receiveDailyMarketNews.label')}
           name="receiveDailyMarketNews"
           control={control}
         />
@@ -167,10 +171,9 @@ function Form() {
           className="w-full"
           size="lg"
           type="submit"
-          focusableWhenDisabled
           disabled={isSubmitting}
         >
-          {isSubmitting ? 'Creating account' : 'Start your investing journey'}
+          {isSubmitting ? t('button.pendingText') : t('button.text')}
         </Button>
       </form>
       <DevTool control={control} />

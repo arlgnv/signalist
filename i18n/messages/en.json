@@ -1,0 +1,274 @@
+{
+  "metadata": {
+    "description": "Track real-time stock prices and explore detailed company insights.",
+    "pages": {
+      "signIn": {
+        "title": "Sign in"
+      },
+      "signUp": {
+        "title": "Sign up"
+      }
+    }
+  },
+  "layouts": {
+    "general": {
+      "header": {
+        "logoLinkAccessibleName": "Go home",
+        "search": {
+          "title": "Search",
+          "hint": "Use to open search dialog",
+          "dialog": {
+            "title": "Search stocks",
+            "description": "Search for stocks and select one to view more details",
+            "popularMode": {
+              "displayedStocksHint": "Popular stocks",
+              "notFoundMessage": "No popular stocks",
+              "fetchErrorMessage": "An error occurred while fetching popular stocks"
+            },
+            "searchMode": {
+              "displayedStocksHint": "Search results",
+              "notFoundMessage": "No stocks found",
+              "fetchErrorMessage": "An error occurred while searching for stocks"
+            }
+          }
+        },
+        "settings": {
+          "accessibleName": "Open settings",
+          "localeSwitcherTitle": "Language",
+          "localeSwitcher": {
+            "title": "English",
+            "dialog": {
+              "title": "Select language",
+              "description": "Browse available languages and select preferred one",
+              "inputPlaceholder": "English",
+              "notFoundMessage": "No languages found"
+            }
+          },
+          "themeSwitcherTitle": "Theme",
+          "themeSwitcher": {
+            "lightItemAccessibleName": "Switch to light theme",
+            "systemItemAccessibleName": "Switch to system theme",
+            "darkItemAccessibleName": "Switch to dark theme"
+          }
+        },
+        "signInButton": {
+          "title": "Sign in"
+        },
+        "userMenu": {
+          "accessibleName": "Open user menu",
+          "avatarAltText": "Avatar",
+          "dropdown": {
+            "title": "My Account",
+            "settingsItemTitle": "Settings",
+            "deleteAccountItemTitle": "Delete account",
+            "signOutItemTitle": "Sign out"
+          },
+          "deleteAccountDialog": {
+            "title": "Delete your account? This cannot be undone."
+          }
+        }
+      }
+    },
+    "auth": {
+      "logoLinkAccessibleName": "Go home",
+      "quote": {
+        "text": "Signalist turned my watchlist into a winning list. The alerts are spot-on, and I feel more confident making moves in the market.",
+        "author": "Ethan R.",
+        "occupation": "Retail investor"
+      },
+      "image": {
+        "altText": {
+          "light": "Home page in light theme",
+          "dark": "Home page in dark theme"
+        }
+      }
+    }
+  },
+  "pages": {
+    "home": {
+      "marketOverview": {
+        "title": "Market overview",
+        "stocksTabTitle": "Stocks",
+        "cryptoTabTitle": "Crypto",
+        "indicesTabTitle": "Indices"
+      },
+      "stockHeatmap": {
+        "title": "Stock heatmap"
+      },
+      "topStories": {
+        "title": "Top stories"
+      },
+      "marketData": {
+        "title": "Market data",
+        "stocksGroupTitle": "Stocks",
+        "indicesGroupTitle": "Indices"
+      }
+    },
+    "stock": {
+      "symbolInfo": {
+        "title": "Symbol info"
+      },
+      "fundamentalData": {
+        "title": "Fundamental data"
+      },
+      "companyProfile": {
+        "title": "Company profile"
+      },
+      "technicalAnalysis": {
+        "title": "Technical analysis"
+      },
+      "advancedRealTimeChart": {
+        "title": "Advanced real time chart"
+      }
+    },
+    "signIn": {
+      "title": "Sign in to Signalist",
+      "form": {
+        "email": {
+          "label": "Email",
+          "errors": {
+            "required": "Email is required",
+            "invalid": "Email is invalid"
+          }
+        },
+        "password": {
+          "label": "Password",
+          "errors": {
+            "required": "Password is required"
+          }
+        },
+        "button": {
+          "text": "Sign in",
+          "pendingText": "Signing in"
+        }
+      },
+      "formFooter": {
+        "text": "New to Signalist?",
+        "linkText": "Sign up"
+      }
+    },
+    "signUp": {
+      "title": "Sign up for Signalist",
+      "form": {
+        "fullName": {
+          "label": "Full name",
+          "placeholder": "John Smith",
+          "description": "Must be between 2-100 characters",
+          "errors": {
+            "required": "Full name is required",
+            "tooShort": "Full name is too short",
+            "tooLong": "Full name is too long"
+          }
+        },
+        "email": {
+          "label": "Email",
+          "errors": {
+            "required": "Email is required",
+            "invalid": "Email is invalid"
+          }
+        },
+        "country": {
+          "label": "Country",
+          "placeholder": "Select country",
+          "description": "Helps us show market data and news relevant to you",
+          "input": {
+            "placeholder": "United States",
+            "notFoundMessage": "No countries found"
+          },
+          "errors": {
+            "required": "Country is required"
+          }
+        },
+        "password": {
+          "label": "Password",
+          "description": "Must be between 8-128 characters",
+          "errors": {
+            "required": "Password is required",
+            "tooShort": "Password is too short",
+            "tooLong": "Password is too long"
+          }
+        },
+        "investmentGoal": {
+          "label": "Investment goal",
+          "placeholder": "Select investment goal",
+          "options": {
+            "growth": {
+              "label": "Growth"
+            },
+            "income": {
+              "label": "Income"
+            },
+            "balanced": {
+              "label": "Balanced"
+            },
+            "conservative": {
+              "label": "Conservative"
+            }
+          },
+          "errors": {
+            "required": "Investment goal is required",
+            "invalid": "Investment goal is invalid"
+          }
+        },
+        "riskTolerance": {
+          "label": "Risk tolerance",
+          "placeholder": "Select risk tolerance",
+          "options": {
+            "low": {
+              "label": "Low"
+            },
+            "medium": {
+              "label": "Medium"
+            },
+            "high": {
+              "label": "High"
+            }
+          },
+          "errors": {
+            "required": "Risk tolerance is required",
+            "invalid": "Risk tolerance is invalid"
+          }
+        },
+        "preferredIndustry": {
+          "label": "Preferred industry",
+          "placeholder": "Select preferred industry",
+          "options": {
+            "technology": {
+              "label": "Technology"
+            },
+            "healthcare": {
+              "label": "Healthcare"
+            },
+            "finance": {
+              "label": "Finance"
+            },
+            "energy": {
+              "label": "Energy"
+            },
+            "consumerGoods": {
+              "label": "Consumer goods"
+            }
+          },
+          "errors": {
+            "required": "Preferred industry is required",
+            "invalid": "Preferred industry is invalid"
+          }
+        },
+        "receiveDailyMarketNews": {
+          "label": "Receive daily market news via email"
+        },
+        "button": {
+          "text": "Start your investing journey",
+          "pendingText": "Creating account"
+        },
+        "welcomeEmailSendingFailureToast": {
+          "text": "Account created successfully but welcome email is not delivered"
+        }
+      },
+      "formFooter": {
+        "text": "Already have an account?",
+        "linkText": "Sign in"
+      }
+    }
+  }
+}

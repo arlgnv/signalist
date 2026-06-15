@@ -1,0 +1,274 @@
+{
+  "metadata": {
+    "description": "Отслеживайте цены на акции в режиме реального времени и изучайте подробную информацию о компании.",
+    "pages": {
+      "signIn": {
+        "title": "Вход"
+      },
+      "signUp": {
+        "title": "Регистрация"
+      }
+    }
+  },
+  "layouts": {
+    "general": {
+      "header": {
+        "logoLinkAccessibleName": "Вернуться домой",
+        "search": {
+          "title": "Поиск",
+          "hint": "Используйте, чтобы открыть диалоговое окно поиска",
+          "dialog": {
+            "title": "Поиск акций",
+            "description": "Найдите акции и выберите одну, чтобы просмотреть более подробную информацию",
+            "popularMode": {
+              "displayedStocksHint": "Популярные акции",
+              "notFoundMessage": "Нет популярных акций",
+              "fetchErrorMessage": "Произошла ошибка при получении популярных акций"
+            },
+            "searchMode": {
+              "displayedStocksHint": "Результаты поиска",
+              "notFoundMessage": "Акция не найдена",
+              "fetchErrorMessage": "Произошла ошибка при поиске акций"
+            }
+          }
+        },
+        "settings": {
+          "accessibleName": "Открыть настройки",
+          "localeSwitcherTitle": "Язык",
+          "localeSwitcher": {
+            "title": "Русский",
+            "dialog": {
+              "title": "Выберите язык",
+              "description": "Просмотрите доступные языки и выберите предпочтительный",
+              "inputPlaceholder": "Русский",
+              "notFoundMessage": "Язык не найден"
+            }
+          },
+          "themeSwitcherTitle": "Тема",
+          "themeSwitcher": {
+            "lightItemAccessibleName": "Переключиться на светлую тему",
+            "systemItemAccessibleName": "Переключиться на системную тему",
+            "darkItemAccessibleName": "Переключиться на тёмную тему"
+          }
+        },
+        "signInButton": {
+          "title": "Войти"
+        },
+        "userMenu": {
+          "accessibleName": "Открыть меню пользователя",
+          "avatarAltText": "Аватар",
+          "dropdown": {
+            "title": "Мой аккаунт",
+            "settingsItemTitle": "Настройки",
+            "deleteAccountItemTitle": "Удалить аккаунт",
+            "signOutItemTitle": "Выйти"
+          },
+          "deleteAccountDialog": {
+            "title": "Удалить свой аккаунт? Это невозможно отменить."
+          }
+        }
+      }
+    },
+    "auth": {
+      "logoLinkAccessibleName": "Вернуться домой",
+      "quote": {
+        "text": "Signalist превратил мой список наблюдения в список победителей. Оповещения точны, и я чувствую себя более уверенно, совершая движения на рынке.",
+        "author": "Итан Р.",
+        "occupation": "Розничный инвестор"
+      },
+      "image": {
+        "altText": {
+          "light": "Главная страница в светлой теме",
+          "dark": "Главная страница в тёмной теме"
+        }
+      }
+    }
+  },
+  "pages": {
+    "home": {
+      "marketOverview": {
+        "title": "Обзор рынка",
+        "stocksTabTitle": "Акции",
+        "cryptoTabTitle": "Крипто",
+        "indicesTabTitle": "Индексы"
+      },
+      "stockHeatmap": {
+        "title": "Тепловая карта акций"
+      },
+      "topStories": {
+        "title": "Главные новости"
+      },
+      "marketData": {
+        "title": "Данные о рынке",
+        "stocksGroupTitle": "Акции",
+        "indicesGroupTitle": "Индексы"
+      }
+    },
+    "stock": {
+      "symbolInfo": {
+        "title": "Информация о символе"
+      },
+      "fundamentalData": {
+        "title": "Фундаментальные данные"
+      },
+      "companyProfile": {
+        "title": "Профиль компании"
+      },
+      "technicalAnalysis": {
+        "title": "Технический анализ"
+      },
+      "advancedRealTimeChart": {
+        "title": "Продвинутый график в реальном времени"
+      }
+    },
+    "signIn": {
+      "title": "Войти в Signalist",
+      "form": {
+        "email": {
+          "label": "Электронная почта",
+          "errors": {
+            "required": "Электронная почта обязательна",
+            "invalid": "Электронная почта невалидна"
+          }
+        },
+        "password": {
+          "label": "Пароль",
+          "errors": {
+            "required": "Пароль обязателен"
+          }
+        },
+        "button": {
+          "text": "Войти",
+          "pendingText": "Вход в систему"
+        }
+      },
+      "formFooter": {
+        "text": "Впервые на Signalist?",
+        "linkText": "Зарегистрироваться"
+      }
+    },
+    "signUp": {
+      "title": "Зарегистрироваться в Signalist",
+      "form": {
+        "fullName": {
+          "label": "Полное имя",
+          "placeholder": "Джон Смит",
+          "description": "Должно быть от 2 до 100 символов",
+          "errors": {
+            "required": "Полное имя обязательно",
+            "tooShort": "Полное имя слишком короткое",
+            "tooLong": "Полное имя слишком длинное"
+          }
+        },
+        "email": {
+          "label": "Электронная почта",
+          "errors": {
+            "required": "Электронная почта обязательна",
+            "invalid": "Электронная почта невалидна"
+          }
+        },
+        "country": {
+          "label": "Страна",
+          "placeholder": "Выбрать страну",
+          "description": "Помогает нам показывать рыночные данные и новости, релевантные для вас",
+          "input": {
+            "placeholder": "Россия",
+            "notFoundMessage": "Страна не найдена"
+          },
+          "errors": {
+            "required": "Страна обязательна"
+          }
+        },
+        "password": {
+          "label": "Пароль",
+          "description": "Должно быть от 8 до 128 символов",
+          "errors": {
+            "required": "Пароль обязателен",
+            "tooShort": "Пароль слишком короткий",
+            "tooLong": "Пароль слишком длинный"
+          }
+        },
+        "investmentGoal": {
+          "label": "Инвестиционная цель",
+          "placeholder": "Выбрать инвестиционную цель",
+          "options": {
+            "growth": {
+              "label": "Рост"
+            },
+            "income": {
+              "label": "Доход"
+            },
+            "balanced": {
+              "label": "Сбалансированная"
+            },
+            "conservative": {
+              "label": "Консервативная"
+            }
+          },
+          "errors": {
+            "required": "Инвестиционная цель обязательна",
+            "invalid": "Инвестиционная цель невалидна"
+          }
+        },
+        "riskTolerance": {
+          "label": "Толерантность к риску",
+          "placeholder": "Выбрать толерантность к риску",
+          "options": {
+            "low": {
+              "label": "Низкая"
+            },
+            "medium": {
+              "label": "Средняя"
+            },
+            "high": {
+              "label": "Высокая"
+            }
+          },
+          "errors": {
+            "required": "Толерантность к риску обязательна",
+            "invalid": "Толерантность к риску невалидна"
+          }
+        },
+        "preferredIndustry": {
+          "label": "Предпочитаемая отрасль",
+          "placeholder": "Выбрать предпочитаемую отрасль",
+          "options": {
+            "technology": {
+              "label": "Технологии"
+            },
+            "healthcare": {
+              "label": "Здравоохранение"
+            },
+            "finance": {
+              "label": "Финансы"
+            },
+            "energy": {
+              "label": "Энергетика"
+            },
+            "consumerGoods": {
+              "label": "Потребительские товары"
+            }
+          },
+          "errors": {
+            "required": "Предпочитаемая отрасль обязательна",
+            "invalid": "Предпочитаемая отрасль невалидна"
+          }
+        },
+        "receiveDailyMarketNews": {
+          "label": "Получать ежедневные новости рынка по электронной почте"
+        },
+        "button": {
+          "text": "Начать свой инвестиционный путь",
+          "pendingText": "Создание учетной записи"
+        },
+        "welcomeEmailSendingFailureToast": {
+          "text": "Аккаунт создан успешно, но приветственное письмо не доставлено"
+        }
+      },
+      "formFooter": {
+        "text": "Уже есть аккаунт?",
+        "linkText": "Войти"
+      }
+    }
+  }
+}

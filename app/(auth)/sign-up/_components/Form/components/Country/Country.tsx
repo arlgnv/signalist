@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { useId } from 'react';
 import { Controller } from 'react-hook-form';
 import countryList from 'react-select-country-list';
@@ -27,19 +28,17 @@ import type { Props } from './types';
 
 function Country({ control, disabled }: Props) {
   const id = useId();
+  const t = useTranslations('pages.signUp.form.country');
   const countries = countryList().getLabels();
 
   return (
     <Controller
       name="country"
       control={control}
-      rules={{
-        required: 'Country is required',
-      }}
       disabled={disabled}
       render={({ field, fieldState }) => (
         <Field className="mb-4" data-invalid={!!fieldState.error}>
-          <FieldLabel htmlFor={id}>Country</FieldLabel>
+          <FieldLabel htmlFor={id}>{t('label')}</FieldLabel>
           <Combobox
             id={id}
             items={countries}
@@ -62,7 +61,7 @@ function Country({ control, disabled }: Props) {
                 <Button variant="outline">
                   <ComboboxValue>
                     {(selectedValue: string) =>
-                      selectedValue || 'Select country'
+                      selectedValue || t('placeholder')
                     }
                   </ComboboxValue>
                 </Button>
@@ -73,9 +72,9 @@ function Country({ control, disabled }: Props) {
             <ComboboxContent>
               <ComboboxInput
                 showTrigger={false}
-                placeholder="Search countries"
+                placeholder={t('input.placeholder')}
               />
-              <ComboboxEmpty>No items found.</ComboboxEmpty>
+              <ComboboxEmpty>{t('input.notFoundMessage')}</ComboboxEmpty>
               <ComboboxList className="scrollbar-thin sm:scrollbar">
                 {(item: string) => (
                   <ComboboxItem key={item} value={item}>
@@ -85,9 +84,7 @@ function Country({ control, disabled }: Props) {
               </ComboboxList>
             </ComboboxContent>
           </Combobox>
-          <FieldDescription>
-            Helps us show market data and news relevant to you
-          </FieldDescription>
+          <FieldDescription>{t('description')}</FieldDescription>
           <FieldError>{fieldState.error?.message}</FieldError>
         </Field>
       )}

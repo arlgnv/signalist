@@ -1,22 +1,29 @@
 import type { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
 
 import { TypographyH1 } from '@/components/ui/typography';
 
 import { FormFooter } from '../_components';
 import { Form } from './_components';
 
-export const metadata: Metadata = {
-  title: 'Sign up',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations('metadata.pages.signUp');
 
-function Page() {
+  return {
+    title: t('title'),
+  };
+}
+
+async function Page() {
+  const t = await getTranslations('pages.signUp');
+
   return (
     <>
-      <TypographyH1 className="mb-10">Sign up for Signalist</TypographyH1>
+      <TypographyH1 className="mb-10">{t('title')}</TypographyH1>
       <Form />
       <FormFooter
-        text="Already have an account?"
-        linkText="Sign in"
+        text={t('formFooter.text')}
+        linkText={t('formFooter.linkText')}
         href="/sign-in"
       />
     </>

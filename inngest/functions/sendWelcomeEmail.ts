@@ -35,9 +35,8 @@ const sendWelcomeEmail = inngest.createFunction(
     );
 
     await step.run('send-email', async () => {
-      const personalizedIntroPart = generatePersonalizedIntroResponse.candidates
-        ?.at(0)
-        ?.content.parts.at(0);
+      const personalizedIntroPart =
+        generatePersonalizedIntroResponse.candidates?.[0]?.content.parts[0];
       const personalizedIntro =
         (personalizedIntroPart && 'text' in personalizedIntroPart
           ? personalizedIntroPart.text
