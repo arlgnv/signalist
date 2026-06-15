@@ -7,7 +7,7 @@ import { useTheme } from '@/theme';
 
 function TopStories() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const headingRef = useRef<HTMLHeadingElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
   const { resolvedTheme } = useTheme();
   const t = useTranslations('pages.home.topStories');
   const locale = useLocale();
@@ -15,11 +15,11 @@ function TopStories() {
   useEffect(() => {
     const containerElement = containerRef.current;
 
-    if (containerElement === null || headingRef.current === null) return;
+    if (containerElement === null || titleRef.current === null) return;
 
     const widget = document.createElement('div');
     widget.className = 'tradingview-widget-container__widget';
-    headingRef.current.after(widget);
+    titleRef.current.after(widget);
 
     const script = document.createElement('script');
     script.src =
@@ -51,7 +51,7 @@ function TopStories() {
 
   return (
     <section className="tradingview-widget-container" ref={containerRef}>
-      <h2 className="sr-only" ref={headingRef}>
+      <h2 className="sr-only" ref={titleRef}>
         {t('title')}
       </h2>
       <div className="tradingview-widget-copyright">
