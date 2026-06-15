@@ -11,7 +11,7 @@ function TopStories() {
   const { resolvedTheme } = useTheme();
   const t = useTranslations('pages.home.topStories');
   const locale = useLocale();
-  console.log(locale);
+
   useEffect(() => {
     const containerElement = containerRef.current;
 
