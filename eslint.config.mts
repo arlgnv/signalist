@@ -97,6 +97,7 @@ const config = defineConfig([
     rules: {
       ...zod.configs.recommended.rules,
       'zod/prefer-string-schema-with-trim': 'off',
+      'zod/no-duplicate-schema-methods': 'off',
     },
   },
 ]);
