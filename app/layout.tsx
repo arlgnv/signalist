@@ -27,10 +27,10 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 async function Layout({ children }: LayoutProps<'/'>) {
-  const initialTheme = (await getTheme()) ?? undefined;
+  const theme = (await getTheme()) ?? undefined;
   const themeScript = getThemeScript({
     attribute: 'class',
-    initialTheme,
+    initialTheme: theme,
   });
   const locale = await getLocale();
 
@@ -49,7 +49,7 @@ async function Layout({ children }: LayoutProps<'/'>) {
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body>
-        <ThemeProvider attribute="class" initialTheme={initialTheme} noScript>
+        <ThemeProvider attribute="class" initialTheme={theme} noScript>
           <NextIntlClientProvider>
             <QueryProvider>{children}</QueryProvider>
             <Sonner />
