@@ -12,7 +12,7 @@ async function Header() {
   const session = await auth.api.getSession({
     headers: await headers(),
   });
-  const t = await getTranslations('generalLayout.header');
+  const t = await getTranslations('layouts.general.header');
 
   return (
     <header className="sticky top-0 z-1 border-b bg-card text-card-foreground">

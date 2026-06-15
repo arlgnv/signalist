@@ -8,7 +8,7 @@ import { TypographyBlockquote } from '@/components/ui/typography';
 import { Image } from './_layout/components';
 
 async function Layout({ children }: LayoutProps<'/'>) {
-  const t = await getTranslations('authLayout');
+  const t = await getTranslations('layouts.auth');
 
   return (
     <div className="grid h-dvh min-w-80 max-md:grid-rows-[1fr_auto] md:grid-cols-2 xl:grid-cols-[min(700px,45%)_1fr]">

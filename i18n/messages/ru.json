@@ -1,68 +1,76 @@
 {
-  "generalLayout": {
-    "header": {
-      "logoLinkAccessibleName": "Вернуться домой",
-      "search": {
-        "title": "Поиск",
-        "hint": "Используйте, чтобы открыть диалоговое окно поиска",
-        "dialog": {
-          "title": "Поиск акций",
-          "description": "Найдите акции и выберите одну, чтобы просмотреть более подробную информацию",
-          "popularMode": {
-            "displayedStocksHint": "Популярные акции",
-            "notFoundMessage": "Нет популярных акций",
-            "fetchErrorMessage": "Произошла ошибка при получении популярных акций"
-          },
-          "searchMode": {
-            "displayedStocksHint": "Результаты поиска",
-            "notFoundMessage": "Акция не найдена",
-            "fetchErrorMessage": "Произошла ошибка при поиске акций"
-          }
-        }
-      },
-      "settings": {
-        "accessibleName": "Открыть настройки",
-        "localeSwitcherTitle": "Язык",
-        "localeSwitcher": {
-          "title": "Русский",
+  "layouts": {
+    "general": {
+      "header": {
+        "logoLinkAccessibleName": "Вернуться домой",
+        "search": {
+          "title": "Поиск",
+          "hint": "Используйте, чтобы открыть диалоговое окно поиска",
           "dialog": {
-            "title": "Выберите язык",
-            "description": "Просмотрите доступные языки и выберите предпочтительный",
-            "inputPlaceholder": "Русский",
-            "notFoundMessage": "Язык не найден"
+            "title": "Поиск акций",
+            "description": "Найдите акции и выберите одну, чтобы просмотреть более подробную информацию",
+            "popularMode": {
+              "displayedStocksHint": "Популярные акции",
+              "notFoundMessage": "Нет популярных акций",
+              "fetchErrorMessage": "Произошла ошибка при получении популярных акций"
+            },
+            "searchMode": {
+              "displayedStocksHint": "Результаты поиска",
+              "notFoundMessage": "Акция не найдена",
+              "fetchErrorMessage": "Произошла ошибка при поиске акций"
+            }
           }
         },
-        "themeSwitcherTitle": "Тема",
-        "themeSwitcher": {
-          "lightItemAccessibleName": "Переключиться на светлую тему",
-          "systemItemAccessibleName": "Переключиться на системную тему",
-          "darkItemAccessibleName": "Переключиться на тёмную тему"
-        }
-      },
-      "signInButton": {
-        "title": "Войти"
-      },
-      "userMenu": {
-        "accessibleName": "Открыть меню пользователя",
-        "avatarAltText": "Аватар",
-        "dropdown": {
-          "title": "Мой аккаунт",
-          "settingsItemTitle": "Настройки",
-          "deleteAccountItemTitle": "Удалить аккаунт",
-          "signOutItemTitle": "Выйти"
+        "settings": {
+          "accessibleName": "Открыть настройки",
+          "localeSwitcherTitle": "Язык",
+          "localeSwitcher": {
+            "title": "Русский",
+            "dialog": {
+              "title": "Выберите язык",
+              "description": "Просмотрите доступные языки и выберите предпочтительный",
+              "inputPlaceholder": "Русский",
+              "notFoundMessage": "Язык не найден"
+            }
+          },
+          "themeSwitcherTitle": "Тема",
+          "themeSwitcher": {
+            "lightItemAccessibleName": "Переключиться на светлую тему",
+            "systemItemAccessibleName": "Переключиться на системную тему",
+            "darkItemAccessibleName": "Переключиться на тёмную тему"
+          }
         },
-        "deleteAccountDialog": {
-          "title": "Удалить свой аккаунт? Это невозможно отменить."
+        "signInButton": {
+          "title": "Войти"
+        },
+        "userMenu": {
+          "accessibleName": "Открыть меню пользователя",
+          "avatarAltText": "Аватар",
+          "dropdown": {
+            "title": "Мой аккаунт",
+            "settingsItemTitle": "Настройки",
+            "deleteAccountItemTitle": "Удалить аккаунт",
+            "signOutItemTitle": "Выйти"
+          },
+          "deleteAccountDialog": {
+            "title": "Удалить свой аккаунт? Это невозможно отменить."
+          }
         }
       }
-    }
-  },
-  "authLayout": {
-    "logoLinkAccessibleName": "Вернуться домой",
-    "quote": {
-      "text": "Signalist превратил мой список наблюдения в список победителей. Оповещения точны, и я чувствую себя более уверенно, совершая движения на рынке.",
-      "author": "Итан Р.",
-      "occupation": "Розничный инвестор"
+    },
+    "auth": {
+      "logoLinkAccessibleName": "Вернуться домой",
+      "quote": {
+        "text": "Signalist превратил мой список наблюдения в список победителей. Оповещения точны, и я чувствую себя более уверенно, совершая движения на рынке.",
+        "author": "Итан Р.",
+        "occupation": "Розничный инвестор"
+      },
+      "image": {
+        "altText": {
+          "light": "Главная страница в светлой теме",
+          "dark": "Главная страница в тёмной теме"
+        }
+      }
     }
   },
   "pages": {

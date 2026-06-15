@@ -11,7 +11,7 @@ import {
 import { LocaleSwitcher, ThemeSwitcher } from './components';
 
 async function Settings() {
-  const t = await getTranslations('generalLayout.header.settings');
+  const t = await getTranslations('layouts.general.header.settings');
 
   return (
     <Popover modal={false}>
