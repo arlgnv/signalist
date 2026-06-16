@@ -24,7 +24,7 @@ Follow these steps to set up the project locally on your machine.
 ### Prerequisites
 
 - [Git](https://git-scm.com)
-- [Node.js](https://nodejs.org/en)
+- [Node.js](https://nodejs.org)
 
 ### Recommendations
 
@@ -71,3 +71,33 @@ npm run inngest:dev
 3. Open the server
 
    Visit [http://localhost:3000](http://localhost:3000) in your browser to view the project
+
+### Viewing app on other devices
+
+If you need to view/test/debug the app on other devices on the same network you need to do two things.
+
+1. Add `allowedDevOrigins` to Next.js's config to allow requests from origins other than the hostname the dev server was initialized with.
+
+```typescript
+import type { NextConfig } from 'next';
+
+const config: NextConfig = {
+  allowedDevOrigins: ['YOUR_HOSTNAME'],
+};
+
+export default config;
+```
+
+2. Update `allowedHosts` in Better Auth's config to allow requests from other hosts.
+
+```typescript
+import { betterAuth } from 'better-auth';
+
+const auth = betterAuth({
+  baseURL: {
+    allowedHosts: [..., 'YOUR_HOSTNAME'],
+  },
+});
+
+export default auth;
+```
