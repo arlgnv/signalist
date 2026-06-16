@@ -1,7 +1,7 @@
 'use client';
 
+import { ChevronDownIcon } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { useId } from 'react';
 import { Controller } from 'react-hook-form';
 import countryList from 'react-select-country-list';
 
@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import {
   ComboboxContent,
   Combobox,
+  ComboboxLabel,
   ComboboxTrigger,
   ComboboxValue,
   ComboboxInput,
@@ -16,18 +17,12 @@ import {
   ComboboxList,
   ComboboxItem,
 } from '@/components/ui/combobox';
-import {
-  Field,
-  FieldDescription,
-  FieldError,
-  FieldLabel,
-} from '@/components/ui/field';
+import { Field, FieldDescription, FieldError } from '@/components/ui/field';
 import { cn } from '@/lib/utils';
 
 import type { Props } from './types';
 
 function Country({ control, disabled }: Props) {
-  const id = useId();
   const t = useTranslations('pages.signUp.form.country');
   const countries = countryList().getLabels();
 
@@ -38,9 +33,7 @@ function Country({ control, disabled }: Props) {
       disabled={disabled}
       render={({ field, fieldState }) => (
         <Field className="mb-4" data-invalid={!!fieldState.error}>
-          <FieldLabel htmlFor={id}>{t('label')}</FieldLabel>
           <Combobox
-            id={id}
             items={countries}
             name={field.name}
             value={field.value}
@@ -51,18 +44,28 @@ function Country({ control, disabled }: Props) {
               }
             }}
           >
+            <ComboboxLabel>{t('label')}</ComboboxLabel>
             <ComboboxTrigger
-              className={cn(
-                'justify-start',
-                !field.value && 'text-muted-foreground!',
-              )}
-              ref={field.ref}
               render={
-                <Button variant="outline">
+                <Button
+                  ref={field.ref}
+                  className={cn(
+                    'justify-between font-normal',
+                    !field.value &&
+                      'text-muted-foreground hover:bg-transparent hover:text-muted-foreground disabled:pointer-events-auto disabled:cursor-not-allowed',
+                  )}
+                  variant="outline"
+                >
                   <ComboboxValue>
-                    {(selectedValue: string) =>
-                      selectedValue || t('placeholder')
-                    }
+                    {(selectedValue: string) => (
+                      <>
+                        {selectedValue || t('placeholder')}
+                        <ChevronDownIcon
+                          className="pointer-events-none size-4"
+                          data-icon="inline-end"
+                        />
+                      </>
+                    )}
                   </ComboboxValue>
                 </Button>
               }
@@ -75,7 +78,7 @@ function Country({ control, disabled }: Props) {
                 placeholder={t('input.placeholder')}
               />
               <ComboboxEmpty>{t('input.notFoundMessage')}</ComboboxEmpty>
-              <ComboboxList className="scrollbar-thin sm:scrollbar">
+              <ComboboxList>
                 {(item: string) => (
                   <ComboboxItem key={item} value={item}>
                     {item}
