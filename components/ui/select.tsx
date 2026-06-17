@@ -5,7 +5,19 @@ import { ChevronDownIcon, CheckIcon, ChevronUpIcon } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 
+import { Label } from './label';
+
 const Select = SelectPrimitive.Root;
+
+function SelectLabel({ ...props }: SelectPrimitive.Label.Props) {
+  return (
+    <SelectPrimitive.Label
+      data-slot="select-label"
+      render={<Label />}
+      {...props}
+    />
+  );
+}
 
 function SelectGroup({ className, ...props }: SelectPrimitive.Group.Props) {
   return (
@@ -98,13 +110,13 @@ function SelectContent({
   );
 }
 
-function SelectLabel({
+function SelectGroupLabel({
   className,
   ...props
 }: SelectPrimitive.GroupLabel.Props) {
   return (
     <SelectPrimitive.GroupLabel
-      data-slot="select-label"
+      data-slot="select-group-label"
       className={cn('px-2 py-1.5 text-xs text-muted-foreground', className)}
       {...props}
     />
@@ -190,10 +202,11 @@ function SelectScrollDownButton({
 
 export {
   Select,
+  SelectLabel,
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
+  SelectGroupLabel,
   SelectScrollDownButton,
   SelectScrollUpButton,
   SelectSeparator,
