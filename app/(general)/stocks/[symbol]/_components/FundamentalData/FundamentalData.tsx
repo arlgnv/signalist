@@ -17,8 +17,8 @@ const TradingViewFundamentalData = dynamic(
 function FundamentalData() {
   const { symbol } = useParams();
   const { resolvedTheme } = useTheme();
-  const t = useTranslations('pages.stock.fundamentalData');
   const locale = useLocale();
+  const t = useTranslations('pages.stock.fundamentalData');
 
   return (
     <section>

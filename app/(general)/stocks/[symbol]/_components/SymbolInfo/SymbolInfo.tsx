@@ -17,8 +17,8 @@ const TradingViewSymbolInfo = dynamic(
 function SymbolInfo() {
   const { symbol } = useParams();
   const { resolvedTheme } = useTheme();
-  const t = useTranslations('pages.stock.symbolInfo');
   const locale = useLocale();
+  const t = useTranslations('pages.stock.symbolInfo');
 
   return (
     <section>

@@ -15,8 +15,8 @@ const TradingViewStockHeatmap = dynamic(
 
 function StockHeatmap() {
   const { resolvedTheme } = useTheme();
-  const t = useTranslations('pages.home.stockHeatmap');
   const locale = useLocale();
+  const t = useTranslations('pages.home.stockHeatmap');
 
   return (
     <section className="xl:col-span-2">

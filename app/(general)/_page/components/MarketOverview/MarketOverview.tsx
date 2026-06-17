@@ -17,8 +17,8 @@ const TradingViewMarketOverview = dynamic(
 
 function MarketOverview() {
   const { resolvedTheme } = useTheme();
-  const t = useTranslations('pages.home.marketOverview');
   const locale = useLocale();
+  const t = useTranslations('pages.home.marketOverview');
   const tabs = useTabs();
 
   return (
