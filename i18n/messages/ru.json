@@ -98,6 +98,9 @@
       "topStories": {
         "title": "Главные новости"
       },
+      "tickerTape": {
+        "title": "Телеграфная лента"
+      },
       "marketData": {
         "title": "Данные о рынке",
         "stocksGroupTitle": "Акции",

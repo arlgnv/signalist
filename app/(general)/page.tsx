@@ -1,6 +1,7 @@
 import {
   MarketOverview,
   StockHeatmap,
+  TickerTape,
   TopStories,
   MarketData,
 } from './_page/components';
@@ -11,6 +12,7 @@ function Page() {
       <h1 className="sr-only">Signalist</h1>
       <MarketOverview />
       <StockHeatmap />
+      <TickerTape />
       <TopStories />
       <MarketData />
     </main>
