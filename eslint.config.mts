@@ -81,7 +81,7 @@ const config = defineConfig([
   {
     name: 'TanStack Query',
     files: ['**/*.tsx'],
-    extends: [query.configs['flat/recommended']],
+    extends: [query.configs['flat/recommended-strict']],
   },
   {
     name: 'Next.js',
