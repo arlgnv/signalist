@@ -9,10 +9,11 @@ import convertSymbolLookupResultItemToStock from './convertSymbolLookupResultIte
 function createStocksQueryOptions(query: string, modeIsPopular: boolean) {
   return queryOptions({
     queryKey: ['api', 'finnhub', 'search', query],
-    queryFn: async () => {
+    queryFn: async ({ signal }) => {
       const response = await axios<SymbolLookup>(
         `/api/finnhub/search?q=${encodeURIComponent(query)}`,
         {
+          signal,
           timeout: convertSecondsToMilliseconds(10),
         },
       );
