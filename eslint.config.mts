@@ -80,7 +80,7 @@ const config = defineConfig([
   },
   {
     name: 'TanStack Query',
-    files: ['**/*.tsx'],
+    files: ['**/*.{ts,tsx'],
     extends: [query.configs['flat/recommended-strict']],
   },
   {
