@@ -6,16 +6,20 @@ Signalist is a real‑time stock tracking platform that delivers personalized al
 
 ## Tech stack
 
-- **[Next.js](https://nextjs.org)** is a powerful React framework for building full-stack web applications. It provides server-side rendering, static site generation, and API routes, allowing developers to create optimized and scalable apps quickly.
-- **[TypeScript](https://www.typescriptlang.org)** is a statically typed superset of JavaScript that improves code quality, tooling, and error detection. It is ideal for building large-scale applications and enhances maintainability.
-- **[TailwindCSS](https://tailwindcss.com)** is a utility-first CSS framework that allows developers to build custom, responsive designs quickly without leaving their HTML. It provides pre-defined classes for layout, typography, colors, and more.
-- **[Better Auth](https://www.better-auth.com)** is a framework-agnostic authentication and authorization library for TypeScript. It provides built-in support for email/password login, social sign-on (Google, GitHub, Apple, and more), and multi-factor authentication, simplifying user authentication and account management.
-- **[CodeRabbit](https://www.coderabbit.ai)** is an AI-powered code review assistant that integrates with GitHub. It helps developers catch bugs, enforce best practices, and maintain consistent code quality across pull requests, reducing manual review effort and speeding up the development workflow.
-- **[Finnhub](https://finnhub.io)** is a real-time financial data API that provides stock, forex, and cryptocurrency market data. It offers developers access to fundamental data, economic indicators, and news, making it useful for building trading apps, dashboards, and financial analysis tools.
-- **[Inngest](https://www.inngest.com)** is a platform for event-driven workflows and background jobs. It allows developers to build reliable, scalable automated processes such as real-time alerts, notifications, and AI-powered workflows.
-- **[Supabase](https://supabase.com)** is the Postgres development platform. Start your project with a Postgres database, Authentication, instant APIs, Edge Functions, Realtime subscriptions, Storage, and Vector embeddings.
-- **[Nodemailer](https://nodemailer.com)** is a Node.js library for sending emails easily. It supports various transport methods such as SMTP, OAuth2, and third-party services, making it a reliable tool for handling transactional emails, notifications, and contact forms in applications.
-- **[Shadcn](https://ui.shadcn.com)** is an open-source library of fully customizable, accessible React components. It helps teams rapidly build consistent, visually appealing UIs while allowing full control over design and layout.
+- **[Next.js](https://nextjs.org)**. The React Framework for the Web.
+- **[TypeScript](https://www.typescriptlang.org)**. JavaScript with syntax for types.
+- **[TailwindCSS](https://tailwindcss.com)**. Rapidly build modern websites without ever leaving your HTML.
+- **[Shadcn](https://ui.shadcn.com)**. The Foundation for your Design System.
+- **[Better Auth](https://www.better-auth.com)**. The most comprehensive authentication framework.
+- **[React Hook Form](https://react-hook-form.com)**. Performant, flexible and extensible forms with easy-to-use validation.
+- **[Zod](https://zod.dev)**. TypeScript-first schema validation with static type inference.
+- **[@teispace/next-themes](https://www.npmjs.com/package/@teispace/next-themes)**. Feature-rich, lightweight, production-grade theme management for Next.js and React..
+- **[next-intl](https://next-intl.dev)**. Internationalization for Next.js.
+- **[Inngest](https://www.inngest.com)**. Run fast, reliable code on any platform, without managing queues, infra, or state.
+- **[Finnhub](https://finnhub.io)**. Democratize Financial Data with the most powerful stock API on the market.
+- **[Supabase](https://supabase.com)**. Build in a weekend, scale to millions.
+- **[Nodemailer](https://nodemailer.com)**. Send emails from Node.js - easy as cake!
+- **[CodeRabbit](https://www.coderabbit.ai)**. Reviews for AI-powered teams who move fast (but don’t break things).
 
 ## Development
 
