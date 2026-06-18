@@ -95,7 +95,7 @@ import { betterAuth } from 'better-auth';
 
 const auth = betterAuth({
   baseURL: {
-    allowedHosts: [..., 'YOUR_HOSTNAME'],
+    allowedHosts: ['localhost:3000', '*.vercel.app', 'YOUR_HOSTNAME'],
   },
 });
 
