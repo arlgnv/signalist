@@ -2,7 +2,6 @@
 
 import { useDebouncedState } from '@tanstack/react-pacer/debouncer';
 import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
 import { Loader2, Search as SearchIcon, TrendingUp } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
@@ -23,13 +22,12 @@ import {
   TooltipTrigger,
   TooltipContent,
 } from '@/components/ui/tooltip';
-import type { SymbolLookup } from '@/types';
 import { convertSecondsToMilliseconds } from '@/utilities';
 
 import type { ContentProps } from './types';
 import {
-  convertSymbolLookupResultItemToStock,
   convertCompanyProfileToStock,
+  createStocksQueryOptions,
 } from './utilities';
 
 function Content({ fetchPopularCompanyProfilesResponse }: ContentProps) {
@@ -44,23 +42,7 @@ function Content({ fetchPopularCompanyProfilesResponse }: ContentProps) {
     data: fetchedStocks,
     isFetching: symbolLookupIsBeingFetched,
     isError: fetchSymbolLookupFailed,
-  } = useQuery({
-    queryKey: ['api', 'finnhub', 'search', debouncedQuery],
-    queryFn: async () => {
-      const response = await axios<SymbolLookup>(
-        `/api/finnhub/search?q=${encodeURIComponent(debouncedQuery)}`,
-        {
-          timeout: convertSecondsToMilliseconds(10),
-        },
-      );
-
-      return response.data;
-    },
-    enabled: !modeIsPopular,
-    select(symbolLookup) {
-      return symbolLookup.result.map(convertSymbolLookupResultItemToStock);
-    },
-  });
+  } = useQuery(createStocksQueryOptions(debouncedQuery, modeIsPopular));
   const t = useTranslations('layouts.general.header.search');
   const stocksAreBeingFetched = modeIsPopular
     ? false
