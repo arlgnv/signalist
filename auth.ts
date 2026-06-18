@@ -3,25 +3,12 @@ import { Pool } from 'pg';
 
 import environment from './environment';
 
-function getBaseUrl() {
-  if (
-    process.env.VERCEL_ENV === 'preview' &&
-    typeof process.env.VERCEL_BRANCH_URL === 'string'
-  ) {
-    return `https://${process.env.VERCEL_BRANCH_URL}`;
-  }
-
-  if (
-    process.env.VERCEL_ENV === 'production' &&
-    typeof process.env.VERCEL_PROJECT_PRODUCTION_URL === 'string'
-  ) {
-    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
-  }
-}
-
 const auth = betterAuth({
   appName: 'Signalist',
-  baseURL: getBaseUrl(),
+  baseURL: {
+    allowedHosts: ['localhost:3000', '*.vercel.app'],
+    protocol: process.env.NODE_ENV === 'development' ? 'http' : 'https',
+  },
   database: new Pool({
     connectionString: environment.SUPABASE_CONNECTION_STRING,
   }),

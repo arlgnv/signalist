@@ -80,8 +80,8 @@ const config = defineConfig([
   },
   {
     name: 'TanStack Query',
-    files: ['**/*.tsx'],
-    extends: [query.configs['flat/recommended']],
+    files: ['**/*.{ts,tsx'],
+    extends: [query.configs['flat/recommended-strict']],
   },
   {
     name: 'Next.js',

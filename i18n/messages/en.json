@@ -98,6 +98,9 @@
       "topStories": {
         "title": "Top stories"
       },
+      "tickerTape": {
+        "title": "Ticker tape"
+      },
       "marketData": {
         "title": "Market data",
         "stocksGroupTitle": "Stocks",

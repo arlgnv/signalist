@@ -1,69 +1,31 @@
 'use client';
 
 import { useLocale, useTranslations } from 'next-intl';
-import { useEffect, useRef } from 'react';
+import dynamic from 'next/dynamic';
 
 import { useTheme } from '@/theme';
 
+const Timeline = dynamic(
+  () => import('react-ts-tradingview-widgets').then((w) => w.Timeline),
+  {
+    ssr: false,
+  },
+);
+
 function TopStories() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
   const { resolvedTheme } = useTheme();
-  const t = useTranslations('pages.home.topStories');
   const locale = useLocale();
-
-  useEffect(() => {
-    const containerElement = containerRef.current;
-
-    if (containerElement === null || titleRef.current === null) return;
-
-    const widget = document.createElement('div');
-    widget.className = 'tradingview-widget-container__widget';
-    titleRef.current.after(widget);
-
-    const script = document.createElement('script');
-    script.src =
-      'https://s3.tradingview.com/external-embedding/embed-widget-timeline.js';
-    script.type = 'text/javascript';
-    script.async = true;
-    script.innerHTML = `
-      {
-        "displayMode": "adaptive",
-        "feedMode": "market",
-        "colorTheme": "${resolvedTheme}",
-        "isTransparent": false,
-        "locale": "${locale}",
-        "market": "stock",
-        "width": "100%",
-        "height": 632
-      }`;
-
-    containerElement.append(script);
-
-    return () => {
-      widget.remove();
-      script.remove();
-      containerElement.querySelectorAll('iframe, style').forEach((element) => {
-        element.remove();
-      });
-    };
-  }, [resolvedTheme, locale]);
+  const t = useTranslations('pages.home.topStories');
 
   return (
-    <section className="tradingview-widget-container" ref={containerRef}>
-      <h2 className="sr-only" ref={titleRef}>
-        {t('title')}
-      </h2>
-      <div className="tradingview-widget-copyright">
-        <a
-          href="https://www.tradingview.com/news/top-providers/tradingview"
-          rel="noreferrer"
-          target="_blank"
-        >
-          <span className="blue-text">Top stories</span>
-        </a>
-        <span className="trademark"> by TradingView</span>
-      </div>
+    <section>
+      <h2 className="sr-only">{t('title')}</h2>
+      <Timeline
+        colorTheme={resolvedTheme}
+        locale={locale}
+        width="100%"
+        height={600}
+      />
     </section>
   );
 }

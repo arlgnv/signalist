@@ -18,8 +18,8 @@ const TradingViewAdvancedRealTimeChart = dynamic(
 function AdvancedRealTimeChart() {
   const { symbol } = useParams();
   const { resolvedTheme } = useTheme();
-  const t = useTranslations('pages.stock.advancedRealTimeChart');
   const locale = useLocale();
+  const t = useTranslations('pages.stock.advancedRealTimeChart');
 
   return (
     <section>

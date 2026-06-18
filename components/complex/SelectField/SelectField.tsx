@@ -1,14 +1,14 @@
 'use client';
 
-import { useId } from 'react';
 import {
   Controller,
   type FieldValues as ReactHookFormFieldValues,
 } from 'react-hook-form';
 
-import { Field, FieldError, FieldLabel } from '@/components/ui/field';
+import { Field, FieldError } from '@/components/ui/field';
 import {
   Select,
+  SelectLabel,
   SelectContent,
   SelectItem,
   SelectTrigger,
@@ -28,8 +28,6 @@ function SelectField<FieldValues extends ReactHookFormFieldValues>({
   placeholder,
   options,
 }: Props<FieldValues>) {
-  const id = useId();
-
   return (
     <Controller
       name={name}
@@ -38,7 +36,6 @@ function SelectField<FieldValues extends ReactHookFormFieldValues>({
       disabled={disabled}
       render={({ field, fieldState }) => (
         <Field className={className} data-invalid={!!fieldState.error}>
-          <FieldLabel htmlFor={id}>{label}</FieldLabel>
           <Select
             name={field.name}
             value={field.value}
@@ -47,8 +44,8 @@ function SelectField<FieldValues extends ReactHookFormFieldValues>({
             disabled={field.disabled}
             onValueChange={field.onChange}
           >
+            <SelectLabel>{label}</SelectLabel>
             <SelectTrigger
-              id={id}
               ref={field.ref}
               aria-invalid={!!fieldState.error}
               onBlur={field.onBlur}

@@ -17,8 +17,8 @@ const TradingViewTechnicalAnalysis = dynamic(
 function TechnicalAnalysis() {
   const { symbol } = useParams();
   const { resolvedTheme } = useTheme();
-  const t = useTranslations('pages.stock.technicalAnalysis');
   const locale = useLocale();
+  const t = useTranslations('pages.stock.technicalAnalysis');
 
   return (
     <section>

@@ -17,8 +17,8 @@ const TradingViewCompanyProfile = dynamic(
 function CompanyProfile() {
   const { symbol } = useParams();
   const { resolvedTheme } = useTheme();
-  const t = useTranslations('pages.stock.companyProfile');
   const locale = useLocale();
+  const t = useTranslations('pages.stock.companyProfile');
 
   return (
     <section>

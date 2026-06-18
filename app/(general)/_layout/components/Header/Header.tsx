@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import auth from '@/auth';
 import Logo from '@/components/complex/Logo';
-import { Button } from '@/components/ui/button';
+import { buttonVariants } from '@/components/ui/button';
 
 import { Search, Settings, UserMenu } from './components';
 
@@ -29,11 +29,9 @@ async function Header() {
         {session?.user ? (
           <UserMenu user={session.user} />
         ) : (
-          <Button
-            size="sm"
-            nativeButton={false}
-            render={<Link href="/sign-in">{t('signInButton.title')}</Link>}
-          />
+          <Link className={buttonVariants({ size: 'sm' })} href="/sign-in">
+            {t('signInButton.title')}
+          </Link>
         )}
       </div>
     </header>

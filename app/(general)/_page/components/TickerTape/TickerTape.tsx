@@ -5,32 +5,30 @@ import dynamic from 'next/dynamic';
 
 import { useTheme } from '@/theme';
 
-import { useParams } from '../../_hooks';
+import { SYMBOLS } from './data';
 
-const TradingViewSymbolInfo = dynamic(
-  () => import('react-ts-tradingview-widgets').then((w) => w.SymbolInfo),
+const TradingViewTickerTape = dynamic(
+  () => import('react-ts-tradingview-widgets').then((w) => w.TickerTape),
   {
     ssr: false,
   },
 );
 
-function SymbolInfo() {
-  const { symbol } = useParams();
+function TickerTape() {
   const { resolvedTheme } = useTheme();
   const locale = useLocale();
-  const t = useTranslations('pages.stock.symbolInfo');
+  const t = useTranslations('pages.home.tickerTape');
 
   return (
-    <section>
+    <section className="col-span-full">
       <h2 className="sr-only">{t('title')}</h2>
-      <TradingViewSymbolInfo
+      <TradingViewTickerTape
         colorTheme={resolvedTheme}
         locale={locale}
-        symbol={symbol}
-        width="100%"
+        symbols={SYMBOLS}
       />
     </section>
   );
 }
 
-export default SymbolInfo;
+export default TickerTape;

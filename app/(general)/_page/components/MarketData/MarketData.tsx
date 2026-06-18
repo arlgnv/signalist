@@ -16,8 +16,8 @@ const TradingViewMarketData = dynamic(
 
 function MarketData() {
   const { resolvedTheme } = useTheme();
-  const t = useTranslations('pages.home.marketData');
   const locale = useLocale();
+  const t = useTranslations('pages.home.marketData');
   const symbolsGroups = useSymbolsGroups();
 
   return (

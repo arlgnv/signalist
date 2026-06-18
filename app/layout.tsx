@@ -49,12 +49,14 @@ async function Layout({ children }: LayoutProps<'/'>) {
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body>
-        <ThemeProvider attribute="class" initialTheme={theme} noScript>
-          <NextIntlClientProvider>
-            <QueryProvider>{children}</QueryProvider>
-            <Sonner />
-          </NextIntlClientProvider>
-        </ThemeProvider>
+        <div className="isolate">
+          <ThemeProvider attribute="class" initialTheme={theme} noScript>
+            <NextIntlClientProvider>
+              <QueryProvider>{children}</QueryProvider>
+              <Sonner />
+            </NextIntlClientProvider>
+          </ThemeProvider>
+        </div>
       </body>
     </html>
   );

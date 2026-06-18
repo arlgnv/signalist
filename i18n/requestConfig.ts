@@ -1,3 +1,4 @@
+import type { Messages } from 'next-intl';
 import { getRequestConfig } from 'next-intl/server';
 import { cookies as getCookies, headers as getHeaders } from 'next/headers';
 
@@ -33,9 +34,11 @@ const requestConfig = getRequestConfig(async () => {
 
   return {
     locale,
-    // todo: figure out how to strictly type
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
-    messages: (await import(`./messages/${locale}.json`)).default,
+    messages: (
+      (await import(`./messages/${locale}.json`)) as {
+        default: Messages;
+      }
+    ).default,
   };
 });
 
