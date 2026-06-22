@@ -13,7 +13,7 @@ function creator(marketNews: MarketNews[]) {
     marketNews
       .map(
         ({ headline, summary }) =>
-          `<li><p>${headline}</p><p>${summary}</p></li>`,
+          `<li style="margin-bottom: 12px"><p style="margin: 0 0 6px 0; font-weight: 500; font-size: 16px;">${headline}</p><p style="margin: 0">${summary}</p></li>`,
       )
       .join(''),
   );

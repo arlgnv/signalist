@@ -59,7 +59,7 @@ const TEMPLATE = `<!DOCTYPE html>
               >
                 <img
                   src="https://ik.imagekit.io/a6fkjou7d/logo.png?updatedAt=1756378431634"
-                  alt="Signalist Logo"
+                  alt="Signalist logo"
                   width="150"
                   style="max-width: 100%; height: auto; border-radius: 12px;"
                 />
@@ -72,7 +72,7 @@ const TEMPLATE = `<!DOCTYPE html>
               >
                 <img
                   src="https://ik.imagekit.io/a6fkjou7d/dashboard-preview.png?updatedAt=1756378548102"
-                  alt="Signalist Dashboard Preview"
+                  alt="Signalist dashboard preview"
                   width="100%"
                   style="
                     max-width: 520px;
@@ -83,7 +83,7 @@ const TEMPLATE = `<!DOCTYPE html>
               </td>
             </tr>
             <tr>
-              <td style="padding: 40px 40px 40px 40px">
+              <td style="padding: 40px">
                 <h1
                   style="
                     margin: 0 0 30px 0;
@@ -138,7 +138,7 @@ const TEMPLATE = `<!DOCTYPE html>
                   cellspacing="0"
                   cellpadding="0"
                   border="0"
-                  style="margin: 0 0 40px 0; width: 100%"
+                  style="margin: 0; width: 100%"
                 >
                   <tr>
                     <td align="center">
