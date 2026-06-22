@@ -2,11 +2,11 @@
 
 import { createThemes } from '@teispace/next-themes';
 
-const END_THEMES = ['light', 'dark'] as const;
-export const THEMES = ['system', ...END_THEMES] as const;
+const RESOLVED_THEMES = ['light', 'dark'] as const;
+export const THEMES = ['system', ...RESOLVED_THEMES] as const;
 
 export const { ThemeProvider, useTheme } = createThemes({
-  themes: END_THEMES,
+  themes: RESOLVED_THEMES,
   attribute: 'class',
   disableTransitionOnChange: true,
   themeColor: { light: '#fff', dark: '#0a0a0a' },
