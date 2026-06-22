@@ -1,9 +1,8 @@
-import { createWelcomeEmail } from '@/nodemailer/emailCreators';
-import nodemailer from '@/nodemailer/transporter';
+import nodemailer, { createWelcomeEmail } from '@/nodemailer';
 
 import inngest from '../client';
 import { userSignedUp } from '../eventTypes';
-import { INTRO_FOR_WELCOME_EMAIL } from '../prompts';
+import { GENERATE_INTRO_FOR_WELCOME_EMAIL } from '../prompts';
 
 const sendWelcomeEmail = inngest.createFunction(
   { id: 'send-welcome-email', triggers: [userSignedUp] },
@@ -18,7 +17,7 @@ const sendWelcomeEmail = inngest.createFunction(
               role: 'user',
               parts: [
                 {
-                  text: INTRO_FOR_WELCOME_EMAIL.replace(
+                  text: GENERATE_INTRO_FOR_WELCOME_EMAIL.replace(
                     '{{userData}}',
                     `
                       - Investment goal: ${event.data.investmentGoal}
@@ -41,11 +40,11 @@ const sendWelcomeEmail = inngest.createFunction(
         (personalizedIntroPart && 'text' in personalizedIntroPart
           ? personalizedIntroPart.text
           : undefined) ??
-        '<p style="margin: 0 0 30px 0; font-size: 16px; line-height: 1.6; color: #ccdadc;">Thanks for joining Signalist. You now have the tools to track markets and make smarter moves.</p>';
+        '<p style="margin: 0 0 30px 0; font-size: 16px; line-height: 1.6; color: #fafafa;">Thanks for joining Signalist. You now have the tools to track markets and make smarter moves.</p>';
 
       await nodemailer.sendMail({
         to: event.data.email,
-        subject: 'Welcome to Signalist 🚀',
+        subject: 'Welcome to Signalist',
         html: createWelcomeEmail(event.data.fullName, personalizedIntro),
       });
     });

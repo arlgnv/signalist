@@ -1,7 +1,6 @@
 import dayjs from 'dayjs';
 
-import { createDailyMarketNewsEmail } from '@/nodemailer/emailCreators';
-import nodemailer from '@/nodemailer/transporter';
+import nodemailer, { createDailyMarketNewsEmail } from '@/nodemailer';
 
 import inngest, { dailyMarketNewsPrepared } from '../';
 
