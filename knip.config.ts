@@ -1,7 +1,7 @@
 import type { KnipConfig } from 'knip';
 
 const config: KnipConfig = {
-  ignore: ['supabase/types.ts', 'components/ui/**'],
+  ignore: ['i18n/global.ts', 'supabase/types.ts', 'components/ui/**'],
   commitlint: {
     config: 'commitlint.config.mts',
   },
