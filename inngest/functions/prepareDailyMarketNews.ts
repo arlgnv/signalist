@@ -10,12 +10,7 @@ import inngest, { dailyMarketNewsPrepared } from '../';
 const prepareDailyMarketNews = inngest.createFunction(
   {
     id: 'prepare-daily-market-news',
-    triggers: [
-      // Temporary solution to prevent database deletion due to insufficient activity.
-      // Runs function every hour
-      // Change to executing at 12pm every day ([{ cron: '0 12 * * *' }]) when needed
-      cron('0 * * * *'),
-    ],
+    triggers: [cron('0 12 * * *')],
   },
   async ({ step }) => {
     const fetchMarketNewsResponse = await step.fetch(
