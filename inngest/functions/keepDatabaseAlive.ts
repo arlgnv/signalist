@@ -11,7 +11,14 @@ const keepDatabaseAlive = inngest.createFunction(
     triggers: [cron('0 * * * *')],
   },
   async () => {
-    await supabase.from('users').select();
+    const fetchUsersResponse = await supabase
+      .from('users')
+      .select('id')
+      .limit(1);
+
+    if (fetchUsersResponse.error) {
+      throw fetchUsersResponse.error;
+    }
   },
 );
 
